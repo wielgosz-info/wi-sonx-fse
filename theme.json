@@ -1,7 +1,7 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/theme.json",
 	"version": 2,
-	"title": "Light Mode",
+	"title": "Dark Mode",
 	"settings": {
 		"useRootPaddingAwareAlignments": true,
 		"border": {
@@ -33,22 +33,22 @@
 				{
 					"name": "Base",
 					"slug": "base",
-					"color": "var(--wp--preset--color--white)"
+					"color": "var(--wp--preset--color--black)"
 				},
 				{
 					"name": "Contrast",
 					"slug": "contrast",
-					"color": "var(--wp--preset--color--black)"
+					"color": "var(--wp--preset--color--white)"
 				},
 				{
 					"name": "Primary",
 					"slug": "primary",
-					"color": "var(--wp--custom--color--pine-green)"
+					"color": "var(--wp--custom--color--puerto-rico)"
 				},
 				{
 					"name": "Border",
 					"slug": "border",
-					"color": "var(--wp--preset--color--cyan-bluish-gray)"
+					"color": "var(--wp--preset--color--gray-500)"
 				}
 			]
 		},
@@ -110,7 +110,17 @@
 		"blocks": {},
 		"custom": {
 			"color": {
-				"pine-green": "#008b72"
+				"green-pea": "oklch(40% 0.07 183)",
+				"puerto-rico": "oklch(75% 0.1 183)",
+				"gray-100": "oklch(15% 0 0)",
+				"gray-200": "oklch(20% 0 0)",
+				"gray-300": "oklch(30% 0 0)",
+				"gray-400": "oklch(40% 0 0)",
+				"gray-500": "oklch(45% 0 0)",
+				"gray-600": "oklch(55% 0 0)",
+				"gray-700": "oklch(70% 0 0)",
+				"gray-800": "oklch(80% 0 0)",
+				"gray-900": "oklch(97.5% 0 0)"
 			}
 		}
 	},
