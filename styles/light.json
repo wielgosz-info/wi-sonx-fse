@@ -13,7 +13,7 @@
 				{
 					"name": "Contrast",
 					"slug": "contrast",
-					"color": "var(--wp--preset--color--gray-300)"
+					"color": "var(--wp--custom--color--gray-300)"
 				},
 				{
 					"name": "Primary",
@@ -23,7 +23,7 @@
 				{
 					"name": "Border",
 					"slug": "border",
-					"color": "var(--wp--preset--color--gray-700)"
+					"color": "var(--wp--custom--color--gray-700)"
 				}
 			]
 		}

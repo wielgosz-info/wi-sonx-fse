@@ -24,6 +24,7 @@ class AppearanceTools {
 	 */
 	public function enable_all_appearance_tools( $theme_json ) {
 		$appearance_tools = array(
+			'version'  => 2,
 			'settings' => array(
 				'border' => array(
 					'color' => true,

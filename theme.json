@@ -48,7 +48,7 @@
 				{
 					"name": "Border",
 					"slug": "border",
-					"color": "var(--wp--preset--color--gray-500)"
+					"color": "var(--wp--custom--color--gray-500)"
 				}
 			]
 		},
@@ -61,8 +61,8 @@
 			"minHeight": false
 		},
 		"layout": {
-			"contentSize": "840px",
-			"wideSize": "1280px",
+			"contentSize": "960px",
+			"wideSize": "1164px",
 			"allowEditing": false,
 			"allowCustomContentAndWideSize": false
 		},
@@ -94,7 +94,7 @@
 			"fontWeight": false,
 			"fluid": {
 				"minFontSize": "0.625rem",
-				"maxViewportWidth": "840px",
+				"maxViewportWidth": "960px",
 				"minViewportWidth": "320px"
 			},
 			"letterSpacing": false,
@@ -163,8 +163,18 @@
 			"area": "header"
 		},
 		{
+			"name": "header-home",
+			"title": "Header on Front Page",
+			"area": "header"
+		},
+		{
 			"name": "footer-default",
 			"title": "Footer",
+			"area": "footer"
+		},
+		{
+			"name": "footer-home",
+			"title": "Footer on Front Page",
 			"area": "footer"
 		},
 		{
