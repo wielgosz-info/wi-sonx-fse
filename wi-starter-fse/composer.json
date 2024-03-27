@@ -1,0 +1,26 @@
+{
+	"name": "wielgosz-info/wi-sonx-fse",
+	"description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
+	"version": "1.0.0",
+	"type": "wordpress-theme",
+	"license": "MIT",
+	"authors": [
+		{
+			"name": "Urszula Wielgosz"
+		}
+	],
+	"require": {
+		"kucrut/vite-for-wp": "^0.8.0"
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.0"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"autoload": {
+		"classmap": ["includes"]
+	}
+}
