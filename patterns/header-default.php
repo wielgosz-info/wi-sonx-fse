@@ -15,7 +15,7 @@
 	<div class="wp-block-group alignwide">
 		<!-- wp:group {"layout":{"type":"flex"}} -->
 		<div class="wp-block-group">
-			<!-- wp:site-logo /-->
+			<!-- wp:site-logo {"width":60,"shouldSyncIcon":true} /-->
 			<!-- wp:site-title {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}}} /-->
 		</div>
 		<!-- /wp:group -->

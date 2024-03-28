@@ -83,7 +83,7 @@
 			"spacingScale": {
 				"operator": "*",
 				"increment": 1.618,
-				"steps": 7,
+				"steps": 9,
 				"mediumStep": 1.618,
 				"unit": "rem"
 			}
@@ -121,6 +121,10 @@
 				"gray-700": "oklch(70% 0 0)",
 				"gray-800": "oklch(80% 0 0)",
 				"gray-900": "oklch(97.5% 0 0)"
+			},
+			"home": {
+				"mobile-header-height": "5rem",
+				"full-header-width": "8rem"
 			}
 		}
 	},
@@ -133,8 +137,8 @@
 			"padding": {
 				"top": "0",
 				"bottom": "0",
-				"left": "0.5rem",
-				"right": "0.5rem"
+				"left": "var(--wp--preset--spacing--30)",
+				"right": "var(--wp--preset--spacing--30)"
 			}
 		},
 		"color": {
