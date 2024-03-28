@@ -71,7 +71,7 @@
 			"allowEditing": false
 		},
 		"position": {
-			"sticky": false
+			"sticky": true
 		},
 		"spacing": {
 			"blockGap": false,
