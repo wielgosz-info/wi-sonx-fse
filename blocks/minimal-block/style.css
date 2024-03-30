@@ -1,0 +1,16 @@
+@import "../../css/tools/custom-media.css";
+
+.wp-block-wi-sonx-fse-minimal-block {
+	background-color: #f3f3f3;
+	padding: 20px;
+	border: 1px solid #ccc;
+	border-radius: 5px;
+	margin-bottom: 20px;
+}
+
+@media (--full-viewport) {
+
+	.wp-block-wi-sonx-fse-minimal-block {
+		background-color: red;
+	}
+}

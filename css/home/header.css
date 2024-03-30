@@ -1,0 +1,24 @@
+.wi-home-header {
+	height: calc(var(--wp--custom--home--mobile-header-height) + 1px);
+	border-bottom: 1px solid var(--wp--custom--color--gray-300);
+}
+
+.wi-home-header-content {
+	height: 100%;
+}
+
+@media (--full-viewport) {
+
+	.wi-home-header {
+		position: fixed;
+
+		/* top is set by WP using Position sticky */
+
+		left: 0;
+		bottom: 0;
+		width: calc(var(--wp--custom--home--full-header-width) + 1px);
+		height: auto;
+		border-right: 1px solid var(--wp--custom--color--gray-300);
+		border-bottom: 0;
+	}
+}

@@ -7,7 +7,7 @@
 
 namespace WI\SonxFSE\Dev;
 
-class GlobalStyles {
+class GlobalStyles extends \WI\SonxFSE\Utils\Singleton {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'expose_global_styles' ) );
 	}

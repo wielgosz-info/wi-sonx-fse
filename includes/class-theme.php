@@ -7,7 +7,7 @@
 
 namespace WI\SonxFSE;
 
-class Theme {
+class Theme extends Utils\Singleton {
 	public function __construct() {
 		add_filter( 'default_wp_template_part_areas', array( $this, 'template_part_areas' ) );
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );

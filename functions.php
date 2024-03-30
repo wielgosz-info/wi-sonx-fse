@@ -9,14 +9,15 @@
 require_once __DIR__ . '/vendor/autoload.php';
 
 // Load the theme settings.
-new \WI\SonxFSE\Assets();
-new \WI\SonxFSE\Theme();
+\WI\SonxFSE\Assets::get_instance();
+\WI\SonxFSE\Theme::get_instance();
+\WI\SonxFSE\Blocks::get_instance();
 
 // Development helpers.
 if ( wp_is_development_mode( 'theme' ) ) {
-	new \WI\SonxFSE\Dev\GlobalStyles();
+	\WI\SonxFSE\Dev\GlobalStyles::get_instance();
 
 	if ( is_admin() ) {
-		new \WI\SonxFSE\Dev\AppearanceTools();
+		\WI\SonxFSE\Dev\AppearanceTools::get_instance();
 	}
 }

@@ -1,0 +1,6 @@
+@import "tools/custom-media.css";
+@import "home/section.css";
+
+.editor-styles-wrapper .wi-home-section {
+	height: 100vh;
+}

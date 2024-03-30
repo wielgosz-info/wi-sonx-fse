@@ -7,7 +7,7 @@
 
 namespace WI\SonxFSE\Dev;
 
-class AppearanceTools {
+class AppearanceTools extends \WI\SonxFSE\Utils\Singleton {
 	public function __construct() {
 		add_filter( 'wp_theme_json_data_theme', array( $this, 'enable_all_appearance_tools' ) );
 	}
