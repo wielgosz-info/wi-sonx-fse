@@ -1,6 +1,6 @@
 @import "../../css/tools/custom-media.css";
 
-.wp-block-wi-sonx-fse-minimal-block {
+.wp-block-wi-sonx-fse-home-section {
 	background-color: #f3f3f3;
 	padding: 20px;
 	border: 1px solid #ccc;
@@ -10,7 +10,7 @@
 
 @media (--full-viewport) {
 
-	.wp-block-wi-sonx-fse-minimal-block {
+	.wp-block-wi-sonx-fse-home-section {
 		background-color: red;
 	}
 }

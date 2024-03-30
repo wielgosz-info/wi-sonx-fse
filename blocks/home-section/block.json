@@ -1,0 +1,11 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"title": "Home Section",
+	"description": "A custom block for Home Section that will ensure it is full width and full height.",
+	"name": "wi-sonx-fse/home-section",
+	"category": "layout",
+	"icon": "layout",
+	"style": "file:./style.css",
+	"editorScript": "file:./index.ts"
+}

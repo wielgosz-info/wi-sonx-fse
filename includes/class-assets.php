@@ -27,6 +27,8 @@ class Assets extends Utils\Singleton {
 		$this->dist_dir = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
+		add_action( 'wp_enqueue_scripts', array( $this, 'register_block_assets' ) );
+
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
 
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
@@ -68,7 +70,7 @@ class Assets extends Utils\Singleton {
 	 * @return bool|string
 	 */
 	private function maybe_generate_style_import( $metadata, $style_key, $script_key ): bool|string {
-		if ( $metadata[ $style_key ] && is_null( $metadata[ $script_key ] ) ) {
+		if ( isset( $metadata[ $style_key ] ) && ! isset( $metadata[ $script_key ] ) ) {
 			trigger_error( sprintf( 'Block %s has %s but no corresponding script, auto-generating', $metadata['name'], $style_key ), E_USER_WARNING );
 
 			$block_path = dirname( $metadata['file'] );
@@ -104,7 +106,7 @@ class Assets extends Utils\Singleton {
 				$css_only = true;
 			}
 
-			if ( $metadata[ $script_key ] ) {
+			if ( isset( $metadata[ $script_key ] ) ) {
 				// ensure we have array, since $metadata[ $key ] can also be a string
 				$script_value = is_array( $metadata[ $script_key ] ) ? $metadata[ $script_key ] : [ $metadata[ $script_key ] ];
 				foreach ( $script_value as $index => $script ) {
@@ -145,37 +147,49 @@ class Assets extends Utils\Singleton {
 	}
 
 	/**
-	 * Register assets and replace handles in metadata.
-	 * $metadata is modified in place.
-	 *
-	 * @param array $metadata
-	 * @param array $block_assets
-	 *
-	 * @return array
+	 * Registers block assets.
 	 */
-	private function register_assets_and_replace_handles( array $metadata, array $block_assets ): array {
-		foreach ( $block_assets as $script => $args ) {
-			if ( $args['type'] === 'script' ) {
-				Vite\register_asset(
-					$this->dist_dir,
-					$args['src'],
-					array(
-						'handle' => $args['handle'],
-						'css-only' => $args['css-only'],
-					),
-				);
-			}
+	public function register_block_assets(): void {
+		[ 'blocks' => $blocks ] = get_option( get_template() . '-blocks', array(
+			'blocks' => array(),
+		) );
 
-			// replace the original script with the registered handle
-			if ( is_array( $metadata[ $args['place'] ] ) ) {
-				$metadata[ $args['place'] ] = array_map(
-					function ($value) use ($args, $script) {
-						return $value === $script ? $args['handle'] : $value;
-					},
-					$metadata[ $args['place'] ]
-				);
-			} else {
-				$metadata[ $args['place'] ] = $args['handle'];
+		foreach ( $blocks as $block_path ) {
+			$block_slug = $this->theme_slug . '-' . basename( $block_path );
+
+			[ 'block_assets' => $block_assets ] = get_option( $block_slug . '-block-assets', array(
+				'block_assets' => array(),
+			) );
+
+			foreach ( $block_assets as $args ) {
+				if ( $args['type'] === 'script' ) {
+					Vite\register_asset(
+						$this->dist_dir,
+						$args['src'],
+						array(
+							'handle' => $args['handle'],
+							'css-only' => $args['css-only'],
+						),
+					);
+				}
+			}
+		}
+	}
+
+	private function replace_block_asset_handles( array $metadata, array $block_assets ): array {
+		foreach ( $block_assets as $script => $args ) {
+			if ( isset( $metadata[ $args['place'] ] ) ) {
+				// replace the registered handle with the original script
+				if ( is_array( $metadata[ $args['place'] ] ) ) {
+					$metadata[ $args['place'] ] = array_map(
+						function ($value) use ($args, $script) {
+							return $value === $script ? $args['handle'] : $value;
+						},
+						$metadata[ $args['place'] ]
+					);
+				} else {
+					$metadata[ $args['place'] ] = $args['handle'];
+				}
 			}
 		}
 
@@ -191,7 +205,7 @@ class Assets extends Utils\Singleton {
 				'block_version' => null,
 				'block_assets' => array(),
 			) );
-			$block_version = $metadata['version'] ?: wp_get_theme()->get( 'Version' );
+			$block_version = isset( $metadata['version'] ) ? $metadata['version'] : wp_get_theme()->get( 'Version' );
 
 			// If we don't have registered blocks, the block version has changed or we're not in dev mode, refresh block assets
 			if ( empty( $option['block_assets'] ) || $option['block_version'] !== $block_version || wp_is_development_mode( 'theme' ) ) {
@@ -207,8 +221,10 @@ class Assets extends Utils\Singleton {
 				update_option( $block_slug . '-block-assets', $option );
 			}
 
-			$metadata = $this->register_assets_and_replace_handles( $metadata, $option['block_assets'] );
+			$metadata = $this->replace_block_asset_handles( $metadata, $option['block_assets'] );
 		}
+
+		// var_dump( $metadata );
 
 		return $metadata;
 	}
