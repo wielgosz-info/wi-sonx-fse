@@ -7,5 +7,6 @@
 	"category": "layout",
 	"icon": "layout",
 	"style": "file:./style.css",
+	"script": "file:./script.ts",
 	"editorScript": "file:./index.ts"
 }

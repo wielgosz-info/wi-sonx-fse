@@ -29,7 +29,8 @@ class Assets extends Utils\Singleton {
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
 		add_action( 'wp_enqueue_scripts', array( $this, 'register_block_assets' ) );
 
-		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
+		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
 
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
 	}
@@ -71,8 +72,6 @@ class Assets extends Utils\Singleton {
 	 */
 	private function maybe_generate_style_import( $metadata, $style_key, $script_key ): bool|string {
 		if ( isset( $metadata[ $style_key ] ) && ! isset( $metadata[ $script_key ] ) ) {
-			trigger_error( sprintf( 'Block %s has %s but no corresponding script, auto-generating', $metadata['name'], $style_key ), E_USER_WARNING );
-
 			$block_path = dirname( $metadata['file'] );
 			$auto_import_file = $block_path . '/' . pathinfo( $metadata[ $style_key ], PATHINFO_FILENAME ) . '.ts';
 
@@ -171,6 +170,30 @@ class Assets extends Utils\Singleton {
 							'css-only' => $args['css-only'],
 						),
 					);
+				}
+			}
+		}
+	}
+
+	public function enqueue_block_assets() {
+		// In Vite development mode, we need to enqueue block assets in the frontend
+		$manifest = Vite\get_manifest( $this->dist_dir );
+		if ( $manifest->is_dev ) {
+			[ 'blocks' => $blocks ] = get_option( get_template() . '-blocks', array(
+				'blocks' => array(),
+			) );
+
+			foreach ( $blocks as $block_path ) {
+				$block_slug = $this->theme_slug . '-' . basename( $block_path );
+
+				[ 'block_assets' => $block_assets ] = get_option( $block_slug . '-block-assets', array(
+					'block_assets' => array(),
+				) );
+
+				foreach ( $block_assets as $args ) {
+					if ( $args['type'] === 'script' && in_array( $args['place'], array( 'script', 'viewScript', 'viewScriptModule' ) ) ) {
+						wp_enqueue_script( $args['handle'] );
+					}
 				}
 			}
 		}

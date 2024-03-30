@@ -9,7 +9,7 @@ namespace WI\SonxFSE;
 
 class Blocks extends Utils\Singleton {
 	public function __construct() {
-		add_action( 'after_setup_theme', array( $this, 'register_blocks' ) );
+		add_action( 'init', array( $this, 'register_blocks' ) );
 	}
 
 	public function register_blocks() {
