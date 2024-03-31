@@ -2,5 +2,9 @@
 
 	.wp-block-wi-sonx-fse-front-page-section {
 		height: 100vh;
+
+		&:only-child {
+			height: auto;
+		}
 	}
 }

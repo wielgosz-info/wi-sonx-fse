@@ -11,11 +11,7 @@
 
 ?>
 
-<!-- wp:wi-sonx-fse/front-page-section {"anchor":"hello"} -->
-<section class="wp-block-wi-sonx-fse-front-page-section alignfull" id="hello"><div class="wp-block-wi-sonx-fse-front-page-section-content"><!-- wp:paragraph -->
-<p>Hello</p>
-<!-- /wp:paragraph --></div></section>
-<!-- /wp:wi-sonx-fse/front-page-section -->
+<!-- wp:pattern {"slug":"wi-sonx-fse/section-front-page-hello"} -->
 
 <!-- wp:wi-sonx-fse/front-page-section {"anchor":"about"} -->
 <section class="wp-block-wi-sonx-fse-front-page-section alignfull" id="about"><div class="wp-block-wi-sonx-fse-front-page-section-content"><!-- wp:paragraph -->
