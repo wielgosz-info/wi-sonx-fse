@@ -79,7 +79,6 @@
 			"padding": false,
 			"units": ["rem", "px", "em", "%", "vw", "vh"],
 			"customSpacingSize": false,
-			"spacingSizes": [],
 			"spacingScale": {
 				"operator": "*",
 				"increment": 1.618,

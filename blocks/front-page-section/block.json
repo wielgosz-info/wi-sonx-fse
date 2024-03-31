@@ -12,7 +12,35 @@
 	"editorScript": "file:./index.ts",
 	"supports": {
 		"align": ["full"],
-		"anchor": true
+		"anchor": true,
+		"color": {
+			"text": true,
+			"background": true,
+			"link": true,
+			"enableContrastChecker": true
+		},
+		"background": {
+			"backgroundImage": true,
+			"backgroundSize": true
+		},
+		"spacing": {
+			"padding": true,
+			"margin": false,
+			"blockGap": true
+		},
+		"layout": {
+			"default": {
+				"type":"flex",
+				"alignItems":"center",
+				"orientation":"vertical",
+				"flexWrap":"nowrap",
+				"justifyContent":"stretch",
+				"verticalAlignment":"center"
+			},
+			"allowCustomContentAndWideSize": false,
+			"allowSwitching": false,
+			"allowEditing": false
+		}
 	},
 	"attributes": {
 		"align": {
@@ -21,6 +49,32 @@
 		},
 		"anchor": {
 			"type": "string"
+		},
+		"textColor": {
+			"type": "string",
+			"default": "contrast"
+		},
+		"backgroundColor": {
+			"type": "string",
+			"default": "base"
+		},
+		"style": {
+			"type": "object",
+			"default": {
+				"background": {
+					"backgroundImage": {
+						"url": ""
+					},
+					"backgroundPosition": "50% 50%",
+					"backgroundSize": "cover"
+				},
+				"padding": {
+					"top": "var:preset|spacing|60",
+					"right": "0",
+					"bottom": "var:preset|spacing|60",
+					"left": "0"
+				}
+			}
 		}
 	}
 }
