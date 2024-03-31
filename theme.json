@@ -122,7 +122,7 @@
 				"gray-800": "oklch(80% 0 0)",
 				"gray-900": "oklch(97.5% 0 0)"
 			},
-			"home": {
+			"front-page": {
 				"mobile-header-height": "5rem",
 				"full-header-width": "8rem"
 			}
@@ -167,7 +167,7 @@
 			"area": "header"
 		},
 		{
-			"name": "header-home",
+			"name": "header-front-page",
 			"title": "Header on Front Page",
 			"area": "header"
 		},
@@ -177,7 +177,7 @@
 			"area": "footer"
 		},
 		{
-			"name": "footer-home",
+			"name": "footer-front-page",
 			"title": "Footer on Front Page",
 			"area": "footer"
 		},

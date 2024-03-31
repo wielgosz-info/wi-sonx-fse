@@ -27,10 +27,14 @@ class Assets extends Utils\Singleton {
 		$this->dist_dir = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
-		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
+		// add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
 
 		add_action( 'enqueue_block_assets', array( $this, 'register_block_assets' ), 5 );
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
+
+		if ( wp_is_development_mode( 'theme' ) && is_admin() ) {
+			add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_editor_styles' ) );
+		}
 	}
 
 	public function enqueue_frontend_assets(): void {
@@ -49,49 +53,13 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_editor_assets(): void {
-		// Vite\enqueue_asset(
-		// 	$this->dist_dir,
-		// 	$this->src_dir . '/editor.ts',
-		// 	array(
-		// 		'handle' => $this->theme_slug . '-editor',
-		// 	),
-		// );
-
-		$this->hack_vite_for_wp_hot_reload();
-	}
-
-	/**
-	 * Hack Vite for WP hot reload.
-	 * Original code from *kucrut/vite-for-wp relies on static var,
-	 * which breaks it when used in editor.
-	 */
-	private function hack_vite_for_wp_hot_reload() {
-		$manifest = Vite\get_manifest( $this->dist_dir );
-
-		if ( ! $manifest->is_dev ) {
-			return;
-		}
-
-		[ 1 => $after ] = wp_scripts()->get_data( Vite\VITE_CLIENT_SCRIPT_HANDLE, 'after' );
-
-		if ( ! $after || ! str_contains( $after, 'window.__vite_plugin_react_preamble_installed__' ) ) {
-
-			if ( ! in_array( 'vite:react-refresh', $manifest->data->plugins, true ) ) {
-				return;
-			}
-
-			$react_refresh_script_src = Vite\generate_development_asset_src( $manifest, '@react-refresh' );
-			$script_position = 'after';
-			$script = <<<EOS
-import RefreshRuntime from "{$react_refresh_script_src}";
-RefreshRuntime.injectIntoGlobalHook(window);
-window.\$RefreshReg$ = () => {};
-window.\$RefreshSig$ = () => (type) => type;
-window.__vite_plugin_react_preamble_installed__ = true;
-EOS;
-
-			wp_add_inline_script( Vite\VITE_CLIENT_SCRIPT_HANDLE, $script, $script_position );
-		}
+		Vite\enqueue_asset(
+			$this->dist_dir,
+			$this->src_dir . '/editor.ts',
+			array(
+				'handle' => $this->theme_slug . '-editor',
+			),
+		);
 	}
 
 	/**
@@ -145,14 +113,14 @@ EOS;
 				foreach ( $script_value as $index => $script ) {
 					if ( str_starts_with( $script, 'file:./' ) ) {
 						$script_path = remove_block_asset_path_prefix( $script );
-						$src_path = str_replace( ABSPATH, '', $block_path ) . '/' . $script_path;
-						$handle = generate_block_asset_handle( $metadata['name'], $script_key, $index );
+						$script_src_path = str_replace( ABSPATH, '', $block_path ) . '/' . $script_path;
+						$script_handle = generate_block_asset_handle( $metadata['name'], $script_key, $index );
 
 						$block_assets[ $script ] = array(
 							'type' => 'script',
 							'place' => $script_key,
-							'src' => $src_path,
-							'handle' => $handle,
+							'src' => $script_src_path,
+							'handle' => $script_handle,
 							'css-only' => $css_only,
 						);
 
@@ -161,11 +129,13 @@ EOS;
 							$style_value = is_array( $metadata[ $style_key ] ) ? $metadata[ $style_key ] : [ $metadata[ $style_key ] ];
 							foreach ( $style_value as $style ) {
 								if ( str_starts_with( $style, 'file:./' ) ) {
+									$style_src_path = str_replace( ABSPATH, '', $block_path ) . '/' . remove_block_asset_path_prefix( $style );
 									// this is how Vite\register_asset will handle style assets
-									$style_handle = $handle . '-0';
+									$style_handle = $script_handle . '-0';
 									$block_assets[ $style ] = array(
 										'type' => 'style',
 										'place' => $style_key,
+										'src' => $style_src_path,
 										'handle' => $style_handle,
 									);
 								}
@@ -204,6 +174,39 @@ EOS;
 							'css-only' => $args['css-only'],
 						),
 					);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Enqueues block editor styles - they are not added automatically in dev mode,
+	 * since hot reloading relies on them being imported from JS.
+	 * Note: this will ensure the editor styles are visible, but it will not hot reload them.
+	 * Also, ensure the contents have more specificity than the default styles,
+	 * as they will be loaded first.
+	 */
+	public function enqueue_block_editor_styles(): void {
+		$manifest = Vite\get_manifest( $this->dist_dir );
+		if ( ! $manifest->is_dev ) {
+			return ;
+		}
+
+		[ 'blocks' => $blocks ] = get_option( get_template() . '-blocks', array(
+			'blocks' => array(),
+		) );
+
+		foreach ( $blocks as $block_path ) {
+			$block_slug = $this->theme_slug . '-' . basename( $block_path );
+
+			[ 'block_assets' => $block_assets ] = get_option( $block_slug . '-block-assets', array(
+				'block_assets' => array(),
+			) );
+
+			foreach ( $block_assets as $args ) {
+				if ( $args['place'] === 'editorStyle' ) {
+					$src = Vite\generate_development_asset_src( $manifest, $args['src'] );
+					wp_enqueue_style( $args['handle'], $src, array(), null );
 				}
 			}
 		}

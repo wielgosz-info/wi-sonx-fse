@@ -1,19 +1,19 @@
 @import "../../css/tools/custom-media.css";
 
-.wp-block-wi-sonx-fse-home-section {
-	width: 100%;
+.wp-block-wi-sonx-fse-front-page-section {
 	height: 100%;
 	min-height: max-content;
 	scroll-snap-align: start;
 }
 
-.wp-block-wi-sonx-fse-home-section-content {
+.wp-block-wi-sonx-fse-front-page-section-content {
 	width: 100%;
+	margin: 0 auto;
 }
 
 @media (--wide-viewport) {
 
-	.wp-block-wi-sonx-fse-home-section-content {
+	.wp-block-wi-sonx-fse-front-page-section-content {
 		width: calc(var(--wp--style--global--wide-size) + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
 	}
 }

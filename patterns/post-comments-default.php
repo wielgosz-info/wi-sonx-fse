@@ -2,7 +2,8 @@
 /**
  * Title: Default Post Comments
  * Slug: wi-sonx-fse/post-comments-default
- * Categories: posts
+ * Categories: theme
+ * Inserter: false
  *
  * @package WI\SonxFSE
  */

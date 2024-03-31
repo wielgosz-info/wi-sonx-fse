@@ -2,7 +2,8 @@
 /**
  * Title: Default Page
  * Slug: wi-sonx-fse/page-default
- * Categories: posts
+ * Categories: theme
+ * Inserter: false
  *
  * @package WI\SonxFSE
  */

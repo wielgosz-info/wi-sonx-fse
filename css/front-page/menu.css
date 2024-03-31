@@ -1,4 +1,4 @@
-.wi-home-menu {
+.wi-front-page-menu {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
@@ -9,7 +9,7 @@
 	gap: var(--wp--preset--spacing--30);
 }
 
-.wi-home-menu-nav {
+.wi-front-page-menu-nav {
 	height: 100%;
 	gap: var(--wp--preset--spacing--10);
 
@@ -27,15 +27,15 @@
 
 @media (--full-viewport) {
 
-	.wi-home-menu {
+	.wi-front-page-menu {
 		flex-direction: column;
 		align-items: center;
 		padding: var(--wp--preset--spacing--50);
 	}
 
-	.wi-home-menu-nav {
-		--wi--home-menu-nav--bg-active: var(--wp--preset--color--primary);
-		--wi--home-menu-nav--bg-hover: var(--wp--custom--color--gray-500);
+	.wi-front-page-menu-nav {
+		--wi--front-page-menu-nav--bg-active: var(--wp--preset--color--primary);
+		--wi--front-page-menu-nav--bg-hover: var(--wp--custom--color--gray-500);
 
 		height: auto;
 		gap: var(--wp--preset--spacing--30);
@@ -63,11 +63,11 @@
 			}
 
 			&.is-active {
-				background-color: var(--wi--home-menu-nav--bg-active);
+				background-color: var(--wi--front-page-menu-nav--bg-active);
 			}
 
 			&:hover {
-				background-color: var(--wi--home-menu-nav--bg-hover);
+				background-color: var(--wi--front-page-menu-nav--bg-hover);
 			}
 
 			&.is-active,

@@ -9,8 +9,7 @@ export function edit({name}) {
 			className: `${defaultClassName}-content`,
 		},
 		{
-			allowedBlocks: ['core/paragraph'],
-			template: [['core/paragraph']],
+			template: [['core/group']],
 		}
 	);
 

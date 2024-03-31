@@ -1,5 +1,5 @@
 @import "tools/custom-media.css";
-@import "home/header.css";
-@import "home/menu.css";
-@import "home/footer.css";
-@import "home/main.css";
+@import "front-page/header.css";
+@import "front-page/menu.css";
+@import "front-page/footer.css";
+@import "front-page/main.css";

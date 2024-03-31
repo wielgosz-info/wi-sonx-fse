@@ -1,16 +1,17 @@
 {
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
-	"title": "Home Section",
-	"description": "A custom block for Home Section that will ensure it is full width and full height.",
-	"name": "wi-sonx-fse/home-section",
+	"title": "Front Page Section",
+	"description": "A custom block for Front Page Section that will ensure it is full width and full height.",
+	"name": "wi-sonx-fse/front-page-section",
 	"category": "layout",
 	"icon": "layout",
 	"style": "file:./style.css",
 	"script": "file:./script.ts",
+	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.ts",
 	"supports": {
-		"align": false,
+		"align": ["full"],
 		"anchor": true
 	},
 	"attributes": {
