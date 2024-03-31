@@ -9,8 +9,14 @@
 			"name": "Urszula Wielgosz"
 		}
 	],
+	"repositories": [
+        {
+            "type": "git",
+            "url":  "https://github.com/wielgosz-info/vite-for-wp.git"
+        }
+    ],
 	"require": {
-		"kucrut/vite-for-wp": "^0.8.0"
+		"kucrut/vite-for-wp": "dev-enhancement-refresh-runtime"
 	},
 	"require-dev": {
 		"wp-coding-standards/wpcs": "^3.0"
