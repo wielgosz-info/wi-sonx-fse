@@ -27,11 +27,9 @@ class Assets extends Utils\Singleton {
 		$this->dist_dir = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
-		add_action( 'wp_enqueue_scripts', array( $this, 'register_block_assets' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
 
-		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_editor_assets' ) );
-		add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_assets' ) );
-
+		add_action( 'enqueue_block_assets', array( $this, 'register_block_assets' ), 5 );
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
 	}
 
@@ -51,13 +49,49 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_editor_assets(): void {
-		Vite\enqueue_asset(
-			$this->dist_dir,
-			$this->src_dir . '/editor.ts',
-			array(
-				'handle' => $this->theme_slug . '-editor',
-			),
-		);
+		// Vite\enqueue_asset(
+		// 	$this->dist_dir,
+		// 	$this->src_dir . '/editor.ts',
+		// 	array(
+		// 		'handle' => $this->theme_slug . '-editor',
+		// 	),
+		// );
+
+		$this->hack_vite_for_wp_hot_reload();
+	}
+
+	/**
+	 * Hack Vite for WP hot reload.
+	 * Original code from *kucrut/vite-for-wp relies on static var,
+	 * which breaks it when used in editor.
+	 */
+	private function hack_vite_for_wp_hot_reload() {
+		$manifest = Vite\get_manifest( $this->dist_dir );
+
+		if ( ! $manifest->is_dev ) {
+			return;
+		}
+
+		[ 1 => $after ] = wp_scripts()->get_data( Vite\VITE_CLIENT_SCRIPT_HANDLE, 'after' );
+
+		if ( ! $after || ! str_contains( $after, 'window.__vite_plugin_react_preamble_installed__' ) ) {
+
+			if ( ! in_array( 'vite:react-refresh', $manifest->data->plugins, true ) ) {
+				return;
+			}
+
+			$react_refresh_script_src = Vite\generate_development_asset_src( $manifest, '@react-refresh' );
+			$script_position = 'after';
+			$script = <<<EOS
+import RefreshRuntime from "{$react_refresh_script_src}";
+RefreshRuntime.injectIntoGlobalHook(window);
+window.\$RefreshReg$ = () => {};
+window.\$RefreshSig$ = () => (type) => type;
+window.__vite_plugin_react_preamble_installed__ = true;
+EOS;
+
+			wp_add_inline_script( Vite\VITE_CLIENT_SCRIPT_HANDLE, $script, $script_position );
+		}
 	}
 
 	/**
@@ -170,30 +204,6 @@ class Assets extends Utils\Singleton {
 							'css-only' => $args['css-only'],
 						),
 					);
-				}
-			}
-		}
-	}
-
-	public function enqueue_block_assets() {
-		// In Vite development mode, we need to enqueue block assets in the frontend
-		$manifest = Vite\get_manifest( $this->dist_dir );
-		if ( $manifest->is_dev ) {
-			[ 'blocks' => $blocks ] = get_option( get_template() . '-blocks', array(
-				'blocks' => array(),
-			) );
-
-			foreach ( $blocks as $block_path ) {
-				$block_slug = $this->theme_slug . '-' . basename( $block_path );
-
-				[ 'block_assets' => $block_assets ] = get_option( $block_slug . '-block-assets', array(
-					'block_assets' => array(),
-				) );
-
-				foreach ( $block_assets as $args ) {
-					if ( $args['type'] === 'script' && in_array( $args['place'], array( 'script', 'viewScript', 'viewScriptModule' ) ) ) {
-						wp_enqueue_script( $args['handle'] );
-					}
 				}
 			}
 		}

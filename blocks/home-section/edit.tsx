@@ -1,11 +1,22 @@
-import { useBlockProps, useInnerBlocksProps } from "@wordpress/block-editor";
+import { getBlockDefaultClassName } from '@wordpress/blocks';
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-export default function edit() {
+export function edit({name}) {
+	const defaultClassName = getBlockDefaultClassName(name);
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		allowedBlocks: ["core/paragraph"],
-		template: [["core/paragraph"], ["core/paragraph"]],
-		templateLock: "all",
-	});
-	return <div {...innerBlocksProps}></div>;
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${defaultClassName}-content`,
+		},
+		{
+			allowedBlocks: ['core/paragraph'],
+			template: [['core/paragraph']],
+		}
+	);
+
+	return (
+		<section {...blockProps}>
+			<div {...innerBlocksProps} />
+		</section>
+	);
 }

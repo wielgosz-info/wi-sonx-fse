@@ -1,16 +1,19 @@
 @import "../../css/tools/custom-media.css";
 
 .wp-block-wi-sonx-fse-home-section {
-	background-color: #f3f3f3;
-	padding: 20px;
-	border: 1px solid #ccc;
-	border-radius: 5px;
-	margin-bottom: 20px;
+	width: 100%;
+	height: 100%;
+	min-height: max-content;
+	scroll-snap-align: start;
 }
 
-@media (--full-viewport) {
+.wp-block-wi-sonx-fse-home-section-content {
+	width: 100%;
+}
 
-	.wp-block-wi-sonx-fse-home-section {
-		background-color: gray;
+@media (--wide-viewport) {
+
+	.wp-block-wi-sonx-fse-home-section-content {
+		width: calc(var(--wp--style--global--wide-size) + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
 	}
 }

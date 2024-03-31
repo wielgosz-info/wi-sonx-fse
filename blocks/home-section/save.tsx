@@ -1,9 +1,12 @@
-import { useBlockProps, InnerBlocks } from "@wordpress/block-editor";
+import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 
-export default function save() {
+export function save() {
+	// const defaultClassName = getBlockDefaultClassName(name);
 	return (
-		<div {...useBlockProps.save()}>
-			<InnerBlocks.Content />
-		</div>
+		<section {...useBlockProps.save()}>
+			<div
+				{...useInnerBlocksProps.save()}
+			/>
+		</section>
 	);
 }

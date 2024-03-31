@@ -8,5 +8,18 @@
 	"icon": "layout",
 	"style": "file:./style.css",
 	"script": "file:./script.ts",
-	"editorScript": "file:./index.ts"
+	"editorScript": "file:./index.ts",
+	"supports": {
+		"align": false,
+		"anchor": true
+	},
+	"attributes": {
+		"align": {
+			"type": "string",
+			"default": "full"
+		},
+		"anchor": {
+			"type": "string"
+		}
+	}
 }
