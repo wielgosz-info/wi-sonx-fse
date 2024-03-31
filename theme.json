@@ -137,7 +137,10 @@
 				{
 					"name": "Huge",
 					"slug": "Huge",
-					"size": "9rem"
+					"size": "9rem",
+					"fluid": {
+						"min": "3.5rem"
+					}
 				}
 			],
 			"fontFamilies": [

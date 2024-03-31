@@ -5,6 +5,7 @@
 
 		&:only-child {
 			height: auto;
+			min-height: 30rem;
 		}
 	}
 }
