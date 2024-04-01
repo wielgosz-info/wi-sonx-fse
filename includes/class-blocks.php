@@ -13,6 +13,10 @@ class Blocks extends Utils\Singleton {
 	}
 
 	public function register_blocks() {
+		$this->register_theme_blocks();
+	}
+
+	private function register_theme_blocks() {
 		// Do we have registered blocks stored in metadata?
 		// Also check if theme version has changed
 		$option = get_option( get_template() . '-blocks', array(

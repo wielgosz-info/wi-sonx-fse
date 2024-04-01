@@ -58,6 +58,7 @@ class Assets extends Utils\Singleton {
 			$this->src_dir . '/editor.ts',
 			array(
 				'handle' => $this->theme_slug . '-editor',
+				'dependencies' => array( 'wp-blocks' ),
 			),
 		);
 	}
