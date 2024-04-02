@@ -7,7 +7,7 @@
 	height: 100%;
 }
 
-@media (--full-viewport) {
+@media (--huge-viewport) {
 
 	.wi-front-page-header {
 		position: fixed;

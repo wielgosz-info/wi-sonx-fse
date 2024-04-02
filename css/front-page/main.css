@@ -9,7 +9,7 @@
 	overflow-y: auto;
 }
 
-@media (--full-viewport) {
+@media (--huge-viewport) {
 
 	.wi-front-page-main {
 		height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));

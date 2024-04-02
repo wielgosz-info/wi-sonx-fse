@@ -25,7 +25,7 @@
 	}
 }
 
-@media (--full-viewport) {
+@media (--huge-viewport) {
 
 	.wi-front-page-menu {
 		flex-direction: column;

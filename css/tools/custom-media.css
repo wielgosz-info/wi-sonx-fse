@@ -1,4 +1,11 @@
-@custom-media --full-viewport screen and (min-width: 1440px);
-@custom-media --wide-viewport screen and (min-width: 1180px);
-@custom-media --tablet-viewport screen and (min-width: 960px);
-@custom-media --front-page-cover screen and (min-width: 1440px) and (min-height: 640px);
+/* Gutenberg-compatible breakpoints */
+@custom-media --huge-viewport screen and (min-width: 1440px);
+@custom-media --wide-viewport screen and (min-width: 1280px);
+@custom-media --xlarge-viewport screen and (min-width: 1080px);
+@custom-media --large-viewport screen and (min-width: 960px);
+@custom-media --medium-viewport screen and (min-width: 782px);
+@custom-media --small-viewport screen and (min-width: 600px);
+@custom-media --mobile-viewport screen and (min-width: 480px);
+
+/* Project-specific breakpoints */
+@custom-media --front-page-cover screen and (min-width: 782px) and (min-height: 600px);
