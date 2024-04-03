@@ -173,6 +173,7 @@ class Assets extends Utils\Singleton {
 						array(
 							'handle' => $args['handle'],
 							'css-only' => $args['css-only'],
+							'in-footer' => true
 						),
 					);
 				}
