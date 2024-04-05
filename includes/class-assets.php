@@ -191,7 +191,7 @@ class Assets extends Utils\Singleton {
 	public function enqueue_block_editor_styles(): void {
 		$manifest = Vite\get_manifest( $this->dist_dir );
 		if ( ! $manifest->is_dev ) {
-			return ;
+			return;
 		}
 
 		[ 'blocks' => $blocks ] = get_option( get_template() . '-blocks', array(
@@ -216,18 +216,17 @@ class Assets extends Utils\Singleton {
 
 	private function replace_block_asset_handles( array $metadata, array $block_assets ): array {
 		foreach ( $block_assets as $script => $args ) {
-			if ( isset( $metadata[ $args['place'] ] ) ) {
+			if ( isset( $metadata[ $args['place'] ] ) && is_array( $metadata[ $args['place'] ] ) ) {
 				// replace the registered handle with the original script
-				if ( is_array( $metadata[ $args['place'] ] ) ) {
-					$metadata[ $args['place'] ] = array_map(
-						function ($value) use ($args, $script) {
-							return $value === $script ? $args['handle'] : $value;
-						},
-						$metadata[ $args['place'] ]
-					);
-				} else {
-					$metadata[ $args['place'] ] = $args['handle'];
-				}
+				$metadata[ $args['place'] ] = array_map(
+					function ($value) use ($args, $script) {
+						return $value === $script ? $args['handle'] : $value;
+					},
+					$metadata[ $args['place'] ]
+				);
+			} else {
+				// if the block doesn't have the asset, add it
+				$metadata[ $args['place'] ] = $args['handle'];
 			}
 		}
 

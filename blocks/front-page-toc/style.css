@@ -1,0 +1,82 @@
+@import "../../css/tools/custom-media.css";
+
+.wp-block-wi-sonx-fse-front-page-toc {
+	height: 100%;
+	gap: var(--wp--preset--spacing--10);
+}
+
+.wp-block-wi-sonx-fse-front-page-toc-item {
+
+	&:nth-child(odd) {
+		align-self: flex-start;
+	}
+
+	&:nth-child(even) {
+		align-self: flex-end;
+	}
+}
+
+@media (--huge-viewport) {
+
+	.wp-block-wi-sonx-fse-front-page-toc {
+		--wi--front-page-toc--bg-active: var(--wp--preset--color--primary);
+		--wi--front-page-toc--bg-hover: var(--wp--custom--color--gray-500);
+
+		height: auto;
+		gap: var(--wp--preset--spacing--30);
+	}
+
+	.wp-block-wi-sonx-fse-front-page-toc-item {
+		width: 100%;
+
+		&:nth-child(odd),
+		&:nth-child(even) {
+			align-self: stretch;
+		}
+	}
+
+	.wp-block-wi-sonx-fse-front-page-toc-link {
+		position: relative;
+		display: block;
+		width: 100%;
+		padding: var(--wp--preset--spacing--40);
+		border-radius: var(--wp--preset--spacing--50);
+		text-align: center;
+
+		&[title] {
+			border-radius:
+				var(--wp--preset--spacing--50)
+				0 0
+				var(--wp--preset--spacing--50);
+		}
+
+		&.is-active {
+			background-color: var(--wi--front-page-toc--bg-active);
+		}
+
+		&:hover {
+			background-color: var(--wi--front-page-toc--bg-hover);
+		}
+
+		&.is-active,
+		&:hover {
+			color: var(--wp--preset--color--contrast);
+
+			&[title]::after {
+				content: attr(title);
+				display: block;
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: calc(100% - var(--wp--preset--spacing--40));
+				padding:
+					var(--wp--preset--spacing--40)
+					var(--wp--preset--spacing--50)
+					var(--wp--preset--spacing--40)
+					0;
+				background-color: inherit;
+				text-transform: uppercase;
+			}
+		}
+	}
+}

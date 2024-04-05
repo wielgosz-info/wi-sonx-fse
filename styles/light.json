@@ -24,6 +24,16 @@
 					"name": "Border",
 					"slug": "border",
 					"color": "var(--wp--custom--color--gray-700)"
+				},
+				{
+					"name": "Off-Base",
+					"slug": "off-base",
+					"color": "var(--wp--custom--color--gray-900)"
+				},
+				{
+					"name": "Off-Contrast",
+					"slug": "off-contrast",
+					"color": "var(--wp--custom--color--gray-400)"
 				}
 			]
 		}

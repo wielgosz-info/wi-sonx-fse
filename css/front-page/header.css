@@ -7,6 +7,17 @@
 	height: 100%;
 }
 
+.wi-front-page-header-menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-wrap: nowrap;
+	height: 100%;
+	padding: var(--wp--preset--spacing--30);
+	gap: var(--wp--preset--spacing--30);
+}
+
 @media (--huge-viewport) {
 
 	.wi-front-page-header {
@@ -20,5 +31,10 @@
 		height: auto;
 		border-right: 1px solid var(--wp--custom--color--gray-300);
 		border-bottom: 0;
+	}
+
+	.wi-front-page-header-menu {
+		flex-direction: column;
+		padding: var(--wp--preset--spacing--50);
 	}
 }
