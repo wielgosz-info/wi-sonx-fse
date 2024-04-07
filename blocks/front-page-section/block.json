@@ -6,6 +6,7 @@
 	"name": "wi-sonx-fse/front-page-section",
 	"category": "layout",
 	"icon": "layout",
+	"textdomain": "wi-sonx-fse",
 	"style": "file:./style.css",
 	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.ts",
@@ -21,11 +22,6 @@
 		"background": {
 			"backgroundImage": true,
 			"backgroundSize": true
-		},
-		"spacing": {
-			"padding": true,
-			"margin": false,
-			"blockGap": true
 		},
 		"layout": {
 			"default": {
@@ -66,14 +62,12 @@
 					},
 					"backgroundPosition": "50% 50%",
 					"backgroundSize": "cover"
-				},
-				"padding": {
-					"top": "var:preset|spacing|60",
-					"right": "0",
-					"bottom": "var:preset|spacing|60",
-					"left": "0"
 				}
 			}
+		},
+		"inToC": {
+			"type": "boolean",
+			"default": true
 		}
 	}
 }

@@ -7,12 +7,34 @@
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
+
+	&[data-wi-toc="true"] {
+		counter-increment: front-page-section;
+	}
 }
 
 .wp-block-wi-sonx-fse-front-page-section-content {
 	flex: 1 0 auto;
 	width: 100%;
 	margin: 0 auto;
+}
+
+.wp-block-wi-sonx-fse-front-page-section[data-wi-toc="true"] .wp-block-wi-sonx-fse-front-page-section-content {
+	&::before {
+		content: counter(front-page-section, decimal-leading-zero);
+		display: block;
+		height: 0;
+		font-size: calc(var(--wp--preset--font-size--huge) * 1.5);
+		line-height: 1;
+		letter-spacing: 0.1em;
+		font-weight: 400;
+		color: var(--wp--preset--color--off-base);
+		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
+	}
+
+	> :first-child {
+		position: relative;
+	}
 }
 
 @media (--wide-viewport) {

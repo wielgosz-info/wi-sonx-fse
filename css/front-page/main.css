@@ -1,5 +1,6 @@
 .wi-front-page-main {
 	height: calc(100vh - var(--wp-admin--admin-bar--height, 0px) - var(--wp--custom--front-page--mobile-header-height, 0px) - 1px);
+	counter-reset: front-page-section;
 }
 
 .wi-front-page-main-content {

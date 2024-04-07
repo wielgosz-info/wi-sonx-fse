@@ -6,20 +6,18 @@
 	"name": "wi-sonx-fse/front-page-toc",
 	"category": "widgets",
 	"icon": "list-view",
+	"textdomain": "wi-sonx-fse",
 	"style": "file:./style.css",
-	"script": "file:./script.ts",
 	"editorStyle": "file:./editor.css",
 	"editorScript": "file:./index.ts",
+	"viewScriptModule": "file:./view.ts",
 	"supports": {
 		"color": {
-			"link": true,
-			"button": true
+			"text": false,
+			"background": false,
+			"link": true
 		},
-		"spacing": {
-			"padding": false,
-			"margin": true,
-			"blockGap": true
-		}
+		"interactivity": true
 	},
 	"attributes": {}
 }

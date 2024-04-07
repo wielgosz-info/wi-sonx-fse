@@ -31,6 +31,8 @@ class Assets extends Utils\Singleton {
 
 		add_action( 'enqueue_block_assets', array( $this, 'register_block_assets' ), 5 );
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
+		add_filter( 'vite_for_wp__development_assets', array( $this, 'handle_view_modules' ), 10, 4);
+		add_filter( 'vite_for_wp__production_assets', array( $this, 'handle_view_modules' ), 10, 4);
 
 		if ( wp_is_development_mode( 'theme' ) && is_admin() ) {
 			add_action( 'enqueue_block_assets', array( $this, 'enqueue_block_editor_styles' ) );
@@ -173,7 +175,8 @@ class Assets extends Utils\Singleton {
 						array(
 							'handle' => $args['handle'],
 							'css-only' => $args['css-only'],
-							'in-footer' => true
+							'in-footer' => true,
+							'place' => $args['place'], // pass place as extra option so we can access it in filter
 						),
 					);
 				}
@@ -261,8 +264,17 @@ class Assets extends Utils\Singleton {
 			$metadata = $this->replace_block_asset_handles( $metadata, $option['block_assets'] );
 		}
 
-		// var_dump( $metadata );
-
 		return $metadata;
+	}
+
+	public function handle_view_modules($assets, $manifest, $entry, $options) {
+		if ( $options['place'] === 'viewScriptModule' ) {
+			$handle = $assets['scripts'][0];
+			$src = wp_scripts()->registered[$handle]->src;
+			wp_deregister_script($handle);
+			wp_register_script_module($handle, $src, array(), null, true);
+		}
+
+		return $assets;
 	}
 }
