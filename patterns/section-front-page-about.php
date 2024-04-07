@@ -23,7 +23,7 @@
 			<!-- wp:columns -->
 			<div class="wp-block-columns"><!-- wp:column -->
 				<div class="wp-block-column"><!-- wp:heading {"fontSize":"xx-large"} -->
-					<h2 class="wp-block-heading has-xx-large-font-size"><?php esc_html_e( "About me", 'wi-sonx-fse' ); ?></h2>
+					<h2 class="wp-block-heading has-xx-large-font-size"><?php esc_html_e( "About", 'wi-sonx-fse' ); ?></h2>
 					<!-- /wp:heading -->
 				</div>
 				<!-- /wp:column -->
