@@ -8,4 +8,4 @@
 @custom-media --mobile-viewport screen and (min-width: 480px);
 
 /* Project-specific breakpoints */
-@custom-media --front-page-cover screen and (min-width: 782px) and (min-height: 600px);
+@custom-media --front-page-cover screen and (min-width: 1440px) and (min-height: 800px);

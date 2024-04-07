@@ -58,21 +58,11 @@
 
 @media (--huge-viewport) {
 	.wp-block-wi-sonx-fse-front-page-toc {
-		width: 100%;
-	}
-
-	.wp-block-wi-sonx-fse-front-page-toc-list {
-		flex-direction: column;
-		width: 100%;
-	}
-}
-
-@media (--front-page-cover) {
-	.wp-block-wi-sonx-fse-front-page-toc {
 		--wi--front-page-toc--bg-active: var(--wp--preset--color--primary);
 		--wi--front-page-toc--bg-hover: var(--wp--custom--color--gray-500);
 
 		height: auto;
+		width: 100%;
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc-button {
@@ -81,7 +71,7 @@
 		align-items: center;
 		justify-content: center;
 		margin: 0;
-		padding: .25em;
+		padding: 0.25em;
 		background: transparent;
 		border: 0;
 		color: inherit;
@@ -103,6 +93,7 @@
 	.wp-block-wi-sonx-fse-front-page-toc-list {
 		flex-direction: column;
 		height: auto;
+		width: 100%;
 		gap: var(--wp--preset--spacing--30);
 
 		&[hidden] {

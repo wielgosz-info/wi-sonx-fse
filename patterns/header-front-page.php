@@ -13,11 +13,34 @@
 <div class="wp-block-group wi-front-page-header-menu">
 	<!-- wp:site-logo {"width":60,"isLink":false,"shouldSyncIcon":true} /-->
 
-	<!-- wp:wi-sonx-fse/front-page-toc -->
-	<div class="wp-block-wi-sonx-fse-front-page-toc">
-		<button></button>
-		<nav><ol><li></li><li></li><li></li></ol></nav>
-	</div>
+	<!-- wp:wi-sonx-fse/front-page-toc {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|contrast"}}}}}} -->
+	<nav class="wp-block-wi-sonx-fse-front-page-toc has-link-color" aria-label="Table of contents"
+		data-wp-interactive="WISonxFSEFrontPageTOC" data-wp-context="{ &quot;isOpen&quot;: false }"><button
+			class="wp-block-wi-sonx-fse-front-page-toc-button" aria-label="Open table of contents"
+			aria-controls="wp-block-wi-sonx-fse-front-page-toc-list" aria-expanded="false"
+			data-wp-on--click="actions.open" data-wp-bind--aria-expanded="context.isOpen"><svg viewBox="0 0 31 18"
+				aria-hidden="true" version="1.1">
+				<path d="m6 0h24v.75h-24z"></path>
+				<path d="m6 16.5h24v.75h-24z"></path>
+				<path d="m0 8.25h24v.75h-24z"></path>
+			</svg></button>
+		<ol class="wp-block-wi-sonx-fse-front-page-toc-list" id="wp-block-wi-sonx-fse-front-page-toc-list"
+			data-wp-bind--hidden="!context.isOpen">
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#about"><span class="wp-block-wi-sonx-fse-front-page-toc-label">About me</span></a></li>
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#services"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Services</span></a></li>
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#portfolio"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Projects</span></a></li>
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#experience"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Experience</span></a>
+			</li>
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#blog"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Blog</span></a></li>
+			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+					href="#contact"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Contact</span></a></li>
+		</ol>
+	</nav>
 	<!-- /wp:wi-sonx-fse/front-page-toc -->
 
 	<!-- wp:wielgosz-info/wi-collapsible-social-links {"clientId":"5216f17a-7b87-4bda-ba97-51f843e7e59a","size":"has-large-icon-size","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"backgroundColor":"off-base","textColor":"contrast"} -->

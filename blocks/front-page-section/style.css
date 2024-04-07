@@ -29,7 +29,6 @@
 		letter-spacing: 0.1em;
 		font-weight: 400;
 		color: var(--wp--preset--color--off-base);
-		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
 	}
 
 	> :first-child {
@@ -37,10 +36,14 @@
 	}
 }
 
-@media (--wide-viewport) {
+@media (--huge-viewport) {
 
 	.wp-block-wi-sonx-fse-front-page-section-content {
 		max-width: calc(var(--wp--style--global--wide-size) + var(--wp--style--root--padding-right) + var(--wp--style--root--padding-left));
+	}
+
+	.wp-block-wi-sonx-fse-front-page-section[data-wi-toc="true"] .wp-block-wi-sonx-fse-front-page-section-content::before {
+		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
 	}
 }
 

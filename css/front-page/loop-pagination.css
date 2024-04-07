@@ -1,0 +1,29 @@
+.wi-front-page-loop-pagination {
+	height: calc(var(--wp--preset--font-size--xx-large) * 1.2);
+	gap: var(--wp--preset--spacing--20);
+
+	.wp-block-query-pagination-previous,
+	.wp-block-query-pagination-next {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: var(--wp--preset--spacing--40);
+		margin: 0;
+		text-decoration: none;
+		height: 1em;
+		width: 1em;
+	}
+
+	.wp-block-query-pagination-previous-arrow,
+	.wp-block-query-pagination-next-arrow {
+		margin: 0;
+	}
+}
+
+@media (--large-viewport) {
+  .wi-front-page-loop-pagination {
+	position: absolute;
+	top: var(--wp--preset--spacing--60);
+	right: var(--wp--preset--spacing--30);
+  }
+}

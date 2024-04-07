@@ -27,7 +27,7 @@ class Assets extends Utils\Singleton {
 		$this->dist_dir = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
-		// add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_editor_assets' ) );
 
 		add_action( 'enqueue_block_assets', array( $this, 'register_block_assets' ), 5 );
 		add_filter( 'block_type_metadata', array( $this, 'update_block_type_metadata' ) );
