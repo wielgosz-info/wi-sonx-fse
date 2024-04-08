@@ -1,0 +1,39 @@
+.wp-block-wi-sonx-fse-skill-percentage {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, auto);
+	grid-template-areas: 'chart' 'caption';
+	gap: 0;
+}
+
+.wp-block-wi-sonx-fse-skill-percentage-canvas {
+	grid-area: chart;
+}
+
+.wp-block-wi-sonx-fse-skill-percentage-percentage {
+	grid-area: chart;
+	align-self: center;
+	justify-self: center;
+	line-height: 1;
+}
+
+.wp-block-wi-sonx-fse-skill-percentage-value {
+	display: inline-block;
+	width: 2.2ch;
+	word-break: keep-all;
+	text-align: right;
+	vertical-align: middle;
+	font-size: var(--wp--preset--font-size--xx-large);
+	font-weight: 700;
+}
+
+.wp-block-wi-sonx-fse-skill-percentage-suffix {
+	vertical-align: super;
+	font-size: var(--wp--preset--font-size--x-large);
+}
+
+.wp-block-wi-sonx-fse-skill-percentage-caption {
+	grid-area: caption;
+	margin: var(--wp--preset--spacing--40) 0;
+	text-align: center;
+}

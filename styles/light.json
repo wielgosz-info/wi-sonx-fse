@@ -18,7 +18,7 @@
 				{
 					"name": "Primary",
 					"slug": "primary",
-					"color": "var(--wp--custom--color--green-pea)"
+					"color": "var(--wp--custom--color--green-500)"
 				},
 				{
 					"name": "Border",
@@ -34,6 +34,11 @@
 					"name": "Off-Contrast",
 					"slug": "off-contrast",
 					"color": "var(--wp--custom--color--gray-400)"
+				},
+				{
+					"name": "Dim-Primary",
+					"slug": "dim-primary",
+					"color": "var(--wp--custom--color--green-700)"
 				}
 			]
 		}

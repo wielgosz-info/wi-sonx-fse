@@ -61,6 +61,8 @@ class Assets extends Utils\Singleton {
 			array(
 				'handle' => $this->theme_slug . '-editor',
 				'dependencies' => array( 'wp-blocks' ),
+				'css-only' => true,
+				'in-footer' => true,
 			),
 		);
 	}

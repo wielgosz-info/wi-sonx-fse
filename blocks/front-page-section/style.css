@@ -46,11 +46,3 @@
 		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
 	}
 }
-
-@media (--front-page-cover) {
-
-	.wp-block-wi-sonx-fse-front-page-section {
-		position: sticky;
-		top: 0;
-	}
-}

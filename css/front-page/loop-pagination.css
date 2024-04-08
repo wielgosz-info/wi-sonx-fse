@@ -12,6 +12,17 @@
 		text-decoration: none;
 		height: 1em;
 		width: 1em;
+		border-radius: 9999px;
+		border: 1px solid currentcolor;
+		color: inherit;
+		background: var(--wp--preset--color--off-base);
+		transform-origin: 50% 50%;
+		transform: scale(1);
+		transition: transform .1s ease;
+
+		&:hover {
+			transform: scale(1.1);
+		}
 	}
 
 	.wp-block-query-pagination-previous-arrow,
