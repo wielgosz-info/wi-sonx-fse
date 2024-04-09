@@ -1,0 +1,14 @@
+name: WPCS check
+
+on: pull_request
+
+jobs:
+  phpcs:
+    name: WPCS check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: WPCS check
+        uses: 10up/wpcs-action@stable
+        with:
+          use_local_config: 'true'

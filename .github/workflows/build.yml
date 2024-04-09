@@ -1,0 +1,40 @@
+name: Build project
+
+on:
+  push:
+    branches:
+      - main
+      - master
+      - staging
+      - develop
+
+jobs:
+  assets:
+    name: Build theme assets
+    runs-on: ubuntu-latest
+    env:
+      THEME_SLUG: ${{ vars.THEME_SLUG }}
+      YARN_ENABLE_HARDENED_MODE: 1
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Switch to newest Yarn version
+        run: |
+          corepack enable
+          yarn set version berry
+      - name: Setup Yarn in Node
+        uses: actions/setup-node@v4
+        with:
+          cache: 'yarn'
+      - name: Install dependencies
+        run: yarn install --immutable --check-cache --check-resolutions
+      - name: Build assets
+        run: yarn run build
+      - name: Archive production artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: theme-assets
+          path: ./dist

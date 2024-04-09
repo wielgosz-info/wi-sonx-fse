@@ -1,0 +1,7 @@
+{
+	"parser": false,
+	"map": false,
+	"plugins": {
+		"postcss-custom-media": {}
+	}
+}

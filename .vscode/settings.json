@@ -1,0 +1,26 @@
+{
+	"php.stubs": ["wordpress", "*"],
+	"[css]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"[html]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"cssVariables.lookupFiles": [
+		"assets/css/**/*.css",
+		"global-styles.css"
+	],
+	"php.format.codeStyle": "WordPress",
+	"docker.commands.composeUp": [
+		{
+			"label": "Compose Up",
+			"template": "${composeCommand} ${configurationFile} -f docker-compose.override.yaml up ${detached} ${build}"
+		}
+	],
+	"docker.commands.composeUpSubset": [
+		{
+			"label": "Compose Up CLI",
+			"template": "${composeCommand} --profile cli ${configurationFile} -f docker-compose.override.yaml up ${detached} ${build}"
+		}
+	],
+}

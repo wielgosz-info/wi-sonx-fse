@@ -1,0 +1,48 @@
+{
+	"name": "wi-sonx-fse",
+	"version": "1.0.0",
+	"author": "Urszula Wielgosz",
+	"description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
+	"scripts": {
+		"build": "vite build",
+		"dev": "vite",
+		"prepare": "husky install"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.24.0",
+		"@babel/eslint-parser": "^7.23.10",
+		"@kucrut/vite-for-wp": "^0.8.0",
+		"@vitejs/plugin-react": "^4.2.1",
+		"@wordpress/block-editor": "^12.22.0",
+		"@wordpress/block-library": "^8.32.0",
+		"@wordpress/blocks": "^12.31.0",
+		"@wordpress/element": "^5.31.0",
+		"@wordpress/eslint-plugin": "^17.10.0",
+		"@wordpress/prettier-config": "^3.10.0",
+		"@wordpress/stylelint-config": "^21.36.0",
+		"eslint": "^8.57.0",
+		"eslint-scope": "^8.0.0",
+		"glob": "^10.3.12",
+		"husky": "^8.0.0",
+		"lint-staged": "^15.2.2",
+		"postcss": "^8.4.38",
+		"postcss-custom-media": "^10.0.4",
+		"postcss-nesting": "^12.1.0",
+		"prettier": "^3.2.5",
+		"react": "^18.2.0",
+		"react-dom": "^18.2.0",
+		"rollup": "^3.3.0",
+		"rollup-plugin-external-globals": "^0.8.0",
+		"stylelint": "^14.5.1",
+		"stylelint-config-prettier": "^9.0.5",
+		"typescript": "^5.4.2",
+		"vite": "^4.4.11",
+		"vite-plugin-external": "^4.3.0"
+	},
+	"packageManager": "yarn@4.1.1",
+	"dependencies": {
+		"@wordpress/interactivity": "^5.4.0",
+		"chart.js": "^4.4.2",
+		"chartjs-plugin-deferred": "^2.0.0"
+	}
+}

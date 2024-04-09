@@ -1,0 +1,26 @@
+version: '3.9'
+
+services:
+  theme:
+    image: ${THEME_SLUG:-wi-sonx-fse}-theme:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/local/app
+      - node_modules:/usr/local/app/node_modules
+      - vscode:/root/.vscode-server
+    restart: always
+    environment:
+      THEME_NAME: ${THEME_NAME:-'WI Sonx FSE'}
+      THEME_SLUG: ${THEME_SLUG:-wi-sonx-fse}
+    secrets:
+      - user_ssh_key
+
+volumes:
+  node_modules: {}
+  vscode: {}
+
+secrets:
+  user_ssh_key:
+    file: ~/.ssh/id_rsa

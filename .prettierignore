@@ -1,0 +1,7 @@
+dist
+vendor
+node_modules
+global-styles.css
+*.yaml
+*.yml
+*.lock
