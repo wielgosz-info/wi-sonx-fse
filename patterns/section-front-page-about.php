@@ -88,13 +88,14 @@ $skills = array(
 					<div class="wp-block-column">
 						<!-- wp:wi-sonx-fse/skill-percentage {"anchor":"<?php echo $skill['id']; ?>","percentage":<?php echo $skill['percentage'] ?>} -->
 						<figure class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="WISonxFSESkillPercentage"
-							data-wp-context="{&quot;percentage&quot;:<?php echo $skill['percentage'] ?>,&quot;percentageCounter&quot;:0}">
+							data-wp-context="{&quot;percentage&quot;:<?php echo $skill['percentage'] ?>,&quot;percentageCounter&quot;:0,&quot;inView&quot;:false}"
+							data-wp-run="callbacks.runAnimatePercentage">
 							<canvas id="<?php echo $skill['id']; ?>-canvas"
 								class="wp-block-wi-sonx-fse-skill-percentage-canvas"
-								data-wp-run="callbacks.runChart"></canvas>
+								data-wp-init="callbacks.initChart"></canvas>
 							<div class="wp-block-wi-sonx-fse-skill-percentage-percentage"><span
 									class="wp-block-wi-sonx-fse-skill-percentage-value"
-									data-wp-run="callbacks.runPercentage" data-wp-text="context.percentageCounter">
+									data-wp-text="context.percentageCounter">
 									<?php echo $skill['percentage'] ?>
 								</span><span class="wp-block-wi-sonx-fse-skill-percentage-suffix">%</span>
 							</div>

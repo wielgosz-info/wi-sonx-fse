@@ -16,17 +16,18 @@ export function save({ attributes }) {
 			data-wp-context={JSON.stringify({
 				percentage,
 				percentageCounter: 0,
+				inView: false,
 			})}
+			data-wp-run="callbacks.runAnimatePercentage"
 		>
 			<canvas
 				id={canvasId}
 				className={`${defaultClassName}-canvas`}
-				data-wp-run="callbacks.runChart"
+				data-wp-init="callbacks.initChart"
 			></canvas>
 			<div className={`${defaultClassName}-percentage`}>
 				<span
 					className={`${defaultClassName}-value`}
-					data-wp-run="callbacks.runPercentage"
 					data-wp-text="context.percentageCounter"
 				>
 					{percentage}

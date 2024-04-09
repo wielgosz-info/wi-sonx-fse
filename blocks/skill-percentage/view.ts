@@ -5,14 +5,15 @@ import {
 	useEffect,
 	useState,
 	useRef,
+	withScope
 } from '@wordpress/interactivity';
 import { ArcElement, DoughnutController, Chart } from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
 
 Chart.register(ArcElement, DoughnutController, ChartDeferred);
 
-const ANIMATION_DURATION = 1000;
-const ANIMATION_DELAY = 200;
+const ANIMATION_DURATION = 10000;
+const ANIMATION_DELAY = 2000;
 
 const useInView = () => {
 	const [inView, setInView] = useState(false);
@@ -29,103 +30,109 @@ const useInView = () => {
 	return inView;
 };
 
-const useDoughnutChart = (percentage) => {
-	const chartInstance = useRef(null);
+const { state } = store('WISonxFSESkillPercentage', {
+	state: {
+		get colors() {
+			const { ref } = getElement();
+			const computedStyle = window.getComputedStyle(ref);
+			const primaryColor = computedStyle.getPropertyValue(
+				'--wp--preset--color--primary'
+			);
+			const dimPrimaryColor = computedStyle.getPropertyValue(
+				'--wp--preset--color--dim-primary'
+			);
 
-	useEffect(() => {
-		const { ref: canvas } = getElement();
-
-		if (!canvas) {
-			return;
-		}
-
-		const primaryColor = window
-			.getComputedStyle(canvas)
-			.getPropertyValue('--wp--preset--color--primary');
-		const dimPrimaryColor = window
-			.getComputedStyle(canvas)
-			.getPropertyValue('--wp--preset--color--dim-primary');
-		const chart = new Chart(canvas, {
-			type: 'doughnut',
-			data: {
-				datasets: [
-					{
-						data: [percentage, 100 - percentage],
-						backgroundColor: [primaryColor, dimPrimaryColor],
-						borderWidth: 0,
-					},
-				],
-			},
-			plugins: [ChartDeferred],
-			options: {
-				cutout: '95%',
-				responsive: true,
-				plugins: {
-					legend: {
-						display: false,
-					},
-					deferred: {
-						delay: ANIMATION_DELAY,
-					},
-				},
-				animation: {
-					duration: ANIMATION_DURATION,
-				},
-			},
-		});
-
-		chartInstance.current = chart;
-
-		return () => {
-			chart.destroy();
-			chartInstance.current = null;
-		};
-	}, [percentage]);
-
-	return chartInstance;
-};
-
-store('WISonxFSESkillPercentage', {
-	callbacks: {
-		runChart: () => {
-			const context = getContext();
-			const chart = useDoughnutChart(context.percentage);
+			return [primaryColor, dimPrimaryColor];
 		},
-		runPercentage: () => {
-			const context = getContext();
+	},
+	callbacks: {
+		initChart() {
+			const { percentage } = getContext();
+			const { ref: canvas } = getElement();
+
+			const chart = new Chart(canvas, {
+				type: 'doughnut',
+				data: {
+					datasets: [
+						{
+							data: [percentage, 100 - percentage],
+							backgroundColor: state.colors,
+							borderWidth: 0,
+						},
+					],
+				},
+				plugins: [ChartDeferred],
+				options: {
+					cutout: '95%',
+					responsive: true,
+					plugins: {
+						legend: {
+							display: false,
+						},
+						deferred: {
+							delay: ANIMATION_DELAY,
+						},
+					},
+					animation: {
+						duration: ANIMATION_DURATION,
+					},
+				},
+			});
+
+			return () => {
+				chart.destroy();
+			};
+		},
+		runAnimatePercentage() {
 			const inView = useInView();
 
-			const percentage = context.percentage;
-			const lastUpdate = useRef(0);
+			const lastUpdate = useRef(null);
 			const raf = useRef(null);
 			const delay = useRef(null);
 
-			const updateCounter = () => {
+			// TODO: useCallback when fixed in Gutenberg 18.2
+			const updateCounter = withScope(() => {
+				const context = getContext();
+				const { percentage, percentageCounter } = context;
 				const now = Date.now();
 				const elapsed = now - lastUpdate.current;
 				const fraction = elapsed / ANIMATION_DURATION;
-				const step = Math.max(1, Math.round(percentage * fraction));
+				const step = Math.round(percentage * fraction);
 
-				context.percentageCounter = Math.min(
-					context.percentageCounter + step,
-					percentage
-				);
+				if (step > 0) {
+					context.percentageCounter = Math.min(
+						percentageCounter + step,
+						percentage
+					);
 
-				lastUpdate.current = now;
+					lastUpdate.current = now;
+				}
 
 				if (context.percentageCounter < percentage) {
-					requestAnimationFrame(updateCounter);
+					raf.current = requestAnimationFrame(updateCounter);
 				}
-			};
+			});
 
 			useEffect(() => {
-				if (inView && context.percentageCounter < percentage) {
-					delay.current = setTimeout(() => {
-						lastUpdate.current = Date.now();
-						raf.current = requestAnimationFrame(updateCounter);
-					}, ANIMATION_DELAY);
+				const { percentage, percentageCounter } = getContext();
+
+				if (!inView || percentageCounter >= percentage) {
+					return;
 				}
-			}, [inView, percentage]);
+
+				delay.current = setTimeout(
+					() => {
+						lastUpdate.current = Date.now();
+						updateCounter();
+					},
+					percentageCounter > 0 ? 0 : ANIMATION_DELAY
+				);
+
+				return () => {
+					cancelAnimationFrame(raf.current);
+					clearTimeout(delay.current);
+				};
+			}, [inView]);
 		},
 	},
 });
