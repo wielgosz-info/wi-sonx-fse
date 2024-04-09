@@ -23,7 +23,7 @@ class Assets extends Utils\Singleton {
 
 	protected function __construct() {
 		$this->theme_slug = get_template();
-		$this->src_dir = 'wp-content/themes/' . $this->theme_slug . '/scripts';
+		$this->src_dir = 'assets/scripts';
 		$this->dist_dir = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
@@ -118,7 +118,7 @@ class Assets extends Utils\Singleton {
 				foreach ( $script_value as $index => $script ) {
 					if ( str_starts_with( $script, 'file:./' ) ) {
 						$script_path = remove_block_asset_path_prefix( $script );
-						$script_src_path = str_replace( ABSPATH, '', $block_path ) . '/' . $script_path;
+						$script_src_path = str_replace( get_template_directory() . '/', '', $block_path ) . '/' . $script_path;
 						$script_handle = generate_block_asset_handle( $metadata['name'], $script_key, $index );
 
 						$block_assets[ $script ] = array(
