@@ -5,7 +5,7 @@ import metadata from './block.json';
 
 export function save({ attributes }) {
 	const defaultClassName = getBlockDefaultClassName(metadata.name);
-	const { percentage, caption, anchor, clientId } = attributes;
+	const { percentage, caption, anchor, clientId, animation } = attributes;
 	const key = anchor || clientId;
 	const canvasId = `${key}-canvas`;
 
@@ -16,7 +16,7 @@ export function save({ attributes }) {
 			data-wp-context={JSON.stringify({
 				percentage,
 				percentageCounter: 0,
-				inView: false,
+				animation
 			})}
 			data-wp-run="callbacks.runAnimatePercentage"
 		>

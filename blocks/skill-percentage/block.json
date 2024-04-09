@@ -34,6 +34,23 @@
 			"source": "rich-text",
 			"selector": "figcaption",
 			"__experimentalRole": "content"
+		},
+		"animation": {
+			"type": "object",
+			"properties": {
+				"duration": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 10000,
+					"default": 2000
+				},
+				"delay": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 1000,
+					"default": 200
+				}
+			}
 		}
 	}
 }

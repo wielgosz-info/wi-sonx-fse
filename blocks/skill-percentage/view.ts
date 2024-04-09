@@ -12,8 +12,8 @@ import ChartDeferred from 'chartjs-plugin-deferred';
 
 Chart.register(ArcElement, DoughnutController, ChartDeferred);
 
-const ANIMATION_DURATION = 10000;
-const ANIMATION_DELAY = 2000;
+const ANIMATION_DURATION = 2000;
+const ANIMATION_DELAY = 200;
 
 const useInView = () => {
 	const [inView, setInView] = useState(false);
@@ -44,6 +44,17 @@ const { state } = store('WISonxFSESkillPercentage', {
 
 			return [primaryColor, dimPrimaryColor];
 		},
+		get prefersReducedMotion() {
+			return window.matchMedia('(prefers-reduced-motion)').matches;
+		},
+		get animationDuration() {
+			const duration = getContext().animation.duration;
+			return state.prefersReducedMotion ? 0 : (Number.isInteger(duration) ? duration : ANIMATION_DURATION);
+		},
+		get animationDelay() {
+			const delay = getContext().animation.delay;
+			return state.prefersReducedMotion ? 0 : (Number.isInteger(delay) ? delay : ANIMATION_DELAY);
+		}
 	},
 	callbacks: {
 		initChart() {
@@ -61,7 +72,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 						},
 					],
 				},
-				plugins: [ChartDeferred],
+				plugins: state.prefersReducedMotion ? [] : [ChartDeferred],
 				options: {
 					cutout: '95%',
 					responsive: true,
@@ -70,11 +81,12 @@ const { state } = store('WISonxFSESkillPercentage', {
 							display: false,
 						},
 						deferred: {
-							delay: ANIMATION_DELAY,
+							delay: state.animationDelay,
 						},
 					},
 					animation: {
-						duration: ANIMATION_DURATION,
+						animateRotate: !state.prefersReducedMotion,
+						duration: state.animationDuration,
 					},
 				},
 			});
@@ -96,7 +108,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 				const { percentage, percentageCounter } = context;
 				const now = Date.now();
 				const elapsed = now - lastUpdate.current;
-				const fraction = elapsed / ANIMATION_DURATION;
+				const fraction = elapsed / state.animationDuration;
 				const step = Math.round(percentage * fraction);
 
 				if (step > 0) {
@@ -114,6 +126,13 @@ const { state } = store('WISonxFSESkillPercentage', {
 			});
 
 			useEffect(() => {
+				if (state.prefersReducedMotion) {
+					const context = getContext();
+					context.percentageCounter = context.percentage;
+				}
+			}, []);
+
+			useEffect(() => {
 				const { percentage, percentageCounter } = getContext();
 
 				if (!inView || percentageCounter >= percentage) {
@@ -125,7 +144,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 						lastUpdate.current = Date.now();
 						updateCounter();
 					},
-					percentageCounter > 0 ? 0 : ANIMATION_DELAY
+					percentageCounter > 0 ? 0 : state.animationDelay
 				);
 
 				return () => {

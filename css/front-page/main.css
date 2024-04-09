@@ -19,3 +19,10 @@
 		height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
 	}
 }
+
+@media (prefers-reduced-motion) {
+	.wi-front-page-main-content {
+		scroll-snap-type: none;
+		scroll-behavior: auto;
+	}
+}
