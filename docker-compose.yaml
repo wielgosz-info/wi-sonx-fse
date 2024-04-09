@@ -2,7 +2,7 @@ version: '3.9'
 
 services:
   theme:
-    image: ${THEME_SLUG:-wi-sonx-fse}-theme:latest
+    image: wielgosz-info/${THEME_SLUG:-wi-sonx-fse}-theme:latest
     build:
       context: .
       dockerfile: Dockerfile
