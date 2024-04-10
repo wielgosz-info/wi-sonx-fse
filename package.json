@@ -4,8 +4,8 @@
 	"author": "Urszula Wielgosz",
 	"description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
 	"scripts": {
-		"dev": "wp-scripts start",
-		"build": "wp-scripts build",
+		"dev": "wp-scripts start --webpack-src-dir=blocks --experimental-modules",
+		"build": "wp-scripts build --webpack-src-dir=blocks --experimental-modules",
 		"prepare": "husky install"
 	},
 	"devDependencies": {

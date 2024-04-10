@@ -7,9 +7,9 @@
 	"category": "widgets",
 	"icon": "performance",
 	"textdomain": "wi-sonx-fse",
-	"style": "file:./build/style-index.css",
-	"editorScript": "file:./build/index.js",
-	"viewScriptModule": "file:./build/view.js",
+	"style": "file:./style-index.css",
+	"editorScript": "file:./index.js",
+	"viewScriptModule": "file:./view.js",
 	"supports": {
 		"anchor": true,
 		"color": {

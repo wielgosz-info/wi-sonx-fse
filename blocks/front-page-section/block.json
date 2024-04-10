@@ -7,9 +7,9 @@
 	"category": "layout",
 	"icon": "layout",
 	"textdomain": "wi-sonx-fse",
-	"style": "file:./build/style-index.css",
-	"editorStyle": "file:./build/index.css",
-	"editorScript": "file:./build/index.js",
+	"style": "file:./style-index.css",
+	"editorStyle": "file:./index.css",
+	"editorScript": "file:./index.js",
 	"supports": {
 		"align": ["full"],
 		"anchor": true,

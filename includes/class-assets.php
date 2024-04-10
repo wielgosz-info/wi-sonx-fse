@@ -8,21 +8,14 @@
 namespace WI\SonxFSE;
 
 class Assets extends Utils\Singleton {
-	private string $dist_dir;
-	private string $src_dir;
+	private string $build_uri;
+	private string $build_dir;
 	private string $theme_slug;
-
-	private array $script_fields = array(
-		'editorScript',
-		'script',
-		'viewScript',
-		'viewScriptModule',
-	);
 
 	protected function __construct() {
 		$this->theme_slug = get_template();
-		$this->src_dir    = 'assets/scripts';
-		$this->dist_dir   = get_template_directory() . '/dist';
+		$this->build_uri = get_parent_theme_file_uri( 'build/assets' );
+		$this->build_dir = get_parent_theme_file_path( 'build/assets' );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_style' ) );
@@ -30,11 +23,11 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_frontend_assets(): void {
-		$asset = include get_parent_theme_file_path( 'assets/build/main.asset.php' );
+		$asset = include $this->build_dir . '/main.asset.php';
 
 		wp_enqueue_style(
 			$this->theme_slug . '-style',
-			get_parent_theme_file_uri( 'assets/build/main.css' ),
+			$this->build_uri . '/main.css',
 			$asset['dependencies'],
 			$asset['version']
 		);
@@ -43,17 +36,17 @@ class Assets extends Utils\Singleton {
 	public function enqueue_editor_style(): void {
 		add_editor_style(
 			array(
-				get_parent_theme_file_uri( 'assets/build/main.css' ),
+				$this->build_uri . '/main.css',
 			)
 		);
 	}
 
 	public function enqueue_block_editor_assets(): void {
-		$asset = include get_parent_theme_file_path( 'assets/build/editor.asset.php' );
+		$asset = include $this->build_dir . '/editor.asset.php';
 
 		wp_enqueue_script(
 			$this->theme_slug . '-editor',
-			get_parent_theme_file_uri( 'assets/build/editor.js' ),
+			$this->build_uri . '/editor.js',
 			$asset['dependencies'],
 			$asset['version'],
 			true
@@ -61,8 +54,8 @@ class Assets extends Utils\Singleton {
 
 		wp_enqueue_style(
 			$this->theme_slug . '-editor',
-			get_parent_theme_file_uri( 'assets/build/editor.css' ),
-			$asset['dependencies'],
+			$this->build_uri . '/editor.css',
+			array(),
 			$asset['version']
 		);
 	}
