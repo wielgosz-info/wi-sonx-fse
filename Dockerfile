@@ -18,7 +18,7 @@ RUN chmod +x /usr/local/bin/docker-entrypoint.sh
 
 WORKDIR /usr/local/app
 
-EXPOSE 3000
+EXPOSE 8887
 VOLUME [ "/usr/local/app", "/usr/local/app/node_modules" ]
 
 CMD [ "/bin/sh", "-c", "while true; do sleep 1000; done" ]

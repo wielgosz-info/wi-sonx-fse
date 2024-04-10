@@ -23,12 +23,24 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_frontend_assets(): void {
+		global $wp_filesystem;
+
 		$asset = include $this->build_dir . '/main.asset.php';
+
+		// Enqueue the main script if it exists (it may not in production mode).
+		if ( $wp_filesystem->exists( $this->build_dir . '/main.js' ) ) {
+			wp_enqueue_script(
+				$this->theme_slug . '-script',
+				$this->build_uri . '/main.js',
+				$asset['dependencies'],
+				$asset['version']
+			);
+		}
 
 		wp_enqueue_style(
 			$this->theme_slug . '-style',
 			$this->build_uri . '/main.css',
-			$asset['dependencies'],
+			array(),
 			$asset['version']
 		);
 	}
@@ -42,15 +54,20 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_block_editor_assets(): void {
+		global $wp_filesystem;
+
 		$asset = include $this->build_dir . '/editor.asset.php';
 
-		wp_enqueue_script(
-			$this->theme_slug . '-editor',
-			$this->build_uri . '/editor.js',
-			$asset['dependencies'],
-			$asset['version'],
-			true
-		);
+		// Enqueue the editor script if it exists (it may not in production mode).
+		if ( $wp_filesystem->exists( $this->build_dir . '/editor.js' ) ) {
+			wp_enqueue_script(
+				$this->theme_slug . '-editor',
+				$this->build_uri . '/editor.js',
+				$asset['dependencies'],
+				$asset['version'],
+				true
+			);
+		}
 
 		wp_enqueue_style(
 			$this->theme_slug . '-editor',

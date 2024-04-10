@@ -5,6 +5,12 @@
  * @package WI\SonxFSE
  */
 
+ global $wp_filesystem;
+
+ // Make sure that the above variable is properly setup.
+ require_once ABSPATH . 'wp-admin/includes/file.php';
+ WP_Filesystem();
+
 // Load Composer dependencies.
 require_once __DIR__ . '/vendor/autoload.php';
 

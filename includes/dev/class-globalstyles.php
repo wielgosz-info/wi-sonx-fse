@@ -22,9 +22,11 @@ class GlobalStyles extends \WI\SonxFSE\Utils\Singleton {
 	 * @return void
 	 */
 	public function expose_global_styles() {
+		global $wp_filesystem;
+
 		$stylesheet = wp_get_global_stylesheet();
 		$filename   = get_template_directory() . '/global-styles.css';
 
-		file_put_contents( $filename, $stylesheet );
+		$wp_filesystem->put_contents( $filename, $stylesheet );
 	}
 }
