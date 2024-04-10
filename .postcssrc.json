@@ -2,6 +2,8 @@
 	"parser": false,
 	"map": false,
 	"plugins": {
+		"postcss-nested": {},
+		"postcss-import": {},
 		"postcss-custom-media": {}
 	}
 }
