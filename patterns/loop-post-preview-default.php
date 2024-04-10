@@ -29,7 +29,7 @@
 
 		<!-- wp:post-terms {"term":"post_tag","prefix":"#"} /-->
 
-		<?php if ( WP_Block_Type_Registry::get_instance()->is_registered( 'core/post-comments-count' ) ): ?>
+		<?php if ( WP_Block_Type_Registry::get_instance()->is_registered( 'core/post-comments-count' ) ) : ?>
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"className":"wi-post-preview-comments","layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group wi-post-preview-comments">
 				<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

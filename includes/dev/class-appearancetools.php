@@ -26,56 +26,56 @@ class AppearanceTools extends \WI\SonxFSE\Utils\Singleton {
 		$appearance_tools = array(
 			'version'  => 2,
 			'settings' => array(
-				'border' => array(
-					'color' => true,
+				'border'     => array(
+					'color'  => true,
 					'radius' => true,
-					'width' => true,
-					'style' => true,
+					'width'  => true,
+					'style'  => true,
 				),
-				'color' => array(
+				'color'      => array(
 					'background' => true,
-					'text' => true,
-					'heading' => true,
-					'link' => true,
-					'button' => true,
-					'caption' => true,
+					'text'       => true,
+					'heading'    => true,
+					'link'       => true,
+					'button'     => true,
+					'caption'    => true,
 				),
 				'background' => array(
 					'backgroundImage' => true,
-					'backgroundSize' => true,
+					'backgroundSize'  => true,
 				),
 				'dimensions' => array(
 					'aspectRatio' => true,
-					'minHeight' => true,
+					'minHeight'   => true,
 				),
-				'layout' => array(
-					'allowEditing' => true,
+				'layout'     => array(
+					'allowEditing'                  => true,
 					'allowCustomContentAndWideSize' => true,
 				),
-				'lightbox' => array(
-					'enabled' => true,
+				'lightbox'   => array(
+					'enabled'      => true,
 					'allowEditing' => true,
 				),
-				'position' => array(
+				'position'   => array(
 					'sticky' => true,
 				),
-				'spacing' => array(
-					'blockGap' => true,
-					'margin' => true,
-					'padding' => true,
+				'spacing'    => array(
+					'blockGap'          => true,
+					'margin'            => true,
+					'padding'           => true,
 					'customSpacingSize' => true,
 				),
 				'typography' => array(
 					'customFontSize' => true,
-					'fontStyle' => true,
-					'fontWeight' => true,
-					'letterSpacing' => true,
-					'lineHeight' => true,
-					'textColumns' => true,
+					'fontStyle'      => true,
+					'fontWeight'     => true,
+					'letterSpacing'  => true,
+					'lineHeight'     => true,
+					'textColumns'    => true,
 					'textDecoration' => true,
-					'writingMode' => true,
-					'textTransform' => true,
-					'dropCap' => true,
+					'writingMode'    => true,
+					'textTransform'  => true,
+					'dropCap'        => true,
 				),
 			),
 		);

@@ -3,7 +3,15 @@
 
 	<description>WordPress project standards except for doc comment rules.</description>
 
-	<file>./</file>
+	<file>includes</file>
+	<file>patterns</file>
+	<file>templates</file>
+	<file>blocks</file>
+	<file>functions.php</file>
+
+	<exclude-pattern>vendor/*</exclude-pattern>
+	<exclude-pattern>node_modules/*</exclude-pattern>
+	<exclude-pattern>*/build/*</exclude-pattern>
 
 	<rule ref="WordPress">
 		<exclude name="Squiz.Commenting.FileComment.Missing"/>

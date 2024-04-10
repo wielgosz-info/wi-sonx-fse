@@ -17,11 +17,11 @@ class Theme extends Utils\Singleton {
 
 	public function template_part_areas( array $areas ) {
 		$areas[] = array(
-			'area' => 'loop',
-			'area_tag' => 'section',
-			'label' => __( 'Loop', 'wi-sonx-fse' ),
+			'area'        => 'loop',
+			'area_tag'    => 'section',
+			'label'       => __( 'Loop', 'wi-sonx-fse' ),
 			'description' => __( 'Posts loop section', 'wi-sonx-fse' ),
-			'icon' => 'layout',
+			'icon'        => 'layout',
 		);
 
 		return $areas;

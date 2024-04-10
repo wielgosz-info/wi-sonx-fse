@@ -21,8 +21,8 @@ class Assets extends Utils\Singleton {
 
 	protected function __construct() {
 		$this->theme_slug = get_template();
-		$this->src_dir = 'assets/scripts';
-		$this->dist_dir = get_template_directory() . '/dist';
+		$this->src_dir    = 'assets/scripts';
+		$this->dist_dir   = get_template_directory() . '/dist';
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
 		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_style' ) );
@@ -41,13 +41,15 @@ class Assets extends Utils\Singleton {
 	}
 
 	public function enqueue_editor_style(): void {
-		add_editor_style( [
-			get_parent_theme_file_uri( 'assets/build/main.css' )
-		] );
+		add_editor_style(
+			array(
+				get_parent_theme_file_uri( 'assets/build/main.css' ),
+			)
+		);
 	}
 
 	public function enqueue_block_editor_assets(): void {
-		$asset = include get_parent_theme_file_path( 'assets/build/editor.asset.php'  );
+		$asset = include get_parent_theme_file_path( 'assets/build/editor.asset.php' );
 
 		wp_enqueue_script(
 			$this->theme_slug . '-editor',

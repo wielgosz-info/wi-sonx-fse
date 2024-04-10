@@ -22,7 +22,7 @@
 			style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)">
 			<!-- wp:heading {"fontSize":"xx-large"} -->
 			<h2 class="wp-block-heading has-xx-large-font-size">
-				<?php esc_html_e( "Blog", 'wi-sonx-fse' ); ?>
+				<?php esc_html_e( 'Blog', 'wi-sonx-fse' ); ?>
 			</h2>
 			<!-- /wp:heading -->
 
