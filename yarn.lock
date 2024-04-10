@@ -8281,7 +8281,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9":
+"fast-glob@npm:^3.2.12, fast-glob@npm:^3.2.7, fast-glob@npm:^3.2.9, fast-glob@npm:^3.3.2":
   version: 3.3.2
   resolution: "fast-glob@npm:3.3.2"
   dependencies:
@@ -8872,7 +8872,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"glob@npm:^10.2.2, glob@npm:^10.3.10, glob@npm:^10.3.12":
+"glob@npm:^10.2.2, glob@npm:^10.3.10":
   version: 10.3.12
   resolution: "glob@npm:10.3.12"
   dependencies:
@@ -16562,7 +16562,7 @@ __metadata:
     chartjs-plugin-deferred: "npm:^2.0.0"
     eslint: "npm:^8.57.0"
     eslint-scope: "npm:^8.0.0"
-    glob: "npm:^10.3.12"
+    fast-glob: "npm:^3.3.2"
     husky: "npm:^8.0.0"
     lint-staged: "npm:^15.2.2"
     path: "npm:^0.12.7"

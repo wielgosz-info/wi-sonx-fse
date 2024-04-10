@@ -161,3 +161,6 @@ global-styles.css
 
 # Development overrides
 docker-compose.override.yaml
+
+# Build files
+build

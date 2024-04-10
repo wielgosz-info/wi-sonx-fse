@@ -6,22 +6,35 @@ const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
 
 // Utilities.
 const path = require('path');
-const glob = require('glob');
+const glob = require('fast-glob');
+const scriptKeys = ['index', 'script', 'view', 'editor'];
 
 // Add any a new entry point by extending the webpack config.
 module.exports = {
 	...defaultConfig,
 	...{
 		entry: {
-			'assets/scripts/editor': path.resolve(
+			'../assets/build/editor': path.resolve(
 				process.cwd(),
 				'assets/scripts',
 				'editor.ts'
 			),
-			'assets/scripts/main': path.resolve(
+			'../assets/build/main': path.resolve(
 				process.cwd(),
 				'assets/scripts',
 				'main.ts'
+			),
+			...Object.fromEntries(
+				glob.globSync( path.resolve(
+					process.cwd(),
+					'blocks/*',
+					`{${scriptKeys.join(',')}}.{ts,tsx,js,jsx}`
+				)).map((file) => {
+					const parts = /blocks\/([\w-]+)\/([\w-]+)\..*$/.exec(
+						file
+					);
+					return [`../blocks/${parts[1]}/build/${parts[2]}`, file];
+				})
 			),
 		},
 		plugins: [

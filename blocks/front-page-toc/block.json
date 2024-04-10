@@ -7,10 +7,9 @@
 	"category": "widgets",
 	"icon": "list-view",
 	"textdomain": "wi-sonx-fse",
-	"style": "file:./style.css",
-	"editorStyle": "file:./editor.css",
-	"editorScript": "file:./index.ts",
-	"viewScriptModule": "file:./view.ts",
+	"style": "file:./build/style-index.css",
+	"editorScript": "file:./build/index.js",
+	"viewScriptModule": "file:./build/view.js",
 	"supports": {
 		"color": {
 			"text": false,

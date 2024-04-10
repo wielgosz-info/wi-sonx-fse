@@ -22,7 +22,7 @@
 		"@wordpress/stylelint-config": "^21.36.0",
 		"eslint": "^8.57.0",
 		"eslint-scope": "^8.0.0",
-		"glob": "^10.3.12",
+		"fast-glob": "^3.3.2",
 		"husky": "^8.0.0",
 		"lint-staged": "^15.2.2",
 		"path": "^0.12.7",
