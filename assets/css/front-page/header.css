@@ -19,14 +19,12 @@
 }
 
 @media (--huge-viewport) {
-
 	.wi-front-page-header {
 		position: fixed;
-
-		/* top is set by WP using Position sticky */
-
+		top: 0;
 		left: 0;
 		bottom: 0;
+		z-index: 10;
 		width: calc(var(--wp--custom--front-page--full-header-width) + 1px);
 		height: auto;
 		border-right: 1px solid var(--wp--custom--color--gray-300);

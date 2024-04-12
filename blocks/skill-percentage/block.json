@@ -27,6 +27,7 @@
 			"minimum": 0,
 			"maximum": 100,
 			"default": 50,
+			"step": 1,
 			"__experimentalRole": "content"
 		},
 		"caption": {
@@ -42,14 +43,18 @@
 					"type": "number",
 					"minimum": 0,
 					"maximum": 10000,
-					"default": 2000
+					"step": 100
 				},
 				"delay": {
 					"type": "number",
 					"minimum": 0,
-					"maximum": 1000,
-					"default": 200
+					"maximum": 2000,
+					"step": 10
 				}
+			},
+			"default": {
+				"duration": 2000,
+				"delay": 200
 			}
 		}
 	}

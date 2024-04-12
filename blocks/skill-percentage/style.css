@@ -4,6 +4,8 @@
 	grid-template-rows: repeat(2, auto);
 	grid-template-areas: 'chart' 'caption';
 	gap: 0;
+	max-width: 15rem;
+	margin: 0 auto;
 }
 
 .wp-block-wi-sonx-fse-skill-percentage-canvas {

@@ -1,3 +1,4 @@
-@import "tools/custom-media.css";
-@import "default/post-preview.css";
-@import "front-page/loop-pagination.css";
+:where(.editor-styles-wrapper) {
+    --wp--preset--font-size--normal: clamp(0.773rem, 0.773rem + ((1vw - 0.2rem) * 0.88), 1.125rem);
+    --wp--preset--font-size--huge: clamp(3.5rem, 3.5rem + ((1vw - 0.2rem) * 13.75), 9rem);
+}

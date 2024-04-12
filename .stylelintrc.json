@@ -2,5 +2,10 @@
 	"extends": [
 		"@wordpress/stylelint-config",
 		"stylelint-config-prettier"
-	]
+	],
+	"rules": {
+		"rule-empty-line-before": ["always", {
+			"except": ["first-nested"]
+		}]
+	}
 }

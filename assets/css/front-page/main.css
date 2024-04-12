@@ -7,8 +7,7 @@
 }
 
 .wi-front-page-main-content {
-	scroll-margin-top: calc(var(--wp--custom--front-page--mobile-header-height) + var(--wp-admin--admin-bar--height, 0px));
-	scroll-behavior: smooth;
+	/* scroll-behavior: smooth; */
 	scroll-snap-type: y proximity;
 	height: 100%;
 	overflow-y: auto;
@@ -17,6 +16,10 @@
 @media (--huge-viewport) {
 	.wi-front-page-main {
 		height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+	}
+
+	.wi-front-page-main-content {
+		scroll-padding-top: var(--wp-admin--admin-bar--height, 0);
 	}
 }
 

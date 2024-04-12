@@ -18,39 +18,43 @@ class Assets extends Utils\Singleton {
 		$this->build_dir = get_parent_theme_file_path( 'build/assets' );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
-		add_action( 'after_setup_theme', array( $this, 'enqueue_editor_style' ) );
+		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_assets' ) );
 		add_action( 'enqueue_block_editor_assets', array( $this, 'enqueue_block_editor_assets' ) );
 	}
 
 	public function enqueue_frontend_assets(): void {
 		global $wp_filesystem;
 
-		$asset = include $this->build_dir . '/main.asset.php';
+		$main_asset = include $this->build_dir . '/main.main_asset.php';
+		$editor_asset = include $this->build_dir . '/editor.asset.php';
 
 		// Enqueue the main script if it exists (it may not in production mode).
 		if ( $wp_filesystem->exists( $this->build_dir . '/main.js' ) ) {
 			wp_enqueue_script(
 				$this->theme_slug . '-script',
 				$this->build_uri . '/main.js',
-				$asset['dependencies'],
-				$asset['version']
+				$main_asset['dependencies'],
+				$main_asset['version']
 			);
 		}
 
-		wp_enqueue_style(
-			$this->theme_slug . '-style',
-			$this->build_uri . '/main.css',
-			array(),
-			$asset['version']
-		);
-	}
-
-	public function enqueue_editor_style(): void {
-		add_editor_style(
-			array(
+		if ( $wp_filesystem->exists( $this->build_dir . '/main.css' ) ) {
+			wp_enqueue_style(
+				$this->theme_slug . '-style',
 				$this->build_uri . '/main.css',
-			)
-		);
+				array(),
+				$main_asset['version']
+			);
+		}
+
+		if ( $wp_filesystem->exists( $this->build_dir . '/editor.css' ) ) {
+			wp_enqueue_style(
+				$this->theme_slug . '-editor',
+				$this->build_uri . '/editor.css',
+				array(),
+				$editor_asset['version']
+			);
+		}
 	}
 
 	public function enqueue_block_editor_assets(): void {
@@ -68,12 +72,5 @@ class Assets extends Utils\Singleton {
 				true
 			);
 		}
-
-		wp_enqueue_style(
-			$this->theme_slug . '-editor',
-			$this->build_uri . '/editor.css',
-			array(),
-			$asset['version']
-		);
 	}
 }

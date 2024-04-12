@@ -9,7 +9,7 @@ import { __ } from '@wordpress/i18n';
 
 import './editor.css';
 
-export function edit({ name, attributes, setAttributes }) {
+export function Edit({ name, attributes, setAttributes }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(

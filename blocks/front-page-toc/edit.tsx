@@ -3,7 +3,7 @@ import { useBlockProps } from '@wordpress/block-editor';
 import { SVG, Path } from '@wordpress/primitives';
 import { __ } from '@wordpress/i18n';
 
-export function edit({name}) {
+export function Edit({ name }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const blockProps = useBlockProps();
 

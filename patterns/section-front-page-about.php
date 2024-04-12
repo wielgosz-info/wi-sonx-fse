@@ -49,10 +49,10 @@ $skills = array(
 					<p>Purus leo in varius ac quam nunc amet tristique volutpat a dipiscing polomius consequa.</p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:image {"width":"auto","height":"4rem","sizeSlug":"full","linkDestination":"none"} -->
+					<!-- wp:image {"width":"auto","height":"64px","sizeSlug":"full","linkDestination":"none"} -->
 					<figure class="wp-block-image size-full is-resized"><img
 							src="<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__signature.svg' ) ); ?>"
-							alt="<?php esc_html_e( 'Signature', 'wi-sonx-fse' ); ?>" style="width:auto;height:4rem" />
+							alt="<?php esc_html_e( 'Signature', 'wi-sonx-fse' ); ?>" style="width:auto;height:64px" />
 					</figure>
 					<!-- /wp:image -->
 				</div>
@@ -66,8 +66,8 @@ $skills = array(
 					<!-- wp:column -->
 					<div class="wp-block-column">
 						<?php // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped  ?>
-						<!-- wp:wi-sonx-fse/skill-percentage {"anchor":"skill-<?php echo $idx + 1; ?>","percentage":<?php echo $skill; ?>} -->
-						<figure class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="WISonxFSESkillPercentage"
+						<!-- wp:wi-sonx-fse/skill-percentage {"percentage":<?php echo $skill; ?>,"animation":{"duration":2000,"delay":<?php echo ( $idx + 1 ) * 200; ?>}} -->
+						<figure id="skill-<?php esc_attr_e($idx + 1); ?>" class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="WISonxFSESkillPercentage"
 							<?php
 							echo wp_interactivity_data_wp_context(
 								array(

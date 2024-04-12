@@ -3,21 +3,25 @@
 	"version": "1.0.0",
 	"author": "Urszula Wielgosz",
 	"description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
-	"scripts": {
-		"start": "wp-scripts start --webpack-src-dir=blocks --experimental-modules --hot",
-		"build": "wp-scripts build --webpack-src-dir=blocks --experimental-modules",
-		"check-engines": "wp-scripts check-engines",
-		"check-licenses": "wp-scripts check-licenses",
-		"format": "wp-scripts format",
-		"lint:css": "wp-scripts lint-style",
-		"lint:js": "wp-scripts lint-js",
-		"lint:md:docs": "wp-scripts lint-md-docs",
-		"lint:pkg-json": "wp-scripts lint-pkg-json",
-		"packages-update": "wp-scripts packages-update",
-		"plugin-zip": "wp-scripts plugin-zip",
-		"test:e2e": "wp-scripts test-e2e",
-		"test:unit": "wp-scripts test-unit-js",
-		"prepare": "husky install"
+	"license": "MIT",
+	"keywords": [
+		"wordpress",
+		"theme",
+		"full-site-editing",
+		"dark"
+	],
+	"homepage": "https://github.com/wielgosz-info/wi-sonx-fse/",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wielgosz-info/wi-sonx-fse/"
+	},
+	"bugs": {
+		"url": "https://github.com/wielgosz-info/wi-sonx-fse/issues"
+	},
+	"dependencies": {
+		"@wordpress/interactivity": "^5.4.0",
+		"chart.js": "^4.4.2",
+		"chartjs-plugin-deferred": "^2.0.0"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.24.0",
@@ -31,6 +35,7 @@
 		"@wordpress/prettier-config": "^3.10.0",
 		"@wordpress/scripts": "^27.6.0",
 		"@wordpress/stylelint-config": "^21.36.0",
+		"classnames": "^2.5.1",
 		"eslint": "^8.57.0",
 		"eslint-scope": "^8.0.0",
 		"fast-glob": "^3.3.2",
@@ -52,10 +57,21 @@
 		"webpack": "^5.91.0",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
-	"packageManager": "yarn@4.1.1",
-	"dependencies": {
-		"@wordpress/interactivity": "^5.4.0",
-		"chart.js": "^4.4.2",
-		"chartjs-plugin-deferred": "^2.0.0"
-	}
+	"scripts": {
+		"start": "wp-scripts start --webpack-src-dir=blocks --experimental-modules --hot",
+		"build": "wp-scripts build --webpack-src-dir=blocks --experimental-modules",
+		"check-engines": "wp-scripts check-engines",
+		"check-licenses": "wp-scripts check-licenses",
+		"format": "wp-scripts format",
+		"lint:css": "wp-scripts lint-style",
+		"lint:js": "wp-scripts lint-js",
+		"lint:md:docs": "wp-scripts lint-md-docs",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"packages-update": "wp-scripts packages-update",
+		"plugin-zip": "wp-scripts plugin-zip",
+		"test:e2e": "wp-scripts test-e2e",
+		"test:unit": "wp-scripts test-unit-js",
+		"prepare": "husky install"
+	},
+	"packageManager": "yarn@4.1.1"
 }

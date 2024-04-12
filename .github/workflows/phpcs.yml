@@ -1,4 +1,4 @@
-name: WPCS check
+name: WPCS
 
 on:
   push:
