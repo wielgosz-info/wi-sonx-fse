@@ -1,0 +1,25 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "wi-sonx-fse/icon",
+	"version": "0.1.0",
+	"title": "Icon",
+	"category": "widgets",
+	"description": "A simple component to allow inserting WI Sonx FSE theme icons.",
+	"icon": "smiley",
+	"textdomain": "wi-sonx-fse",
+	"attributes": {
+		"icon": {
+			"type": "string"
+		}
+	},
+	"supports": {
+		"reusable": false,
+		"html": false,
+		"interactivity": {
+			"clientNavigation": true
+		}
+	},
+	"editorScript": "file:./index.js",
+	"style": "file:./style-index.css"
+}
