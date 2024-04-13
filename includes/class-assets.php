@@ -25,7 +25,7 @@ class Assets extends Utils\Singleton {
 	public function enqueue_frontend_assets(): void {
 		global $wp_filesystem;
 
-		$main_asset   = include $this->build_dir . '/main.main_asset.php';
+		$main_asset   = include $this->build_dir . '/main.asset.php';
 		$editor_asset = include $this->build_dir . '/editor.asset.php';
 
 		// Enqueue the main script if it exists (it may not in production mode).

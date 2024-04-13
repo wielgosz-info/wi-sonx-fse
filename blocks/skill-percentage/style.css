@@ -1,8 +1,10 @@
+@import "../../assets/css/tools/custom-media.css";
+
 .wp-block-wi-sonx-fse-skill-percentage {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: repeat(2, auto);
-	grid-template-areas: 'chart' 'caption';
+	grid-template-areas: "chart" "caption";
 	gap: 0;
 	max-width: 15rem;
 	margin: 0 auto;
@@ -38,4 +40,24 @@
 	grid-area: caption;
 	margin: var(--wp--preset--spacing--40) 0;
 	text-align: center;
+}
+
+@media (--medium-viewport) {
+	.wp-block-wi-sonx-fse-skill-percentage-value {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
+
+	.wp-block-wi-sonx-fse-skill-percentage-suffix {
+		font-size: var(--wp--preset--font-size--large);
+	}
+}
+
+@media (--large-viewport) {
+	.wp-block-wi-sonx-fse-skill-percentage-value {
+		font-size: var(--wp--preset--font-size--xx-large);
+	}
+
+	.wp-block-wi-sonx-fse-skill-percentage-suffix {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
 }

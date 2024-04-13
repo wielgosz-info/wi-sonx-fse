@@ -5,7 +5,7 @@ const variations = [];
 Object.entries(icons).forEach( ( [key, icon] ) => {
 	variations.push( {
 		name: key,
-		title: `Icon: ${icon.displayName || key}`,
+		title: `${icon.displayName || key}`,
 		icon: icon,
 		attributes: { icon: key },
 		isActive: ( blockAttributes, variationAttributes ) =>

@@ -10,10 +10,45 @@ namespace WI\SonxFSE;
 class Blocks extends Utils\Singleton {
 	public function __construct() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_filter( 'block_categories_all', array( $this, 'register_theme_block_categories' ) );
 	}
 
 	public function register_blocks() {
+		$this->register_theme_pattern_categories();
 		$this->register_theme_blocks();
+	}
+
+	public function register_theme_block_categories($categories) {
+		$categories[] = array(
+			'slug'  => 'wi-sonx-fse',
+			'label' => esc_html__( 'WI Sonx FSE', 'wi-sonx-fse' ),
+			'icon'  => null,
+		);
+
+		$categories[] = array(
+			'slug'  => 'wi-sonx-fse/icons',
+			'label' => esc_html__( 'WI Sonx FSE: Icons', 'wi-sonx-fse' ),
+			'icon'  => null,
+		);
+
+		return $categories;
+	}
+
+	public function register_theme_pattern_categories() {
+		$categories = array(
+			array(
+				'slug'  => 'wi-sonx-fse',
+				'title' => esc_html__( 'WI Sonx FSE', 'wi-sonx-fse' ),
+			),
+			array(
+				'slug'  => 'wi-sonx-fse/front-page-section',
+				'title' => esc_html__( 'Front Page Sections', 'wi-sonx-fse' ),
+			),
+		);
+
+		foreach ( $categories as $category ) {
+			register_block_pattern_category( $category['slug'], array( 'label' => $category['title'] ) );
+		}
 	}
 
 	private function register_theme_blocks() {

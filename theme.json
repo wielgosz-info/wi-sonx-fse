@@ -277,6 +277,11 @@
 			"name": "loop-default",
 			"title": "Posts Loop",
 			"area": "loop"
+		},
+		{
+			"name": "loop-slider",
+			"title": "Posts Loop Slider",
+			"area": "loop"
 		}
 	],
 	"patterns": []

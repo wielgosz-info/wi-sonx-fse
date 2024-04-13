@@ -22,20 +22,17 @@
 	</figure>
 	<!-- /wp:pullquote -->
 
-	<!-- wp:paragraph {"align":"right"} -->
-	<p class="has-text-align-right">
-		<?php esc_html_e( '...or no results, as case may be. Try again?', 'wi-sonx-fse' ); ?>
-	</p>
+	<!-- wp:paragraph {"align":"right","style":{"spacing":{"margin":{"bottom":"var:preset|spacing|40"}}}} -->
+	<p class="has-text-align-right" style="margin-bottom:var(--wp--preset--spacing--40)">
+		...or no results, as case may be. Try again? </p>
 	<!-- /wp:paragraph -->
 
 	<!-- wp:search {"label":"Search","buttonText":"Search","align":"center"} /-->
 
 	<!-- wp:group {"layout":{"type":"constrained"}} -->
-	<div class="wp-block-group">
-		<!-- wp:paragraph -->
-		<p>
-			<?php esc_html_e( 'Looking for a specific topic?', 'wi-sonx-fse' ); ?>
-		</p>
+	<div class="wp-block-group"><!-- wp:paragraph {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60"}}}} -->
+		<p style="margin-top:var(--wp--preset--spacing--60)">
+			Looking for a specific topic? </p>
 		<!-- /wp:paragraph -->
 
 		<!-- wp:tag-cloud /-->

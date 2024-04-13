@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import {
 	useBlockProps,
@@ -6,6 +5,7 @@ import {
 	InspectorControls,
 } from '@wordpress/block-editor';
 import { PanelBody, RangeControl } from '@wordpress/components';
+import { useEffect } from '@wordpress/element';
 import classnames from 'classnames';
 import { __ } from '@wordpress/i18n';
 

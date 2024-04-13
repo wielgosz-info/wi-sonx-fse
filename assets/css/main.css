@@ -1,6 +1,7 @@
 @import "tools/custom-media.css";
+@import "default/loop-slider-pagination.css";
 @import "default/post-preview.css";
 @import "front-page/header.css";
 @import "front-page/footer.css";
 @import "front-page/main.css";
-@import "front-page/loop-pagination.css";
+@import "front-page/loop-slider-pagination.css";

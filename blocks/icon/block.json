@@ -4,7 +4,7 @@
 	"name": "wi-sonx-fse/icon",
 	"version": "0.1.0",
 	"title": "Icon",
-	"category": "widgets",
+	"category": "wi-sonx-fse/icons",
 	"description": "A simple component to allow inserting WI Sonx FSE theme icons.",
 	"icon": "smiley",
 	"textdomain": "wi-sonx-fse",
@@ -14,6 +14,10 @@
 		}
 	},
 	"supports": {
+		"color": {
+			"text": true,
+			"background": false
+		},
 		"reusable": false,
 		"html": false,
 		"interactivity": {

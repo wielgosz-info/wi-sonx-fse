@@ -26,18 +26,7 @@
 			</h2>
 			<!-- /wp:heading -->
 
-			<!-- wp:query {"queryId":0,"query":{"perPage":"3","pages":"4","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"exclude","inherit":false},"enhancedPagination":true} -->
-			<div class="wp-block-query">
-				<!-- wp:post-template {"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":"3","minimumColumnWidth":"15rem"}} -->
-				<!-- wp:pattern {"slug":"wi-sonx-fse/loop-post-preview-default"} /-->
-				<!-- /wp:post-template -->
-
-				<!-- wp:query-pagination {"paginationArrow":"chevron","showLabel":false,"className":"wi-front-page-loop-pagination","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
-				<!-- wp:query-pagination-previous /-->
-				<!-- wp:query-pagination-next /-->
-				<!-- /wp:query-pagination -->
-			</div>
-			<!-- /wp:query -->
+			<!-- wp:template-part {"slug":"loop-slider","tagName":"div","className": "wi-front-page-loop-slider"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
