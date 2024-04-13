@@ -28,8 +28,6 @@
 		<!-- wp:post-terms {"term":"category"} /-->
 
 		<!-- wp:post-terms {"term":"post_tag","prefix":"#"} /-->
-
-		<!-- wp:post-comments-count /-->
 	</div>
 	<!-- /wp:group -->
 </article>
