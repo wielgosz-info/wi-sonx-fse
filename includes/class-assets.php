@@ -14,8 +14,8 @@ class Assets extends Utils\Singleton {
 
 	protected function __construct() {
 		$this->theme_slug = get_template();
-		$this->build_uri = get_parent_theme_file_uri( 'build/assets' );
-		$this->build_dir = get_parent_theme_file_path( 'build/assets' );
+		$this->build_uri  = get_parent_theme_file_uri( 'build/assets' );
+		$this->build_dir  = get_parent_theme_file_path( 'build/assets' );
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_frontend_assets' ) );
 		add_action( 'enqueue_block_assets', array( $this, 'enqueue_frontend_assets' ) );
@@ -25,7 +25,7 @@ class Assets extends Utils\Singleton {
 	public function enqueue_frontend_assets(): void {
 		global $wp_filesystem;
 
-		$main_asset = include $this->build_dir . '/main.main_asset.php';
+		$main_asset   = include $this->build_dir . '/main.main_asset.php';
 		$editor_asset = include $this->build_dir . '/editor.asset.php';
 
 		// Enqueue the main script if it exists (it may not in production mode).
@@ -34,7 +34,10 @@ class Assets extends Utils\Singleton {
 				$this->theme_slug . '-script',
 				$this->build_uri . '/main.js',
 				$main_asset['dependencies'],
-				$main_asset['version']
+				$main_asset['version'],
+				array(
+					'in_footer' => true,
+				)
 			);
 		}
 
@@ -69,7 +72,9 @@ class Assets extends Utils\Singleton {
 				$this->build_uri . '/editor.js',
 				$asset['dependencies'],
 				$asset['version'],
-				true
+				array(
+					'in_footer' => true,
+				)
 			);
 		}
 	}

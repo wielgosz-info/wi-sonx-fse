@@ -47,8 +47,8 @@ class Blocks extends Utils\Singleton {
 		foreach ( $option['blocks'] as $block_path ) {
 			$result = register_block_type( $block_path );
 
-			if ( is_wp_error( $result ) ) {
-				trigger_error( sprintf( 'Error registering block %s: %s', esc_textarea( $block_path ), esc_textarea( $result->get_error_message() ) ), E_USER_WARNING );
+			if ( is_wp_error( $result ) && defined( 'WP_DEBUG' ) && WP_DEBUG === true ) {
+				error_log( sprintf( 'Error registering block %s: %s', esc_textarea( $block_path ), esc_textarea( $result->get_error_message() ) ), E_USER_WARNING );
 			}
 		}
 	}

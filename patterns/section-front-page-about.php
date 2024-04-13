@@ -67,7 +67,7 @@ $skills = array(
 					<div class="wp-block-column">
 						<?php // phpcs:disable WordPress.Security.EscapeOutput.OutputNotEscaped  ?>
 						<!-- wp:wi-sonx-fse/skill-percentage {"percentage":<?php echo $skill; ?>,"animation":{"duration":2000,"delay":<?php echo ( $idx + 1 ) * 200; ?>}} -->
-						<figure id="skill-<?php esc_attr_e($idx + 1); ?>" class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="WISonxFSESkillPercentage"
+						<figure id="skill-<?php echo $idx + 1; ?>" class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="WISonxFSESkillPercentage"
 							<?php
 							echo wp_interactivity_data_wp_context(
 								array(
