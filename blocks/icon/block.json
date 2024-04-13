@@ -2,10 +2,9 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"name": "wi-sonx-fse/icon",
-	"version": "0.1.0",
 	"title": "Icon",
 	"category": "wi-sonx-fse/icons",
-	"description": "A simple component to allow inserting WI Sonx FSE theme icons.",
+	"description": "WI Sonx FSE theme icon.",
 	"icon": "smiley",
 	"textdomain": "wi-sonx-fse",
 	"attributes": {

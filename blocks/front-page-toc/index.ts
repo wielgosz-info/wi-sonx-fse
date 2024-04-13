@@ -9,4 +9,8 @@ import './style.css';
 registerBlockType(metadata.name, {
 	edit: Edit,
 	save,
+	icon: {
+		foreground: '#5ac3b4',
+		src: 'list-view',
+	},
 });

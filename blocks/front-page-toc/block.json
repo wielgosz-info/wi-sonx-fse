@@ -4,7 +4,7 @@
 	"title": "Front Page ToC",
 	"description": "Automatic table of contents made from Front Page Sections.",
 	"name": "wi-sonx-fse/front-page-toc",
-	"category": "widgets",
+	"category": "wi-sonx-fse/front-page",
 	"icon": "list-view",
 	"textdomain": "wi-sonx-fse",
 	"style": "file:./style-index.css",

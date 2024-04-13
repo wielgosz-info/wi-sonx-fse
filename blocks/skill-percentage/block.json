@@ -19,9 +19,6 @@
 		"interactivity": true
 	},
 	"attributes": {
-		"clientId": {
-			"type": "string"
-		},
 		"percentage": {
 			"type": "number",
 			"minimum": 0,

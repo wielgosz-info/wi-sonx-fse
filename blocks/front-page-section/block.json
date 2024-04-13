@@ -4,7 +4,7 @@
 	"title": "Front Page Section",
 	"description": "A custom block for Front Page Section that will ensure it is full width and full height.",
 	"name": "wi-sonx-fse/front-page-section",
-	"category": "layout",
+	"category": "wi-sonx-fse/front-page",
 	"icon": "layout",
 	"textdomain": "wi-sonx-fse",
 	"style": "file:./style-index.css",

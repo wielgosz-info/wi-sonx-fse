@@ -1,5 +1,7 @@
-import commentsCount from './comments-count';
+import CommentsCount from './comments-count';
+import Views from './views';
 
 export default {
-	commentsCount
-}
+	CommentsCount,
+	Views,
+};

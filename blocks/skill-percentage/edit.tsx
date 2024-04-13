@@ -19,12 +19,14 @@ export function Edit({
 	isSelected,
 }) {
 	const defaultClassName = getBlockDefaultClassName(name);
-	const { percentage, caption, animation } = attributes;
+	const { percentage, caption, animation, anchor } = attributes;
 	const blockProps = useBlockProps();
 
 	useEffect(() => {
-		setAttributes({ clientId });
-	}, []);
+		if (!anchor) {
+			setAttributes({ anchor: clientId });
+		}
+	}, [clientId, setAttributes, anchor]);
 
 	return (
 		<>

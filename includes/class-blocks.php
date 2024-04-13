@@ -20,15 +20,13 @@ class Blocks extends Utils\Singleton {
 
 	public function register_theme_block_categories($categories) {
 		$categories[] = array(
-			'slug'  => 'wi-sonx-fse',
-			'label' => esc_html__( 'WI Sonx FSE', 'wi-sonx-fse' ),
-			'icon'  => null,
+			'slug'  => 'wi-sonx-fse/front-page',
+			'title' => esc_html__( 'WI Sonx FSE: Front Page', 'wi-sonx-fse' ),
 		);
 
 		$categories[] = array(
 			'slug'  => 'wi-sonx-fse/icons',
-			'label' => esc_html__( 'WI Sonx FSE: Icons', 'wi-sonx-fse' ),
-			'icon'  => null,
+			'title' => esc_html__( 'WI Sonx FSE: Icons', 'wi-sonx-fse' ),
 		);
 
 		return $categories;
@@ -42,7 +40,7 @@ class Blocks extends Utils\Singleton {
 			),
 			array(
 				'slug'  => 'wi-sonx-fse/front-page-section',
-				'title' => esc_html__( 'Front Page Sections', 'wi-sonx-fse' ),
+				'title' => esc_html__( 'WI Sonx FSE: Front Page Sections', 'wi-sonx-fse' ),
 			),
 		);
 
