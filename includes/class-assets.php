@@ -7,6 +7,9 @@
 
 namespace WI\SonxFSE;
 
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
+
 class Assets extends Utils\Singleton {
 	private string $build_uri;
 	private string $build_dir;

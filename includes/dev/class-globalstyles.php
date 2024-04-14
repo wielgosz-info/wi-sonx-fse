@@ -7,6 +7,9 @@
 
 namespace WI\SonxFSE\Dev;
 
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
+
 class GlobalStyles extends \WI\SonxFSE\Utils\Singleton {
 	public function __construct() {
 		add_action( 'wp_enqueue_scripts', array( $this, 'expose_global_styles' ) );

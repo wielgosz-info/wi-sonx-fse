@@ -17,6 +17,10 @@
 			"text": true,
 			"background": false
 		},
+		"typography": {
+			"fontSize": true,
+			"lineHeight": false
+		},
 		"reusable": false,
 		"html": false,
 		"interactivity": {

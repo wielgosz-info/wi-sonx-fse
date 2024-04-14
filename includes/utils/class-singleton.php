@@ -7,6 +7,9 @@
 
 namespace WI\SonxFSE\Utils;
 
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
+
 abstract class Singleton {
 	private static $instances = array();
 

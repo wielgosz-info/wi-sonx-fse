@@ -7,60 +7,41 @@
 
 namespace WI\SonxFSE;
 
+if ( ! defined( 'ABSPATH' ) )
+	exit; // Exit if accessed directly
+
 class Blocks extends Utils\Singleton {
 	public function __construct() {
-		add_action( 'init', array( $this, 'register_blocks' ) );
+		add_action( 'init', array( $this, 'register_theme_blocks' ) );
 		add_filter( 'block_categories_all', array( $this, 'register_theme_block_categories' ) );
 	}
 
-	public function register_blocks() {
-		$this->register_theme_pattern_categories();
-		$this->register_theme_blocks();
-	}
-
-	public function register_theme_block_categories($categories) {
+	public function register_theme_block_categories( $categories ) {
 		$categories[] = array(
-			'slug'  => 'wi-sonx-fse/front-page',
+			'slug' => 'wi-sonx-fse/front-page',
 			'title' => esc_html__( 'WI Sonx FSE: Front Page', 'wi-sonx-fse' ),
 		);
 
 		$categories[] = array(
-			'slug'  => 'wi-sonx-fse/icons',
+			'slug' => 'wi-sonx-fse/icons',
 			'title' => esc_html__( 'WI Sonx FSE: Icons', 'wi-sonx-fse' ),
 		);
 
 		return $categories;
 	}
 
-	public function register_theme_pattern_categories() {
-		$categories = array(
-			array(
-				'slug'  => 'wi-sonx-fse',
-				'title' => esc_html__( 'WI Sonx FSE', 'wi-sonx-fse' ),
-			),
-			array(
-				'slug'  => 'wi-sonx-fse/front-page-section',
-				'title' => esc_html__( 'WI Sonx FSE: Front Page Sections', 'wi-sonx-fse' ),
-			),
-		);
-
-		foreach ( $categories as $category ) {
-			register_block_pattern_category( $category['slug'], array( 'label' => $category['title'] ) );
-		}
-	}
-
-	private function register_theme_blocks() {
+	public function register_theme_blocks() {
 		// Do we have registered blocks stored in metadata?
 		// Also check if theme version has changed.
-		$option        = get_option(
+		$option = get_option(
 			get_template() . '-blocks',
 			array(
 				'theme_version' => null,
-				'blocks'        => array(),
+				'blocks' => array(),
 			)
 		);
 		$theme_version = wp_get_theme()->get( 'Version' );
-		$blocks        = array();
+		$blocks = array();
 
 		// If we don't have registered blocks, the theme version has changed or we're not in dev mode, refresh blocks.
 		if ( empty( $option['blocks'] ) || $option['theme_version'] !== $theme_version || wp_is_development_mode( 'theme' ) ) {
@@ -69,7 +50,7 @@ class Blocks extends Utils\Singleton {
 			// Update version and blocks.
 			$option = array(
 				'theme_version' => $theme_version,
-				'blocks'        => $blocks,
+				'blocks' => $blocks,
 			);
 
 			// Store the registered blocks in metadata.
