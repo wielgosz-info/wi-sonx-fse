@@ -11,8 +11,14 @@ global $wp_filesystem;
 require_once ABSPATH . 'wp-admin/includes/file.php';
 WP_Filesystem();
 
-// Load Composer dependencies.
-require_once __DIR__ . '/vendor/autoload.php';
+// Load classes
+require_once __DIR__ . '/includes/utils/class-singleton.php';
+require_once __DIR__ . '/includes/class-assets.php';
+require_once __DIR__ . '/includes/class-blocks.php';
+require_once __DIR__ . '/includes/class-theme.php';
+require_once __DIR__ . '/includes/dev/class-globalstyles.php';
+require_once __DIR__ . '/includes/dev/class-appearancetools.php';
+
 
 // Load the theme settings.
 \WI\SonxFSE\Assets::get_instance();

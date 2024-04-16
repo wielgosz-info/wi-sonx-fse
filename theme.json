@@ -279,8 +279,8 @@
 			"area": "loop"
 		},
 		{
-			"name": "loop-slider",
-			"title": "Posts Loop Slider",
+			"name": "loop-more-posts",
+			"title": "'More Posts' Loop",
 			"area": "loop"
 		}
 	],

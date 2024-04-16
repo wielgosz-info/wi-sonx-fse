@@ -1,7 +1,7 @@
 @media (--small-viewport) {
-	.wi-front-page-loop-slider .wi-loop-slider-pagination {
+	.wi-front-page-loop-more-posts .wi-loop-more-posts-pagination {
 	  position: absolute;
-	  top: var(--wp--preset--spacing--60);
+	  top: 0;
 	  right: var(--wp--preset--spacing--30);
 	  height: calc(var(--wp--preset--font-size--xx-large) * 1.2);
 	}

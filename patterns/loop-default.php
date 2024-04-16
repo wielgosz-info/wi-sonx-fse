@@ -9,7 +9,7 @@
 
 ?>
 
-<!-- wp:query {"query":{"perPage":6,"pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"enhancedPagination":true} -->
+<!-- wp:query {"query":{"perPage":12,"pages":"1","offset":0,"postType":"post","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":true},"enhancedPagination":true} -->
 <div class="wp-block-query">
 	<!-- wp:post-template {"layout":{"type":"grid","columnCount":3}} -->
 	<!-- wp:pattern {"slug":"wi-sonx-fse/loop-post-preview-default"} /-->

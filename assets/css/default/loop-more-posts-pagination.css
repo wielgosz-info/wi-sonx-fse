@@ -1,4 +1,5 @@
-.wi-loop-slider-pagination {
+.wi-loop-more-posts-pagination {
+	margin-top: var(--wp--preset--spacing--60);
 	gap: var(--wp--preset--spacing--20);
 
 	.wp-block-query-pagination-previous,

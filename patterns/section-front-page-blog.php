@@ -26,7 +26,7 @@
 			</h2>
 			<!-- /wp:heading -->
 
-			<!-- wp:template-part {"slug":"loop-slider","tagName":"div","className": "wi-front-page-loop-slider"} /-->
+			<!-- wp:template-part {"slug":"loop-more-posts","tagName":"div","className": "wi-front-page-loop-more-posts"} /-->
 		</div>
 		<!-- /wp:group -->
 	</div>
