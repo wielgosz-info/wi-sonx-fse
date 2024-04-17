@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"title": "Services Slider",
+	"description": "Wrapper around the Query block to make it behave like a simple slider.",
+	"name": "wi-sonx-fse/services-slider",
+	"category": "widgets",
+	"icon": "slides",
+	"textdomain": "wi-sonx-fse",
+	"style": "file:./style-index.css",
+	"editorScript": "file:./index.js",
+	"viewScriptModule": "file:./view.js",
+	"supports": {
+		"interactivity": true
+	},
+	"attributes": {
+		"animation": {
+			"type": "object",
+			"properties": {
+				"duration": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 10000,
+					"step": 100
+				},
+				"delay": {
+					"type": "number",
+					"minimum": 0,
+					"maximum": 2000,
+					"step": 10
+				}
+			},
+			"default": {
+				"duration": 2000,
+				"delay": 200
+			}
+		}
+	}
+}
