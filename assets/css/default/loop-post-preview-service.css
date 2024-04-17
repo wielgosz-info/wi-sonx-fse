@@ -51,7 +51,7 @@
 		color: var(--wp--preset--color--contrast);
 		text-decoration: none;
 		opacity: 0;
-		transition: opacity 0.1s ease;
+		transition: opacity var(--wp--custom--transition--duration) var(--wp--custom--transition--timing-function);
 
 		&:hover {
 			opacity: 1;

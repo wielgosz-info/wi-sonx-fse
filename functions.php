@@ -16,6 +16,7 @@ require_once __DIR__ . '/includes/utils/class-singleton.php';
 require_once __DIR__ . '/includes/class-assets.php';
 require_once __DIR__ . '/includes/class-blocks.php';
 require_once __DIR__ . '/includes/class-theme.php';
+require_once __DIR__ . '/includes/dev/class-blocksversion.php';
 require_once __DIR__ . '/includes/dev/class-globalstyles.php';
 require_once __DIR__ . '/includes/dev/class-appearancetools.php';
 
@@ -28,6 +29,7 @@ require_once __DIR__ . '/includes/dev/class-appearancetools.php';
 // Development helpers.
 if ( wp_is_development_mode( 'theme' ) ) {
 	\WI\SonxFSE\Dev\GlobalStyles::get_instance();
+	\WI\SonxFSE\Dev\BlocksVersion::get_instance();
 
 	if ( is_admin() ) {
 		\WI\SonxFSE\Dev\AppearanceTools::get_instance();

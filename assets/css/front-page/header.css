@@ -1,4 +1,6 @@
 .wi-front-page-header {
+	position: relative;
+	z-index: 10;
 	height: calc(var(--wp--custom--front-page--mobile-header-height) + 1px);
 	border-bottom: 1px solid var(--wp--custom--color--gray-300);
 }
@@ -24,7 +26,6 @@
 		top: var(--wp-admin--admin-bar--height, 0);
 		left: 0;
 		bottom: 0;
-		z-index: 10;
 		width: calc(var(--wp--custom--front-page--full-header-width) + 1px);
 		height: auto;
 		border-right: 1px solid var(--wp--custom--color--gray-300);

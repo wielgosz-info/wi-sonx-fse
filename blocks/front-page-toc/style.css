@@ -1,6 +1,8 @@
 @import "../../assets/css/tools/custom-media.css";
 
 .wp-block-wi-sonx-fse-front-page-toc {
+	--wi--front-page-toc--bg-hover: var(--wp--preset--color--primary);
+
 	height: 100%;
 }
 
@@ -37,11 +39,13 @@
 	overflow: hidden;
 	padding: 0;
 	position: absolute;
+	z-index: 1;
 	width: 1px;
 	word-wrap: normal;
 }
 
 .wp-block-wi-sonx-fse-front-page-toc-link {
+	position: relative;
 	display: block;
 	text-align: center;
 	text-decoration: none;
@@ -49,20 +53,87 @@
 	letter-spacing: 1px;
 	font-size: 1rem;
 	line-height: 1.5;
-	min-width: 1.5rem;
+	width: 1.5rem;
+	height: 1.5rem;
 
 	&::before {
 		content: counter(list-item, decimal-leading-zero);
+		position: absolute;
+		inset: 0;
+		z-index: 1;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transform-origin: 50% 50%;
+		transform: scale(1);
+		transition: transform var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function);
+		will-change: transform;
+	}
+
+	&::after {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		z-index: 0;
+		width: 4rem;
+		height: 4rem;
+		margin: -2rem;
+		border-radius: 9999px;
+		background-color: var(--wi--front-page-toc--bg-hover);
+		opacity: 0;
+		transform-origin: 50% 50%;
+		transform: scale(0);
+		transition:
+			transform var(--wp--custom--transition--duration)
+				var(--wp--custom--transition--timing-function),
+			opacity var(--wp--custom--transition--duration)
+				var(--wp--custom--transition--timing-function);
+		will-change: transform, opacity;
+	}
+
+	&:hover {
+		&::before {
+			transform: scale(1.1);
+		}
+
+		&::after {
+			transform: scale(1);
+			opacity: 1;
+		}
+	}
+}
+
+@media (--small-viewport) {
+	.wp-block-wi-sonx-fse-front-page-toc-list {
+		gap: var(--wp--preset--spacing--30);
+	}
+}
+
+@media (--medium-viewport) {
+	.wp-block-wi-sonx-fse-front-page-toc-list {
+		gap: var(--wp--preset--spacing--40);
 	}
 }
 
 @media (--huge-viewport) {
 	.wp-block-wi-sonx-fse-front-page-toc {
-		--wi--front-page-toc--bg-active: var(--wp--preset--color--primary);
-		--wi--front-page-toc--bg-hover: var(--wp--custom--color--gray-500);
-
 		height: auto;
 		width: 100%;
+	}
+
+	.wp-block-wi-sonx-fse-front-page-toc-list {
+		flex-direction: column;
+		height: auto;
+		width: 100%;
+		gap: var(--wp--preset--spacing--10);
+	}
+}
+
+@media (--front-page-cover) {
+	.wp-block-wi-sonx-fse-front-page-toc {
+		width: auto;
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc-button {
@@ -91,10 +162,7 @@
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc-list {
-		flex-direction: column;
-		height: auto;
-		width: 100%;
-		gap: var(--wp--preset--spacing--30);
+		gap: var(--wp--preset--spacing--20);
 
 		&[hidden] {
 			display: none;
@@ -111,7 +179,9 @@
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc-label {
-		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		top: 0;
 		bottom: 0;
 		left: calc(100% - 1px);
@@ -120,41 +190,76 @@
 		padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--50)
 			var(--wp--preset--spacing--40) 0;
 		margin: 0;
-		background-color: inherit;
+		background-color: var(--wi--front-page-toc--bg-hover);
 		text-transform: uppercase;
 		white-space: nowrap;
 		clip: auto;
-		clip-path: none;
-		transform-origin: left center;
-		transform: scale(0, 1);
+		clip-path: inset(0 100% 0 0);
+		transition: clip-path var(--wp--custom--transition--duration) linear
+				0s;
+		will-change: clip-path;
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc-link {
 		box-sizing: border-box;
 		position: relative;
-		width: 100%;
+		width: 3.5rem;
+		height: 3.5rem;
 		padding: var(--wp--preset--spacing--40);
-		border-radius: var(--wp--preset--spacing--50) 0 0
-			var(--wp--preset--spacing--50);
 		line-height: 1.2;
+		transform: translate3d(0, 0, 0);
+		backface-visibility: hidden;
 
 		&::before {
-			content: counter(list-item, decimal-leading-zero);
+			position: relative;
+			height: 100%;
 		}
 
-		&.is-active {
-			background-color: var(--wi--front-page-toc--bg-active);
-		}
-
-		&:hover {
-			background-color: var(--wi--front-page-toc--bg-hover);
+		&::after {
+			height: 100%;
+			width: 100%;
+			inset: 0;
+			margin: 0;
+			border-radius: 50%;
+			transition:
+				transform var(--wp--custom--transition--duration)
+					var(--wp--custom--transition--timing-function)
+					calc(2 * var(--wp--custom--transition--duration)),
+				opacity var(--wp--custom--transition--duration)
+					var(--wp--custom--transition--timing-function)
+					calc(2 * var(--wp--custom--transition--duration)),
+				border-radius var(--wp--custom--transition--duration) linear var(--wp--custom--transition--duration);
+			will-change: transform, opacity, border-radius;
 		}
 
 		&.is-active,
 		&:hover {
+			&::before {
+				transform: none;
+			}
+
+			&::after {
+				border-radius: 50% 0 0 50%;
+				transition-delay: 0s, 0s,
+					var(--wp--custom--transition--duration);
+			}
+
 			.wp-block-wi-sonx-fse-front-page-toc-label {
-				transform: scale(1, 1);
+				clip-path: inset(0 0 0 0);
+				transition-delay: calc(
+					2 * var(--wp--custom--transition--duration)
+				);
 			}
 		}
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wp-block-wi-sonx-fse-front-page-toc-link::after,
+	.wp-block-wi-sonx-fse-front-page-toc-link:hover::after,
+	.wp-block-wi-sonx-fse-front-page-toc-label,
+	.wp-block-wi-sonx-fse-front-page-toc-link:hover .wp-block-wi-sonx-fse-front-page-toc-label {
+		transition-duration: 0s, 0s, 0s;
+		transition-delay: 0s, 0s, 0s;
 	}
 }
