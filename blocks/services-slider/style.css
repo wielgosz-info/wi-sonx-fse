@@ -1,1 +1,49 @@
 @import "../../assets/css/tools/custom-media.css";
+
+.wp-block-wi-sonx-fse-services-slider {
+
+	/* settings hardcoded in the block: */
+
+	--wi--services-slider--columns: 3;
+	--wi--services-slider--gap: var(--wp--preset--spacing--60);
+
+	/* helper vars: */
+
+	--wi--services-slider--mq-columns: 1;
+	--wi--services-slider--mq-base: 100%;
+
+	.wp-block-post-template {
+		overflow-x: auto;
+		scroll-behavior: smooth;
+		scroll-snap-type: x mandatory;
+		padding: var(--wi--services-slider--gap) 0;
+	}
+
+	.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid {
+		grid-template-columns: none;
+		grid-auto-columns: calc((var(--wi--services-slider--mq-base) - var(--wi--services-slider--gap) * (var(--wi--services-slider--mq-columns) - 1)) / var(--wi--services-slider--mq-columns));
+	}
+
+	.wp-block-post {
+		scroll-snap-align: center;
+		grid-row: 1 / span 1;
+	}
+}
+
+@media (--small-viewport) {
+	.wp-block-wi-sonx-fse-services-slider {
+		--wi--services-slider--mq-columns: ceil(var(--wi--services-slider--columns) / 2);
+	}
+}
+
+@media (--large-viewport) {
+	.wp-block-wi-sonx-fse-services-slider {
+		--wi--services-slider--mq-columns: var(--wi--services-slider--columns);
+	}
+}
+
+@media (--huge-viewport) {
+	.wp-block-wi-sonx-fse-services-slider {
+		--wi--services-slider--mq-base: var(--wp--style--global--wide-size);
+	}
+}

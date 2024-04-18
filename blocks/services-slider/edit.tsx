@@ -16,7 +16,13 @@ export function Edit({ name, attributes, setAttributes }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const { animation } = attributes;
 
-	const postType = 'wi-service'; // TODO: create variants for post types?
+	// TODO: create variants for post types?
+	const postType = 'wi-service';
+
+	// TODO: allow to set post template block vars in attributes instead of hardcoded values
+	// How to ensure that user can't change them directly on the Post Template block later?
+	const columnCount = 3;
+	const blockGap = 'var:preset|spacing|60';
 
 	// get pattern from REST API
 	const postPreviewPattern = useSelect(
@@ -56,13 +62,13 @@ export function Edit({ name, attributes, setAttributes }) {
 						{
 							style: {
 								spacing: {
-									blockGap: 'var:preset|spacing|60',
+									blockGap,
 								},
 							},
 							layout: {
 								type: 'grid',
-								columnCount: null,
-								minimumColumnWidth: '20rem',
+								columnCount,
+								minimumColumnWidth: null,
 							},
 							templateLock: false,
 							lock: { move: false, remove: false },
@@ -72,7 +78,7 @@ export function Edit({ name, attributes, setAttributes }) {
 				],
 			],
 		],
-		[postPreviewPattern, postType]
+		[postPreviewPattern, postType, columnCount, blockGap]
 	);
 
 	const blockProps = useBlockProps();
