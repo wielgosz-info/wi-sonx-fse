@@ -54,10 +54,15 @@ export function Edit({ name, attributes, setAttributes, context }) {
 	);
 
 	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		template,
-		templateLock: 'all',
-	});
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${defaultClassName}-slides`,
+		},
+		{
+			template,
+			templateLock: 'all',
+		}
+	);
 
 	if (!postPreviewPattern) {
 		return <Spinner />;
@@ -86,7 +91,9 @@ export function Edit({ name, attributes, setAttributes, context }) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...innerBlocksProps} />
+			<div {...blockProps}>
+				<div {...innerBlocksProps} />
+			</div>
 		</>
 	);
 }

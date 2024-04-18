@@ -33,9 +33,9 @@
 		"interval": {
 			"type": "number",
 			"minimum": 0,
-			"maximum": 10000,
-			"step": 100,
-			"default": 2000
+			"maximum": 20000,
+			"step": 500,
+			"default": 5000
 		}
 	}
 }
