@@ -7,8 +7,9 @@
 
 namespace WI\SonxFSE;
 
-if ( ! defined( 'ABSPATH' ) )
-	exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Blocks extends Utils\Singleton {
 	public function __construct() {
@@ -18,12 +19,12 @@ class Blocks extends Utils\Singleton {
 
 	public function register_theme_block_categories( $categories ) {
 		$categories[] = array(
-			'slug' => 'wi-sonx-fse/front-page',
+			'slug'  => 'wi-sonx-fse/front-page',
 			'title' => esc_html__( 'WI Sonx FSE: Front Page', 'wi-sonx-fse' ),
 		);
 
 		$categories[] = array(
-			'slug' => 'wi-sonx-fse/icons',
+			'slug'  => 'wi-sonx-fse/icons',
 			'title' => esc_html__( 'WI Sonx FSE: Icons', 'wi-sonx-fse' ),
 		);
 
@@ -33,15 +34,15 @@ class Blocks extends Utils\Singleton {
 	public function register_theme_blocks() {
 		// Do we have registered blocks stored in metadata?
 		// Also check if theme version has changed.
-		$option = get_option(
+		$option        = get_option(
 			get_template() . '-blocks',
 			array(
 				'theme_version' => null,
-				'blocks' => array(),
+				'blocks'        => array(),
 			)
 		);
 		$theme_version = wp_get_theme()->get( 'Version' );
-		$blocks = array();
+		$blocks        = array();
 
 		// If we don't have registered blocks, the theme version has changed or we're not in dev mode, refresh blocks.
 		if ( empty( $option['blocks'] ) || $option['theme_version'] !== $theme_version || wp_is_development_mode( 'theme' ) ) {
@@ -50,7 +51,7 @@ class Blocks extends Utils\Singleton {
 			// Update version and blocks.
 			$option = array(
 				'theme_version' => $theme_version,
-				'blocks' => $blocks,
+				'blocks'        => $blocks,
 			);
 
 			// Store the registered blocks in metadata.

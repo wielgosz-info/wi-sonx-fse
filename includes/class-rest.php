@@ -7,8 +7,9 @@
 
 namespace WI\SonxFSE;
 
-if ( ! defined( 'ABSPATH' ) )
-	exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class REST extends Utils\Singleton {
 	private $theme_slug;
@@ -20,22 +21,33 @@ class REST extends Utils\Singleton {
 	}
 
 	private function convert_blocks( $blocks ) {
-		$converted_blocks = array_values( array_map( function ($block) {
-			$converted_block = array (
-				$block['blockName'],
-				$block['attrs'],
-			);
+		$converted_blocks = array_values(
+			array_map(
+				function ( $block ) {
+					$converted_block = array(
+						$block['blockName'],
+						$block['attrs'],
+					);
 
-			if ( ! empty ( $block['innerBlocks'] ) ) {
-				$converted_block[] = array_map( function ($inner_block) {
-					return $this->convert_blocks( [ $inner_block ] )[0];
-				}, $block['innerBlocks'] );
-			}
+					if ( ! empty( $block['innerBlocks'] ) ) {
+						$converted_block[] = array_map(
+							function ( $inner_block ) {
+								return $this->convert_blocks( array( $inner_block ) )[0];
+							},
+							$block['innerBlocks']
+						);
+					}
 
-			return $converted_block;
-		}, array_filter( $blocks, function ($block) {
-			return ! empty ( $block['blockName'] );
-		} ) ) );
+					return $converted_block;
+				},
+				array_filter(
+					$blocks,
+					function ( $block ) {
+						return ! empty( $block['blockName'] );
+					}
+				)
+			)
+		);
 
 		return $converted_blocks;
 	}
@@ -45,16 +57,20 @@ class REST extends Utils\Singleton {
 		$patterns = $registry->get_all_registered();
 		foreach ( $patterns as $pattern ) {
 			$slug_without_prefix = str_replace( $this->theme_slug . '/', '', $pattern['slug'] );
-			register_rest_route( $this->theme_slug . '/v1', '/patterns/' . $slug_without_prefix, array(
-				'methods' => 'GET',
-				'callback' => function () use ($pattern) {
-					unset ( $pattern['filePath'] );
-					$pattern['blocks'] = $this->convert_blocks( parse_blocks( $pattern['content'] ) );
+			register_rest_route(
+				$this->theme_slug . '/v1',
+				'/patterns/' . $slug_without_prefix,
+				array(
+					'methods'             => 'GET',
+					'callback'            => function () use ( $pattern ) {
+						unset( $pattern['filePath'] );
+						$pattern['blocks'] = $this->convert_blocks( parse_blocks( $pattern['content'] ) );
 
-					return $pattern;
-				},
-				'permission_callback' => '__return_true',
-			) );
+						return $pattern;
+					},
+					'permission_callback' => '__return_true',
+				)
+			);
 		}
 	}
 }

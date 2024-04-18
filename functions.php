@@ -1,6 +1,6 @@
 <?php
 /**
- * Entrypoint for theme functions and definitions
+ * Entrypoint for theme functions and definitions.
  *
  * @package WI\SonxFSE
  */
@@ -11,7 +11,7 @@ global $wp_filesystem;
 require_once ABSPATH . 'wp-admin/includes/file.php';
 WP_Filesystem();
 
-// Load classes
+// Load classes.
 require_once __DIR__ . '/includes/utils/class-singleton.php';
 require_once __DIR__ . '/includes/class-assets.php';
 require_once __DIR__ . '/includes/class-blocks.php';

@@ -7,24 +7,25 @@
 
 namespace WI\SonxFSE;
 
-if ( ! defined( 'ABSPATH' ) )
-	exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class Theme extends Utils\Singleton {
 	public function __construct() {
-		# Theme supports
+		// Theme supports.
 		add_action( 'after_setup_theme', array( $this, 'theme_supports' ) );
 
-		# Templates
+		// Templates.
 		add_filter( 'default_wp_template_part_areas', array( $this, 'template_part_areas' ) );
 
-		# Patterns
+		// Patterns.
 		add_action( 'init', array( $this, 'register_theme_pattern_categories' ) );
 		add_filter( 'should_load_remote_block_patterns', '__return_false' );
 	}
 
 	public function theme_supports() {
-		# Most of opt-ins are already in the theme.json file
+		// Most of opt-ins are already in the theme.json file.
 
 		remove_theme_support( 'core-block-patterns' );
 	}

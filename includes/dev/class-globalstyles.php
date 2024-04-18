@@ -7,8 +7,9 @@
 
 namespace WI\SonxFSE\Dev;
 
-if ( ! defined( 'ABSPATH' ) )
-	exit; // Exit if accessed directly
+if ( ! defined( 'ABSPATH' ) ) {
+	exit; // Exit if accessed directly.
+}
 
 class GlobalStyles extends \WI\SonxFSE\Utils\Singleton {
 	public function __construct() {

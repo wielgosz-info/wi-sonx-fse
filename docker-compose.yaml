@@ -17,9 +17,19 @@ services:
     secrets:
       - user_ssh_key
 
+  composer:
+    image: composer:latest
+    command: ['/bin/sh', '-c', "while true; do sleep 1000; done"]
+    volumes:
+      - ./:/app
+      - composer_data:/tmp
+    profiles:
+      - composer
+
 volumes:
   node_modules: {}
   vscode: {}
+  composer_data: {}
 
 secrets:
   user_ssh_key:
