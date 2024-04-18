@@ -12,73 +12,45 @@ import { useMemo } from '@wordpress/element';
 import { store as patternsStore } from './patterns-store';
 import metadata from './block.json';
 
-export function Edit({ name, attributes, setAttributes }) {
+export function Edit({ name, attributes, setAttributes, context }) {
 	const defaultClassName = getBlockDefaultClassName(name);
-	const { animation } = attributes;
-
-	// TODO: create variants for post types?
-	const postType = 'wi-service';
-
-	// TODO: allow to set post template block vars in attributes instead of hardcoded values
-	// How to ensure that user can't change them directly on the Post Template block later?
-	const columnCount = 3;
-	const blockGap = 'var:preset|spacing|60';
+	const {
+		previewPostType,
+		query: { postType },
+	} = context;
+	const { columnCount, blockGap, autoPlay, interval } = attributes;
 
 	// get pattern from REST API
 	const postPreviewPattern = useSelect(
 		(select) => {
-			return select(patternsStore).getPattern(postType);
+			return select(patternsStore).getPattern(
+				previewPostType || postType
+			);
 		},
-		[postType]
+		[postType, previewPostType]
 	);
 	const template = useMemo(
 		() => [
 			[
-				'core/query',
+				'core/post-template',
 				{
-					queryId: 0,
-					query: {
-						perPage: '12',
-						pages: '1',
-						offset: 0,
-						postType,
-						order: 'asc',
-						orderBy: 'title',
-						author: '',
-						search: '',
-						exclude: [],
-						sticky: '',
-						inherit: false,
-						parents: [],
-					},
-					enhancedPagination: true,
-					layout: {
-						type: 'default',
-					},
-				},
-				[
-					[
-						'core/post-template',
-						{
-							style: {
-								spacing: {
-									blockGap,
-								},
-							},
-							layout: {
-								type: 'grid',
-								columnCount,
-								minimumColumnWidth: null,
-							},
-							templateLock: false,
-							lock: { move: false, remove: false },
+					style: {
+						spacing: {
+							blockGap,
 						},
-						postPreviewPattern || [],
-					],
-				],
+					},
+					layout: {
+						type: 'grid',
+						columnCount,
+						minimumColumnWidth: null,
+					},
+					templateLock: false,
+					lock: { move: false, remove: false },
+				},
+				postPreviewPattern || [],
 			],
 		],
-		[postPreviewPattern, postType, columnCount, blockGap]
+		[postPreviewPattern, columnCount, blockGap]
 	);
 
 	const blockProps = useBlockProps();
@@ -96,54 +68,17 @@ export function Edit({ name, attributes, setAttributes }) {
 			<InspectorControls>
 				<PanelBody title={__('Settings')}>
 					<RangeControl
-						label={__('Animation duration', 'wi-sonx-fse')}
-						value={animation.duration}
+						label={__('Interval', 'wi-sonx-fse')}
+						value={interval}
 						onChange={(value) =>
 							setAttributes({
-								animation: {
-									...attributes.animation,
-									duration: value,
-								},
+								...attributes,
+								interval: value,
 							})
 						}
-						min={
-							metadata.attributes.animation.properties.duration
-								.minimum
-						}
-						max={
-							metadata.attributes.animation.properties.duration
-								.maximum
-						}
-						step={
-							metadata.attributes.animation.properties.duration
-								.step
-						}
-						shiftStep={10}
-						isShiftStepEnabled={true}
-						withInputField
-					/>
-					<RangeControl
-						label={__('Animation delay', 'wi-sonx-fse')}
-						value={animation.delay}
-						onChange={(value) =>
-							setAttributes({
-								animation: {
-									...attributes.animation,
-									delay: value,
-								},
-							})
-						}
-						min={
-							metadata.attributes.animation.properties.delay
-								.minimum
-						}
-						max={
-							metadata.attributes.animation.properties.delay
-								.maximum
-						}
-						step={
-							metadata.attributes.animation.properties.delay.step
-						}
+						min={metadata.attributes.interval.minimum}
+						max={metadata.attributes.interval.maximum}
+						step={metadata.attributes.interval.step}
 						shiftStep={10}
 						isShiftStepEnabled={true}
 						withInputField

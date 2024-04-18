@@ -20,6 +20,8 @@ export function Edit({
 }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const { percentage, caption, animation, anchor } = attributes;
+	const durationProps = metadata.attributes.animation.properties.duration;
+	const delayProps = metadata.attributes.animation.properties.delay;
 	const blockProps = useBlockProps();
 
 	useEffect(() => {
@@ -43,9 +45,9 @@ export function Edit({
 								},
 							})
 						}
-						min={metadata.attributes.animation.properties.duration.minimum}
-						max={metadata.attributes.animation.properties.duration.maximum}
-						step={metadata.attributes.animation.properties.duration.step}
+						min={durationProps.minimum}
+						max={durationProps.maximum}
+						step={durationProps.step}
 						shiftStep={10}
 						isShiftStepEnabled={true}
 						withInputField
@@ -61,9 +63,9 @@ export function Edit({
 								},
 							})
 						}
-						min={metadata.attributes.animation.properties.delay.minimum}
-						max={metadata.attributes.animation.properties.delay.maximum}
-						step={metadata.attributes.animation.properties.delay.step}
+						min={delayProps.minimum}
+						max={delayProps.maximum}
+						step={delayProps.step}
 						shiftStep={10}
 						isShiftStepEnabled={true}
 						withInputField

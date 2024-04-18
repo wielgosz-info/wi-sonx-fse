@@ -6,5 +6,12 @@ import metadata from './block.json';
 export function save({ attributes }) {
 	const defaultClassName = getBlockDefaultClassName(metadata.name);
 
-	return <div {...useBlockProps.save()} {...useInnerBlocksProps.save()} />;
+	return (
+		<div
+			{...useBlockProps.save()}
+			{...useInnerBlocksProps.save()}
+			data-wp-interactive="WISonxFSEServicesSlider"
+			data-wp-run="callbacks.runActiveSlide"
+		/>
+	);
 }

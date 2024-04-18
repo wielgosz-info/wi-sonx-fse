@@ -5,7 +5,7 @@ import {
 	useEffect,
 	useState,
 	useRef,
-	withScope
+	withScope,
 } from '@wordpress/interactivity';
 import { ArcElement, DoughnutController, Chart } from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
@@ -49,12 +49,21 @@ const { state } = store('WISonxFSESkillPercentage', {
 		},
 		get animationDuration() {
 			const duration = getContext().animation.duration;
-			return state.prefersReducedMotion ? 0 : (Number.isInteger(duration) ? duration : ANIMATION_DURATION);
+
+			if (state.prefersReducedMotion) {
+				return 0;
+			}
+			return Number.isInteger(duration) ? duration : ANIMATION_DURATION;
 		},
 		get animationDelay() {
 			const delay = getContext().animation.delay;
-			return state.prefersReducedMotion ? 0 : (Number.isInteger(delay) ? delay : ANIMATION_DELAY);
-		}
+
+			if (state.prefersReducedMotion) {
+				return 0;
+			}
+
+			return Number.isInteger(delay) ? delay : ANIMATION_DELAY;
+		},
 	},
 	callbacks: {
 		initChart() {
@@ -151,7 +160,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 					cancelAnimationFrame(raf.current);
 					clearTimeout(delay.current);
 				};
-			}, [inView]);
+			}, [inView, updateCounter]);
 		},
 	},
 });

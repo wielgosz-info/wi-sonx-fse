@@ -10,30 +10,32 @@
 	"style": "file:./style-index.css",
 	"editorScript": "file:./index.js",
 	"viewScriptModule": "file:./view.js",
+	"parent": [
+		"core/query"
+	],
+	"usesContext": [
+		"query",
+		"displayLayout",
+		"previewPostType"
+	],
 	"supports": {
 		"interactivity": true
 	},
 	"attributes": {
-		"animation": {
-			"type": "object",
-			"properties": {
-				"duration": {
-					"type": "number",
-					"minimum": 0,
-					"maximum": 10000,
-					"step": 100
-				},
-				"delay": {
-					"type": "number",
-					"minimum": 0,
-					"maximum": 2000,
-					"step": 10
-				}
-			},
-			"default": {
-				"duration": 2000,
-				"delay": 200
-			}
+		"blockGap": {
+			"type": "string",
+			"default": "var:preset|spacing|60"
+		},
+		"autoPlay": {
+			"type": "boolean",
+			"default": true
+		},
+		"interval": {
+			"type": "number",
+			"minimum": 0,
+			"maximum": 10000,
+			"step": 100,
+			"default": 2000
 		}
 	}
 }

@@ -1,4 +1,16 @@
 .wi-loop-post-preview-service {
+	position: relative;
+	transform-origin: 50% 50%;
+	transform: scale(1);
+	transition:
+		background-color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function),
+		color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function),
+		transform var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function);
+	will-change: background-color, color, transform;
+
 	.wp-block-post-title a {
 		text-decoration: none;
 	}
@@ -22,7 +34,7 @@
 
 		&::before,
 		&::after {
-			content: '';
+			content: "";
 			display: block;
 			border: 1px solid currentcolor;
 			grid-column: 1 / span 1;
@@ -51,7 +63,9 @@
 		color: var(--wp--preset--color--contrast);
 		text-decoration: none;
 		opacity: 0;
-		transition: opacity var(--wp--custom--transition--duration) var(--wp--custom--transition--timing-function);
+		transition: opacity var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function);
+		will-change: opacity;
 
 		&:hover {
 			opacity: 1;
@@ -64,6 +78,12 @@
 .wi-loop-post-preview-service-icon {
 	position: relative;
 	aspect-ratio: 1;
+	transition:
+		background-color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function),
+		color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function);
+	will-change: background-color, color;
 
 	&::before {
 		content: counter(list-item, lower-greek);
@@ -79,12 +99,40 @@
 		overflow: hidden;
 		font-size: 5em;
 		font-weight: 700;
-		color: var(--wp--preset--color--dim-primary);
+		color: currentcolor;
 	}
 
 	&:has(.wp-block-post-featured-image) {
 		&::before {
 			display: none;
 		}
+	}
+}
+
+.wi-loop-post-preview-service:hover,
+.is-active > .wi-loop-post-preview-service {
+	/* stylelint-disable selector-class-pattern */
+
+	.wp-block-post-excerpt__more-link {
+		opacity: 1;
+	}
+
+	/* stylelint-enable selector-class-pattern */
+}
+
+.is-active > .wi-loop-post-preview-service {
+	background-color: var(--wp--preset--color--primary) !important;
+	color: var(--wp--preset--color--contrast) !important;
+	z-index: 1;
+
+	.wi-loop-post-preview-service-icon {
+		background-color: var(--wp--preset--color--contrast) !important;
+		color: var(--wp--preset--color--primary) !important;
+	}
+}
+
+@media (--large-viewport) {
+	.is-active > .wi-loop-post-preview-service {
+		transform: scale(1.1);
 	}
 }

@@ -1,7 +1,6 @@
 @import "../../assets/css/tools/custom-media.css";
 
 .wp-block-wi-sonx-fse-services-slider {
-
 	/* settings hardcoded in the block: */
 
 	--wi--services-slider--columns: 3;
@@ -11,6 +10,10 @@
 
 	--wi--services-slider--mq-columns: 1;
 	--wi--services-slider--mq-base: 100%;
+	--wi--services-slider--mq-available: calc(
+		var(--wi--services-slider--mq-base) - var(--wi--services-slider--gap) *
+			(var(--wi--services-slider--mq-columns) - 1)
+	);
 
 	.wp-block-post-template {
 		overflow-x: auto;
@@ -21,24 +24,68 @@
 
 	.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid {
 		grid-template-columns: none;
-		grid-auto-columns: calc((var(--wi--services-slider--mq-base) - var(--wi--services-slider--gap) * (var(--wi--services-slider--mq-columns) - 1)) / var(--wi--services-slider--mq-columns));
+		grid-auto-columns: calc(
+			var(--wi--services-slider--mq-available) /
+				var(--wi--services-slider--mq-columns)
+		);
 	}
 
 	.wp-block-post {
-		scroll-snap-align: center;
+		scroll-snap-align: start;
 		grid-row: 1 / span 1;
 	}
 }
 
-@media (--small-viewport) {
+@media (--medium-viewport) {
 	.wp-block-wi-sonx-fse-services-slider {
-		--wi--services-slider--mq-columns: ceil(var(--wi--services-slider--columns) / 2);
+		--wi--services-slider--mq-columns: 2; /* sensible fallback for browsers not supporting round() */
+
+		.wp-block-post-template::after {
+			content: '';
+			grid-row: 1 / span 1;
+			grid-column-end: span calc(var(--wi--services-slider--mq-columns) - 1);
+			display: block;
+			height: 100%;
+			background-color: var(--wp--preset--color--off-base);
+
+			/* TODO: add 'scroll-back' icon */
+		}
 	}
 }
 
-@media (--large-viewport) {
+@supports (width: calc(round(up, 0.5, 1) * 100%)) {
+	@media (--medium-viewport) {
+		.wp-block-wi-sonx-fse-services-slider {
+			--wi--services-slider--mq-columns: round(
+				up,
+				var(--wi--services-slider--columns) / 2,
+				1
+			);
+		}
+	}
+}
+
+@media (--xlarge-viewport) {
 	.wp-block-wi-sonx-fse-services-slider {
 		--wi--services-slider--mq-columns: var(--wi--services-slider--columns);
+
+		.wp-block-post {
+			scroll-snap-align: center;
+		}
+
+		.wp-block-post-template::before {
+			content: '';
+			grid-row: 1 / span 1;
+			display: block;
+			height: 100%;
+			background-color: var(--wp--preset--color--off-base);
+
+			/* TODO: add 'scroll-forwards' icon */
+		}
+
+		.wp-block-post-template::after {
+			grid-column-end: span calc(var(--wi--services-slider--mq-columns) - 2);
+		}
 	}
 }
 
