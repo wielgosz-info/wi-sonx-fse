@@ -15,13 +15,18 @@
 	],
 	"usesContext": [
 		"query",
-		"displayLayout",
 		"previewPostType"
 	],
 	"supports": {
 		"interactivity": true
 	},
 	"attributes": {
+		"columnCount": {
+			"type": "number",
+			"minimum": 1,
+			"maximum": 6,
+			"default": 3
+		},
 		"blockGap": {
 			"type": "string",
 			"default": "var:preset|spacing|60"

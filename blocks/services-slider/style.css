@@ -40,15 +40,18 @@
 	.wp-block-wi-sonx-fse-services-slider {
 		--wi--services-slider--mq-columns: 2; /* sensible fallback for browsers not supporting round() */
 
-		.wp-block-post-template::after {
-			content: '';
-			grid-row: 1 / span 1;
-			grid-column-end: span calc(var(--wi--services-slider--mq-columns) - 1);
-			display: block;
-			height: 100%;
-			background-color: var(--wp--preset--color--off-base);
+		&.is-initialized {
+			.wp-block-post-template::after {
+				content: "";
+				grid-row: 1 / span 1;
+				grid-column-end: span
+					calc(var(--wi--services-slider--mq-columns) - 1);
+				display: block;
+				height: 100%;
+				background-color: var(--wp--preset--color--off-base);
 
-			/* TODO: add 'scroll-back' icon */
+				/* TODO: add 'scroll-back' icon */
+			}
 		}
 	}
 }
@@ -73,18 +76,21 @@
 			scroll-snap-align: center;
 		}
 
-		.wp-block-post-template::before {
-			content: '';
-			grid-row: 1 / span 1;
-			display: block;
-			height: 100%;
-			background-color: var(--wp--preset--color--off-base);
+		&.is-initialized {
+			.wp-block-post-template::before {
+				content: "";
+				grid-row: 1 / span 1;
+				display: block;
+				height: 100%;
+				background-color: var(--wp--preset--color--off-base);
 
-			/* TODO: add 'scroll-forwards' icon */
-		}
+				/* TODO: add 'scroll-forwards' icon */
+			}
 
-		.wp-block-post-template::after {
-			grid-column-end: span calc(var(--wi--services-slider--mq-columns) - 2);
+			.wp-block-post-template::after {
+				grid-column-end: span
+					calc(var(--wi--services-slider--mq-columns) - 2);
+			}
 		}
 	}
 }

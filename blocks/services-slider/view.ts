@@ -70,14 +70,14 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				behavior: 'smooth',
 			});
 		},
-	},
-	callbacks: {
 		disableAutoPlay() {
 			getContext().autoPlay = false;
 		},
 		enableAutoPlay() {
 			getContext().autoPlay = state.initialAutoPlay;
 		},
+	},
+	callbacks: {
 		onResize() {
 			const { ref } = getElement();
 			const { slides } = state;
@@ -99,6 +99,13 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			state.marginLeft = marginLeft;
 			state.marginRight = marginRight;
 			state.visibleCount = visibleCount;
+		},
+		onVisibilityChange() {
+			if (document.hidden) {
+				actions.disableAutoPlay();
+			} else {
+				actions.enableAutoPlay();
+			}
 		},
 		watchInterval() {
 			const { interval } = state;
@@ -163,6 +170,11 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		init() {
 			state.initialAutoPlay = getContext().autoPlay;
 			callbacks.onResize();
+			getElement().ref.classList.add('is-initialized');
+
+			return () => {
+				getElement().ref.classList.remove('is-initialized');
+			};
 		},
 	},
 });

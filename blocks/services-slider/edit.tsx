@@ -12,6 +12,8 @@ import { useMemo } from '@wordpress/element';
 import { store as patternsStore } from './patterns-store';
 import metadata from './block.json';
 
+import './editor.css';
+
 export function Edit({ name, attributes, setAttributes, context }) {
 	const defaultClassName = getBlockDefaultClassName(name);
 	const {

@@ -16,6 +16,7 @@ export function save({ attributes }) {
 			})}
 			data-wp-init="callbacks.init"
 			data-wp-on-window--resize="callbacks.onResize"
+			data-wp-on-document--visibilitychange="callbacks.onVisibilityChange"
 			data-wp-watch--interval="callbacks.watchInterval"
 			data-wp-watch--intersection="callbacks.watchIntersection"
 		>
@@ -23,11 +24,11 @@ export function save({ attributes }) {
 				{...useInnerBlocksProps.save({
 					className: `${defaultClassName}-slides`,
 				})}
-				data-wp-on--mouseenter="callbacks.disableAutoPlay"
-				data-wp-on--mouseleave="callbacks.enableAutoPlay"
-				data-wp-on--focusin="callbacks.disableAutoPlay"
-				data-wp-on--focusout="callbacks.enableAutoPlay"
-				data-wp-on--touchstart="callbacks.disableAutoPlay"
+				data-wp-on--mouseenter="actions.disableAutoPlay"
+				data-wp-on--mouseleave="actions.enableAutoPlay"
+				data-wp-on--focusin="actions.disableAutoPlay"
+				data-wp-on--focusout="actions.enableAutoPlay"
+				data-wp-on--touchstart="actions.disableAutoPlay"
 			/>
 		</div>
 	);
