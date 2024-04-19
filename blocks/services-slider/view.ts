@@ -9,53 +9,19 @@ const INTERVAL = 5000;
 
 const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 	state: {
-		get activeSlide(): number {
-			return getContext().activeSlide || 0;
-		},
-		set activeSlide(index: number) {
-			getContext().activeSlide = index;
-		},
-		get visibleCount(): number {
-			return getContext().visibleCount || 1;
-		},
-		set visibleCount(count: number) {
-			getContext().visibleCount = count;
-		},
-		get marginLeft(): number {
-			return getContext().marginLeft || 0;
-		},
-		set marginLeft(value: number) {
-			getContext().marginLeft = value;
-		},
-		get marginRight(): number {
-			return getContext().marginRight || 0;
-		},
-		set marginRight(value: number) {
-			getContext().marginRight = value;
-		},
-		get slides(): NodeListOf<HTMLLIElement> {
-			return getElement().ref.querySelectorAll(
-				'.wp-block-post:not(.is-virtual)'
-			);
-		},
 		get slideWidth(): number {
-			return state.slides[state.activeSlide].offsetWidth;
+			const { slides, activeSlide } = getContext();
+			return slides[activeSlide].offsetWidth;
 		},
 		get shouldInitialize(): boolean {
-			return state.slides && state.slides.length > state.visibleCount;
-		},
-		get initialAutoPlay(): boolean {
-			return getContext().initialAutoPlay || false;
-		},
-		set initialAutoPlay(value: boolean) {
-			getContext().initialAutoPlay = value;
+			const { slides, visibleCount } = getContext();
+			return slides && slides.length > visibleCount;
 		},
 		get interval(): number {
-			const { autoPlay, interval } = getContext();
+			const { currentAutoPlay, interval } = getContext();
 
-			return autoPlay ? interval || INTERVAL : 0;
+			return currentAutoPlay ? interval || INTERVAL : 0;
 		},
-
 		// TODO: somehow this seems wrong... how to store refs?
 		get intervalHandle(): number {
 			return getContext().intervalHandle;
@@ -65,9 +31,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		},
 	},
 	actions: {
-		nextSlide() {
-			const { slides, activeSlide } = state;
-			const nextSlide = (activeSlide + 1) % slides.length;
+		shiftSlide(direction: number = 1) {
+			const { slides, activeSlide } = getContext();
+			const nextSlide = (activeSlide + direction) % slides.length;
 			const xDiff =
 				slides[nextSlide].offsetLeft - slides[activeSlide].offsetLeft;
 
@@ -76,17 +42,25 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				behavior: 'smooth',
 			});
 		},
+		prevSlide() {
+			actions.shiftSlide(-1);
+		},
+		nextSlide() {
+			actions.shiftSlide(1);
+		},
 		disableAutoPlay() {
-			getContext().autoPlay = false;
+			getContext().currentAutoPlay = false;
 		},
 		enableAutoPlay() {
-			getContext().autoPlay = state.initialAutoPlay;
+			const context = getContext();
+			context.currentAutoPlay = context.autoPlay;
 		},
 	},
 	callbacks: {
 		onResize() {
 			const { ref } = getElement();
 			const { slideWidth } = state;
+			const context = getContext();
 
 			const slideWidthPercent = (slideWidth / ref.offsetWidth) * 100;
 
@@ -106,9 +80,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				marginLeft = slideWidthPercent / 2;
 			}
 
-			state.marginLeft = marginLeft;
-			state.marginRight = marginRight;
-			state.visibleCount = visibleCount;
+			context.marginLeft = marginLeft;
+			context.marginRight = marginRight;
+			context.visibleCount = visibleCount;
 		},
 		onVisibilityChange() {
 			if (document.hidden) {
@@ -138,13 +112,15 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			};
 		},
 		watchIntersection() {
-			const { ref } = getElement();
-			const { slides, marginLeft, marginRight, shouldInitialize } = state;
+			const { slides } = getContext();
+			const { shouldInitialize } = state;
 
 			if (!shouldInitialize) {
 				return;
 			}
 
+			const { ref } = getElement();
+			const { marginLeft, marginRight } = getContext();
 			const observer = new IntersectionObserver(
 				withScope((entries) => {
 					entries.forEach((entry) => {
@@ -157,10 +133,10 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 							const index = Array.from(slides).indexOf(
 								entry.target
 							);
-							state.activeSlide = index;
+							getContext().activeSlide = index;
 						}
 					});
-				}),
+				}) as IntersectionObserverCallback,
 				{
 					root: ref,
 					rootMargin: `0px -${marginRight}% 0px -${marginLeft}%`,
@@ -178,18 +154,24 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				});
 		},
 		init() {
+			const { ref } = getElement();
+			const context = getContext();
+
+			context.slides = ref.querySelectorAll('.wp-block-post');
+			context.activeSlide = 0;
+			context.visibleCount = 1;
+			context.currentAutoPlay = context.autoPlay;
+
 			callbacks.onResize();
 
 			if (!state.shouldInitialize) {
 				return;
 			}
 
-			state.initialAutoPlay = getContext().autoPlay;
-
-			getElement().ref.classList.add('is-initialized');
+			ref.classList.add('is-initialized');
 
 			return () => {
-				getElement().ref.classList.remove('is-initialized');
+				ref.classList.remove('is-initialized');
 			};
 		},
 	},

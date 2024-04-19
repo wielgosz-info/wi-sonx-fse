@@ -1,6 +1,7 @@
 import { getBlockDefaultClassName } from '@wordpress/blocks';
 import { useBlockProps, useInnerBlocksProps } from '@wordpress/block-editor';
 import { getCSSRules } from '@wordpress/style-engine';
+import { __ } from '@wordpress/i18n';
 
 import metadata from './block.json';
 
@@ -42,6 +43,20 @@ export function save({ attributes }) {
 				data-wp-on--focusout="actions.enableAutoPlay"
 				data-wp-on--touchstart="actions.disableAutoPlay"
 			/>
+			<div className={`${defaultClassName}-pagination`}>
+				<button
+					className={`${defaultClassName}-prev`}
+					data-wp-on--click="actions.prevSlide"
+				>
+					{__('Previous item', 'wi-sonx-fse')}
+				</button>
+				<button
+					className={`${defaultClassName}-next`}
+					data-wp-on--click="actions.nextSlide"
+				>
+					{__('Next item', 'wi-sonx-fse')}
+				</button>
+			</div>
 		</div>
 	);
 }
