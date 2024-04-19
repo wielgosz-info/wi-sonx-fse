@@ -77,7 +77,8 @@
 
 .wi-loop-post-preview-service-icon {
 	position: relative;
-	aspect-ratio: 1;
+	width: 6rem;
+	height: 6rem;
 	transition:
 		background-color var(--wp--custom--transition--duration)
 			var(--wp--custom--transition--timing-function),
