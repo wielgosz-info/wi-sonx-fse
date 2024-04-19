@@ -2,7 +2,7 @@
 	"$schema": "https://schemas.wp.org/trunk/block.json",
 	"apiVersion": 3,
 	"title": "Services Slider",
-	"description": "Wrapper around the Query block to make it behave like a simple slider.",
+	"description": "Wrapper around the Post Template block to make it behave like a simple slider.",
 	"name": "wi-sonx-fse/services-slider",
 	"category": "widgets",
 	"icon": "slides",

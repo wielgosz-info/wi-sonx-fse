@@ -4,15 +4,19 @@ import {
 	useInnerBlocksProps,
 	InspectorControls,
 } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, Spinner } from '@wordpress/components';
+import {
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+	Spinner,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
+import { compileCSS, getCSSRules } from '@wordpress/style-engine';
 
 import { store as patternsStore } from './patterns-store';
 import metadata from './block.json';
-
-import './editor.css';
 
 export function Edit({ name, attributes, setAttributes, context }) {
 	const defaultClassName = getBlockDefaultClassName(name);
@@ -55,7 +59,18 @@ export function Edit({ name, attributes, setAttributes, context }) {
 		[postPreviewPattern, columnCount, blockGap]
 	);
 
-	const blockProps = useBlockProps();
+	const parsedBlockGap = getCSSRules({
+		dimensions: {
+			minHeight: `${blockGap}`, // use minHeight since blockGap is not supported by the style engine yet :D
+		},
+	})[0].value;
+
+	const blockProps = useBlockProps({
+		style: {
+			'--wi--services-slider--columns': `${columnCount}`,
+			'--wi--services-slider--gap': `${parsedBlockGap}`,
+		},
+	});
 	const innerBlocksProps = useInnerBlocksProps(
 		{
 			className: `${defaultClassName}-slides`,
@@ -73,13 +88,39 @@ export function Edit({ name, attributes, setAttributes, context }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Settings')}>
+				<PanelBody title={__('Layout')}>
+					<RangeControl
+						label={__('Columns', 'wi-sonx-fse')}
+						help={__(
+							'Number of columns to display. Please use this control instead of modifying inner Post Template ones.',
+							'wi-sonx-fse'
+						)}
+						value={columnCount}
+						onChange={(value) =>
+							setAttributes({
+								columnCount: value,
+							})
+						}
+						min={metadata.attributes.columnCount.minimum}
+						max={metadata.attributes.columnCount.maximum}
+						withInputField
+					/>
+				</PanelBody>
+				<PanelBody title={__('Auto Play')}>
+					<ToggleControl
+						label={__('Enabled?', 'wi-sonx-fse')}
+						checked={autoPlay}
+						onChange={(value) => {
+							setAttributes({
+								autoPlay: value,
+							});
+						}}
+					/>
 					<RangeControl
 						label={__('Interval', 'wi-sonx-fse')}
 						value={interval}
 						onChange={(value) =>
 							setAttributes({
-								...attributes,
 								interval: value,
 							})
 						}

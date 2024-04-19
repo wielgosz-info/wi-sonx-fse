@@ -1,7 +1,7 @@
 @import "../../assets/css/tools/custom-media.css";
 
 .wp-block-wi-sonx-fse-services-slider {
-	/* settings hardcoded in the block: */
+	/* settings from the block: */
 
 	--wi--services-slider--columns: 3;
 	--wi--services-slider--gap: var(--wp--preset--spacing--60);
@@ -14,8 +14,13 @@
 		var(--wi--services-slider--mq-base) - var(--wi--services-slider--gap) *
 			(var(--wi--services-slider--mq-columns) - 1)
 	);
+	--wi--services-slider--mq-column-width: calc(
+		var(--wi--services-slider--mq-available) /
+			var(--wi--services-slider--mq-columns)
+	);
 
 	.wp-block-post-template {
+		position: relative;
 		overflow-x: auto;
 		scroll-behavior: smooth;
 		scroll-snap-type: x mandatory;
@@ -24,14 +29,11 @@
 
 	.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid.wp-block-post-template-is-layout-grid {
 		grid-template-columns: none;
-		grid-auto-columns: calc(
-			var(--wi--services-slider--mq-available) /
-				var(--wi--services-slider--mq-columns)
-		);
+		grid-auto-columns: var(--wi--services-slider--mq-column-width);
 	}
 
 	.wp-block-post {
-		scroll-snap-align: start;
+		scroll-snap-align: center start;
 		grid-row: 1 / span 1;
 	}
 }
@@ -72,11 +74,14 @@
 	.wp-block-wi-sonx-fse-services-slider {
 		--wi--services-slider--mq-columns: var(--wi--services-slider--columns);
 
-		.wp-block-post {
-			scroll-snap-align: center;
-		}
-
 		&.is-initialized {
+			.wp-block-post-template {
+				scroll-padding-inline-start: calc(
+					var(--wi--services-slider--mq-column-width) +
+						var(--wi--services-slider--gap)
+				);
+			}
+
 			.wp-block-post-template::before {
 				content: "";
 				grid-row: 1 / span 1;

@@ -38,6 +38,12 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				'.wp-block-post:not(.is-virtual)'
 			);
 		},
+		get slideWidth(): number {
+			return state.slides[state.activeSlide].offsetWidth;
+		},
+		get shouldInitialize(): boolean {
+			return state.slides && state.slides.length > state.visibleCount;
+		},
 		get initialAutoPlay(): boolean {
 			return getContext().initialAutoPlay || false;
 		},
@@ -60,13 +66,13 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 	},
 	actions: {
 		nextSlide() {
-			const { slides, activeSlide, visibleCount } = state;
+			const { slides, activeSlide } = state;
 			const nextSlide = (activeSlide + 1) % slides.length;
+			const xDiff =
+				slides[nextSlide].offsetLeft - slides[activeSlide].offsetLeft;
 
-			slides[nextSlide].parentElement.scrollTo({
-				left:
-					slides[nextSlide].offsetLeft -
-					(visibleCount - 2) * slides[0].offsetWidth,
+			slides[nextSlide].parentElement.scrollBy({
+				left: xDiff,
 				behavior: 'smooth',
 			});
 		},
@@ -80,20 +86,24 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 	callbacks: {
 		onResize() {
 			const { ref } = getElement();
-			const { slides } = state;
+			const { slideWidth } = state;
 
-			const slideWidth = (slides[0].offsetWidth / ref.offsetWidth) * 100;
+			const slideWidthPercent = (slideWidth / ref.offsetWidth) * 100;
 
 			let marginLeft = 0;
 			let marginRight = 0;
-			const visibleCount = Math.max(Math.floor(100 / slideWidth), 1);
+			const visibleCount = Math.max(
+				Math.floor(100 / slideWidthPercent),
+				1
+			);
 
 			if (visibleCount > 1) {
-				marginRight = Math.max(visibleCount - 2.5, 0.5) * slideWidth;
+				marginRight =
+					Math.max(visibleCount - 2.5, 0.5) * slideWidthPercent;
 			}
 
 			if (visibleCount > 2) {
-				marginLeft = slideWidth / 2;
+				marginLeft = slideWidthPercent / 2;
 			}
 
 			state.marginLeft = marginLeft;
@@ -108,9 +118,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			}
 		},
 		watchInterval() {
-			const { interval } = state;
+			const { interval, shouldInitialize } = state;
 
-			if (!interval) {
+			if (!shouldInitialize || !interval) {
 				return;
 			}
 
@@ -129,9 +139,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		},
 		watchIntersection() {
 			const { ref } = getElement();
-			const { slides, marginLeft, marginRight, visibleCount } = state;
+			const { slides, marginLeft, marginRight, shouldInitialize } = state;
 
-			if (!slides || slides.length <= visibleCount) {
+			if (!shouldInitialize) {
 				return;
 			}
 
@@ -168,8 +178,14 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				});
 		},
 		init() {
-			state.initialAutoPlay = getContext().autoPlay;
 			callbacks.onResize();
+
+			if (!state.shouldInitialize) {
+				return;
+			}
+
+			state.initialAutoPlay = getContext().autoPlay;
+
 			getElement().ref.classList.add('is-initialized');
 
 			return () => {

@@ -14,8 +14,8 @@ registerBlockType(metadata.name, {
 });
 
 registerBlockVariation('core/query', {
-	name: 'wi-service-slider',
-	title: __('Services slider', 'wi-sonx-fse'),
+	name: 'wi-services-slider',
+	title: __('Services Slider Query', 'wi-sonx-fse'),
 	description: __('Display a list of services as a simple slider.'),
 	icon: {
 		foreground: '#5ac3b4',
