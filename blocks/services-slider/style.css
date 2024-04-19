@@ -38,6 +38,87 @@
 	}
 }
 
+.wp-block-wi-sonx-fse-services-slider-pagination {
+	display: flex;
+	justify-content: center;
+	padding: var(--wp--preset--spacing--40) 0;
+	gap: var(--wp--preset--spacing--60);
+}
+
+.wp-block-wi-sonx-fse-services-slider-prev,
+.wp-block-wi-sonx-fse-services-slider-next {
+	appearance: none;
+	box-sizing: content-box;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	padding: var(--wp--preset--spacing--40);
+	margin: 0;
+	font: inherit;
+	text-decoration: none;
+	height: 1em;
+	width: 1em;
+	border-radius: 9999px;
+	border: 1px solid currentcolor;
+	color: inherit;
+	background: var(--wp--preset--color--off-base);
+	box-shadow: none;
+	cursor: pointer;
+	transform-origin: 50% 50%;
+	transform: scale(1);
+	transition: transform var(--wp--custom--transition--duration)
+		var(--wp--custom--transition--timing-function);
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.wp-block-wi-sonx-fse-services-slider-dots {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: var(--wp--preset--spacing--20);
+	padding: 0;
+	margin: 0;
+
+	> li {
+		list-style: none;
+	}
+}
+
+.wp-block-wi-sonx-fse-services-slider-dot {
+	appearance: none;
+	display: block;
+	box-sizing: content-box;
+	background-clip: content-box;
+	padding: 0;
+	margin: 0;
+	border: calc(var(--wp--preset--spacing--30) * 0.9) solid transparent;
+	border-radius: 9999px;
+	width: var(--wp--preset--spacing--30);
+	height: var(--wp--preset--spacing--30);
+	background-color: var(--wp--custom--color--gray-400);
+	box-shadow: none;
+	cursor: pointer;
+	transition:
+		background-color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function),
+		border-color var(--wp--custom--transition--duration)
+			var(--wp--custom--transition--timing-function);
+	will-change: background-color, border-color;
+
+	&:hover,
+	&:focus,
+	&.is-active {
+		background-color: var(--wp--preset--color--primary);
+	}
+
+	&.is-active {
+		border-color: var(--wp--preset--color--dark-primary);
+	}
+}
+
 @media (--medium-viewport) {
 	.wp-block-wi-sonx-fse-services-slider {
 		--wi--services-slider--mq-columns: 2; /* sensible fallback for browsers not supporting round() */

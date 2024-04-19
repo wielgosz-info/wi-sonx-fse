@@ -67,7 +67,8 @@
 			var(--wp--custom--transition--timing-function);
 		will-change: opacity;
 
-		&:hover {
+		&:hover,
+		&:focus {
 			opacity: 1;
 		}
 	}

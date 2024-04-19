@@ -26,35 +26,55 @@ export function save({ attributes }) {
 			data-wp-context={JSON.stringify({
 				autoPlay: attributes.autoPlay,
 				interval: attributes.interval,
+				activeSlide: 0,
+				slides: [],
 			})}
 			data-wp-init="callbacks.init"
 			data-wp-on-window--resize="callbacks.onResize"
 			data-wp-on-document--visibilitychange="callbacks.onVisibilityChange"
 			data-wp-watch--interval="callbacks.watchInterval"
 			data-wp-watch--intersection="callbacks.watchIntersection"
+			data-wp-on--mouseenter="actions.disableAutoPlay"
+			data-wp-on--mouseleave="actions.enableAutoPlay"
+			data-wp-on--focusin="actions.disableAutoPlay"
+			data-wp-on--focusout="actions.enableAutoPlay"
+			data-wp-on--touchstart="actions.disableAutoPlay"
 		>
 			<div
 				{...useInnerBlocksProps.save({
 					className: `${defaultClassName}-slides`,
 				})}
-				data-wp-on--mouseenter="actions.disableAutoPlay"
-				data-wp-on--mouseleave="actions.enableAutoPlay"
-				data-wp-on--focusin="actions.disableAutoPlay"
-				data-wp-on--focusout="actions.enableAutoPlay"
-				data-wp-on--touchstart="actions.disableAutoPlay"
 			/>
 			<div className={`${defaultClassName}-pagination`}>
 				<button
 					className={`${defaultClassName}-prev`}
 					data-wp-on--click="actions.prevSlide"
+					aria-label={__('Previous Slide', 'wi-sonx-fse')}
 				>
-					{__('Previous item', 'wi-sonx-fse')}
+					<span aria-hidden="true">«</span>
 				</button>
+				<ol className={`${defaultClassName}-dots`}>
+					<template data-wp-each="context.slides">
+						<li>
+							<button
+								className={`${defaultClassName}-dot`}
+								data-wp-on--click="actions.goToSlide"
+								data-wp-class--is-active="callbacks.isActiveDot"
+							>
+								<span className="screen-reader-text">
+									{__('Go to Slide', 'wi-sonx-fse')}
+									<span data-wp-text="callbacks.dotIndex"></span>
+								</span>
+							</button>
+						</li>
+					</template>
+				</ol>
 				<button
 					className={`${defaultClassName}-next`}
 					data-wp-on--click="actions.nextSlide"
+					aria-label={__('Next Slide', 'wi-sonx-fse')}
 				>
-					{__('Next item', 'wi-sonx-fse')}
+					<span aria-hidden="true">»</span>
 				</button>
 			</div>
 		</div>

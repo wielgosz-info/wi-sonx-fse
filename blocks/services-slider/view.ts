@@ -6,6 +6,7 @@ import {
 } from '@wordpress/interactivity';
 
 const INTERVAL = 5000;
+const ACTIVE_CLASS = 'is-active';
 
 const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 	state: {
@@ -28,9 +29,18 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		},
 		set intervalHandle(value: number) {
 			getContext().intervalHandle = value;
-		},
+		}
 	},
 	actions: {
+		goToSlide() {
+			const { item, slides, activeSlide } = getContext();
+			const xDiff = item.offsetLeft - slides[activeSlide].offsetLeft;
+
+			item.parentElement.scrollBy({
+				left: xDiff,
+				behavior: 'smooth',
+			});
+		},
 		shiftSlide(direction: number = 1) {
 			const { slides, activeSlide } = getContext();
 			const nextSlide = (activeSlide + direction) % slides.length;
@@ -125,14 +135,12 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 				withScope((entries) => {
 					entries.forEach((entry) => {
 						entry.target.classList.toggle(
-							'is-active',
+							ACTIVE_CLASS,
 							entry.isIntersecting
 						);
 
 						if (entry.isIntersecting) {
-							const index = Array.from(slides).indexOf(
-								entry.target
-							);
+							const index = slides.indexOf(entry.target);
 							getContext().activeSlide = index;
 						}
 					});
@@ -157,7 +165,7 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			const { ref } = getElement();
 			const context = getContext();
 
-			context.slides = ref.querySelectorAll('.wp-block-post');
+			context.slides = Array.from(ref.querySelectorAll('.wp-block-post'));
 			context.activeSlide = 0;
 			context.visibleCount = 1;
 			context.currentAutoPlay = context.autoPlay;
@@ -173,6 +181,14 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			return () => {
 				ref.classList.remove('is-initialized');
 			};
+		},
+		isActiveDot(className): boolean {
+			const { item, slides, activeSlide } = getContext();
+			return slides.indexOf(item) === activeSlide;
+		},
+		dotIndex(): string {
+			const { item, slides } = getContext();
+			return String(slides.indexOf(item) + 1);
 		},
 	},
 });

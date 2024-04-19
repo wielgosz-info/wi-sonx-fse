@@ -15,9 +15,7 @@
 <!-- wp:wi-sonx-fse/front-page-section {"anchor":"hello","style":{"background":{"backgroundSize":"cover","backgroundPosition":"50% 50%","backgroundImage":{"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__hello__bg.svg' ) ); ?>","source":"file","title":""},"backgroundRepeat":"no-repeat"}},"inToC":false,"lock":{"move":true,"remove":true}} -->
 <section
 	class="wp-block-wi-sonx-fse-front-page-section alignfull has-contrast-color has-base-background-color has-text-color has-background"
-	id="hello"
-	data-wi-toc="false"
-	>
+	id="hello" data-wi-toc="false">
 	<div class="wp-block-wi-sonx-fse-front-page-section-content">
 		<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"style":{"dimensions":{"minHeight":"100%"},"background":{"backgroundImage":{"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__hello__person.png' ) ); ?>","source":"file","title":""},"backgroundPosition":"100% 100%","backgroundSize":"65%","backgroundRepeat":"no-repeat"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch","verticalAlignment":"center"}} -->
 		<div class="wp-block-group" style="min-height:100%">
@@ -28,33 +26,17 @@
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:90%">
 					<!-- wp:paragraph {"placeholder":"Content…","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}},"typography":{"fontStyle":"normal","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.4em"},"spacing":{"padding":{"left":"var:preset|spacing|10"}}},"textColor":"primary","fontSize":"large"} -->
 					<p class="has-primary-color has-text-color has-link-color has-large-font-size"
-						style="padding-left:var(--wp--preset--spacing--10);font-style:normal;font-weight:700;letter-spacing:0.4em;text-transform:uppercase">
-						<?php
-						esc_html_e( "Hello I'm", 'wi-sonx-fse' );
-						?>
-					</p>
+						style="padding-left:var(--wp--preset--spacing--10);font-style:normal;font-weight:700;letter-spacing:0.4em;text-transform:uppercase"><?php esc_html_e( "Hello I'm", 'wi-sonx-fse' ); ?></p>
 					<!-- /wp:paragraph -->
 
 					<!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700","lineHeight":"1"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"fontSize":"Huge"} -->
 					<h1 class="has-huge-font-size"
-						style="margin-top:var(--wp--preset--spacing--50);font-style:normal;font-weight:700;line-height:1">
-						<?php
-						esc_html_e( 'WI Sonx', 'wi-sonx-fse' );
-						?>
-					<br>
-					<?php
-						esc_html_e( 'FSE Theme', 'wi-sonx-fse' );
-					?>
-					</h1>
+						style="margin-top:var(--wp--preset--spacing--50);font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'WI Sonx FSE Theme', 'wi-sonx-fse' ); ?></h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"var:preset|spacing|60"},"padding":{"left":"var:preset|spacing|10"}}},"fontSize":"large"} -->
 					<p class="has-large-font-size"
-						style="margin-top:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--10);text-transform:uppercase">
-						<?php
-						esc_html_e( 'WordPress Full Site Editing', 'wi-sonx-fse' );
-						?>
-					</p>
+						style="margin-top:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--10);text-transform:uppercase"><?php esc_html_e( 'WordPress Full Site Editing', 'wi-sonx-fse' ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:column -->
