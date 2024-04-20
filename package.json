@@ -34,7 +34,7 @@
 		"@wordpress/postcss-plugins-preset": "^4.39.0",
 		"@wordpress/prettier-config": "^3.13.0",
 		"@wordpress/scripts": "^27.6.0",
-		"@wordpress/style-engine": "^1.38.0",
+		"@wordpress/style-engine": "^1.39.0",
 		"@wordpress/stylelint-config": "^21.39.0",
 		"classnames": "^2.5.1",
 		"eslint": "^8.57.0",
