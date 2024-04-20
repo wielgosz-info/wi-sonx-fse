@@ -10,7 +10,7 @@ import { inViewMixin } from '@mixins/in-view';
 const INTERVAL = 5000;
 const ACTIVE_CLASS = 'is-active';
 
-const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
+const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 	state: {
 		get slideWidth(): number {
 			const { slides, activeSlide } = getContext();

@@ -10,6 +10,7 @@
 	"style": "file:./style-index.css",
 	"editorScript": "file:./index.js",
 	"viewScriptModule": "file:./view.js",
+	"render": "file:./render.php",
 	"parent": [
 		"core/query"
 	],
