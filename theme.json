@@ -64,6 +64,11 @@
 					"name": "Dim-Primary",
 					"slug": "dim-primary",
 					"color": "var(--wp--custom--color--green-500)"
+				},
+				{
+					"name": "Dark-Primary",
+					"slug": "dark-primary",
+					"color": "var(--wp--custom--color--green-300)"
 				}
 			]
 		},

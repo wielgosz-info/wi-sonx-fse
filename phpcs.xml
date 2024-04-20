@@ -21,4 +21,14 @@
 		<exclude name="Squiz.Commenting.VariableComment.Missing"/>
 	</rule>
 
+	 <!-- AutoEscaped functions -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <element value="wp_interactivity_data_wp_context" />
+                <element value="get_block_wrapper_attributes" />
+            </property>
+        </properties>
+    </rule>
+
 </ruleset>

@@ -4,88 +4,82 @@ import {
 	useInnerBlocksProps,
 	InspectorControls,
 } from '@wordpress/block-editor';
-import { PanelBody, RangeControl, Spinner } from '@wordpress/components';
+import {
+	PanelBody,
+	RangeControl,
+	ToggleControl,
+	Spinner,
+} from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
+import { compileCSS, getCSSRules } from '@wordpress/style-engine';
 
 import { store as patternsStore } from './patterns-store';
 import metadata from './block.json';
 
-export function Edit({ name, attributes, setAttributes }) {
+export function Edit({ name, attributes, setAttributes, context }) {
 	const defaultClassName = getBlockDefaultClassName(name);
-	const { animation } = attributes;
-
-	// TODO: create variants for post types?
-	const postType = 'wi-service';
-
-	// TODO: allow to set post template block vars in attributes instead of hardcoded values
-	// How to ensure that user can't change them directly on the Post Template block later?
-	const columnCount = 3;
-	const blockGap = 'var:preset|spacing|60';
+	const {
+		previewPostType,
+		query: { postType },
+	} = context;
+	const { columnCount, blockGap, autoPlay, interval } = attributes;
 
 	// get pattern from REST API
 	const postPreviewPattern = useSelect(
 		(select) => {
-			return select(patternsStore).getPattern(postType);
+			return select(patternsStore).getPattern(
+				previewPostType || postType
+			);
 		},
-		[postType]
+		[postType, previewPostType]
 	);
 	const template = useMemo(
 		() => [
 			[
-				'core/query',
+				'core/post-template',
 				{
-					queryId: 0,
-					query: {
-						perPage: '12',
-						pages: '1',
-						offset: 0,
-						postType,
-						order: 'asc',
-						orderBy: 'title',
-						author: '',
-						search: '',
-						exclude: [],
-						sticky: '',
-						inherit: false,
-						parents: [],
-					},
-					enhancedPagination: true,
-					layout: {
-						type: 'default',
-					},
-				},
-				[
-					[
-						'core/post-template',
-						{
-							style: {
-								spacing: {
-									blockGap,
-								},
-							},
-							layout: {
-								type: 'grid',
-								columnCount,
-								minimumColumnWidth: null,
-							},
-							templateLock: false,
-							lock: { move: false, remove: false },
+					style: {
+						spacing: {
+							blockGap,
 						},
-						postPreviewPattern || [],
-					],
-				],
+					},
+					layout: {
+						type: 'grid',
+						columnCount,
+						minimumColumnWidth: null,
+					},
+					templateLock: false,
+					lock: { move: false, remove: false },
+				},
+				postPreviewPattern || [],
 			],
 		],
-		[postPreviewPattern, postType, columnCount, blockGap]
+		[postPreviewPattern, columnCount, blockGap]
 	);
 
-	const blockProps = useBlockProps();
-	const innerBlocksProps = useInnerBlocksProps(blockProps, {
-		template,
-		templateLock: 'all',
+	const parsedBlockGap = getCSSRules({
+		dimensions: {
+			minHeight: `${blockGap}`, // use minHeight since blockGap is not supported by the style engine yet :D
+		},
+	})[0].value;
+
+	const blockProps = useBlockProps({
+		style: {
+			'--wi--services-slider--columns': `${columnCount}`,
+			'--wi--services-slider--gap': `${parsedBlockGap}`,
+		},
 	});
+	const innerBlocksProps = useInnerBlocksProps(
+		{
+			className: `${defaultClassName}-slides`,
+		},
+		{
+			template,
+			templateLock: 'all',
+		}
+	);
 
 	if (!postPreviewPattern) {
 		return <Spinner />;
@@ -94,56 +88,45 @@ export function Edit({ name, attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Settings')}>
+				<PanelBody title={__('Layout')}>
 					<RangeControl
-						label={__('Animation duration', 'wi-sonx-fse')}
-						value={animation.duration}
+						label={__('Columns', 'wi-sonx-fse')}
+						help={__(
+							'Number of columns to display. Please use this control instead of modifying inner Post Template ones.',
+							'wi-sonx-fse'
+						)}
+						value={columnCount}
 						onChange={(value) =>
 							setAttributes({
-								animation: {
-									...attributes.animation,
-									duration: value,
-								},
+								columnCount: value,
 							})
 						}
-						min={
-							metadata.attributes.animation.properties.duration
-								.minimum
-						}
-						max={
-							metadata.attributes.animation.properties.duration
-								.maximum
-						}
-						step={
-							metadata.attributes.animation.properties.duration
-								.step
-						}
-						shiftStep={10}
-						isShiftStepEnabled={true}
+						min={metadata.attributes.columnCount.minimum}
+						max={metadata.attributes.columnCount.maximum}
 						withInputField
 					/>
+				</PanelBody>
+				<PanelBody title={__('Auto Play')}>
+					<ToggleControl
+						label={__('Enabled?', 'wi-sonx-fse')}
+						checked={autoPlay}
+						onChange={(value) => {
+							setAttributes({
+								autoPlay: value,
+							});
+						}}
+					/>
 					<RangeControl
-						label={__('Animation delay', 'wi-sonx-fse')}
-						value={animation.delay}
+						label={__('Interval', 'wi-sonx-fse')}
+						value={interval}
 						onChange={(value) =>
 							setAttributes({
-								animation: {
-									...attributes.animation,
-									delay: value,
-								},
+								interval: value,
 							})
 						}
-						min={
-							metadata.attributes.animation.properties.delay
-								.minimum
-						}
-						max={
-							metadata.attributes.animation.properties.delay
-								.maximum
-						}
-						step={
-							metadata.attributes.animation.properties.delay.step
-						}
+						min={metadata.attributes.interval.minimum}
+						max={metadata.attributes.interval.maximum}
+						step={metadata.attributes.interval.step}
 						shiftStep={10}
 						isShiftStepEnabled={true}
 						withInputField
@@ -151,7 +134,9 @@ export function Edit({ name, attributes, setAttributes }) {
 				</PanelBody>
 			</InspectorControls>
 
-			<div {...innerBlocksProps} />
+			<div {...blockProps}>
+				<div {...innerBlocksProps} />
+			</div>
 		</>
 	);
 }
