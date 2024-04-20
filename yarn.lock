@@ -4514,7 +4514,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wordpress/element@npm:^5.31.0, @wordpress/element@npm:^5.32.0":
+"@wordpress/element@npm:^5.32.0":
   version: 5.32.0
   resolution: "@wordpress/element@npm:5.32.0"
   dependencies:
@@ -16888,7 +16888,7 @@ __metadata:
     "@wordpress/block-editor": "npm:^12.22.0"
     "@wordpress/block-library": "npm:^8.32.0"
     "@wordpress/blocks": "npm:^12.33.0"
-    "@wordpress/element": "npm:^5.31.0"
+    "@wordpress/element": "npm:^5.33.0"
     "@wordpress/eslint-plugin": "npm:^17.10.0"
     "@wordpress/interactivity": "npm:^5.4.0"
     "@wordpress/postcss-plugins-preset": "npm:^4.39.0"
