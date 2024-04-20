@@ -37,7 +37,7 @@
 		"@wordpress/style-engine": "^1.38.0",
 		"@wordpress/stylelint-config": "^21.39.0",
 		"classnames": "^2.5.1",
-		"eslint": "^8.57.0",
+		"eslint": "^9.1.0",
 		"eslint-scope": "^8.0.0",
 		"fast-glob": "^3.3.2",
 		"husky": "^9.0.11",
