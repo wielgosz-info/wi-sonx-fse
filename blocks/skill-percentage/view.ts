@@ -2,12 +2,11 @@ import {
 	store,
 	getContext,
 	getElement,
-	useEffect,
-	useState,
 	useRef,
 	withScope,
 } from '@wordpress/interactivity';
 import { inViewMixin } from '@mixins/in-view';
+import { reducedMotionMixin } from '@mixins/reduced-motion';
 
 import { ArcElement, DoughnutController, Chart } from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
@@ -17,8 +16,9 @@ Chart.register(ArcElement, DoughnutController, ChartDeferred);
 const ANIMATION_DURATION = 2000;
 const ANIMATION_DELAY = 200;
 
-const { state } = store('WISonxFSESkillPercentage', {
+const { state, callbacks } = store('wi-sonx-fse/skill-percentage', {
 	state: {
+		...reducedMotionMixin.state,
 		get colors() {
 			const { ref } = getElement();
 			const computedStyle = window.getComputedStyle(ref);
@@ -30,9 +30,6 @@ const { state } = store('WISonxFSESkillPercentage', {
 			);
 
 			return [primaryColor, dimPrimaryColor];
-		},
-		get prefersReducedMotion() {
-			return window.matchMedia('(prefers-reduced-motion)').matches;
 		},
 		get animationDuration() {
 			const duration = getContext().animation.duration;
@@ -54,6 +51,68 @@ const { state } = store('WISonxFSESkillPercentage', {
 	},
 	callbacks: {
 		...inViewMixin.callbacks,
+		runCounter() {
+			const context = getContext();
+			context.lastUpdate = useRef();
+			context.raf = useRef();
+			context.delay = useRef();
+		},
+		initReducedMotion() {
+			if (state.prefersReducedMotion) {
+				const context = getContext();
+				context.percentageCounter = context.percentage;
+			}
+		},
+		updateCounter() {
+			const context = getContext();
+			const { percentage, percentageCounter, lastUpdate, raf } = context;
+			const now = Date.now();
+			const elapsed = now - lastUpdate.current;
+			const fraction = elapsed / state.animationDuration;
+			const step = Math.round(percentage * fraction);
+
+			if (step > 0) {
+				context.percentageCounter = Math.min(
+					percentageCounter + step,
+					percentage
+				);
+
+				lastUpdate.current = now;
+			}
+
+			if (context.percentageCounter < percentage) {
+				raf.current = requestAnimationFrame(
+					withScope(callbacks.updateCounter) as FrameRequestCallback
+				);
+			}
+		},
+		watchInView() {
+			const {
+				percentage,
+				percentageCounter,
+				inView,
+				delay,
+				lastUpdate,
+				raf,
+			} = getContext();
+
+			if (!inView || percentageCounter >= percentage) {
+				return;
+			}
+
+			delay.current = setTimeout(
+				withScope(() => {
+					lastUpdate.current = Date.now();
+					callbacks.updateCounter();
+				}),
+				percentageCounter > 0 ? 0 : state.animationDelay
+			);
+
+			return () => {
+				cancelAnimationFrame(raf.current);
+				clearTimeout(delay.current);
+			};
+		},
 		initChart() {
 			const { percentage } = getContext();
 			const { ref: canvas } = getElement();
@@ -91,64 +150,6 @@ const { state } = store('WISonxFSESkillPercentage', {
 			return () => {
 				chart.destroy();
 			};
-		},
-		runAnimatePercentage() {
-			const { inView } = getContext();
-
-			const lastUpdate = useRef(null);
-			const raf = useRef(null);
-			const delay = useRef(null);
-
-			// TODO: useCallback when fixed in Gutenberg 18.2
-			const updateCounter = withScope(() => {
-				const context = getContext();
-				const { percentage, percentageCounter } = context;
-				const now = Date.now();
-				const elapsed = now - lastUpdate.current;
-				const fraction = elapsed / state.animationDuration;
-				const step = Math.round(percentage * fraction);
-
-				if (step > 0) {
-					context.percentageCounter = Math.min(
-						percentageCounter + step,
-						percentage
-					);
-
-					lastUpdate.current = now;
-				}
-
-				if (context.percentageCounter < percentage) {
-					raf.current = requestAnimationFrame(updateCounter);
-				}
-			});
-
-			useEffect(() => {
-				if (state.prefersReducedMotion) {
-					const context = getContext();
-					context.percentageCounter = context.percentage;
-				}
-			}, []);
-
-			useEffect(() => {
-				const { percentage, percentageCounter } = getContext();
-
-				if (!inView || percentageCounter >= percentage) {
-					return;
-				}
-
-				delay.current = setTimeout(
-					() => {
-						lastUpdate.current = Date.now();
-						updateCounter();
-					},
-					percentageCounter > 0 ? 0 : state.animationDelay
-				);
-
-				return () => {
-					cancelAnimationFrame(raf.current);
-					clearTimeout(delay.current);
-				};
-			}, [inView, updateCounter]);
 		},
 	},
 });

@@ -12,14 +12,16 @@ export function save({ attributes }) {
 	return (
 		<figure
 			{...useBlockProps.save()}
-			data-wp-interactive="WISonxFSESkillPercentage"
+			data-wp-interactive="wi-sonx-fse/skill-percentage"
 			data-wp-context={JSON.stringify({
 				percentage,
 				percentageCounter: 0,
 				animation,
 			})}
+			data-wp-run="callbacks.runCounter"
 			data-wp-init--in-view="callbacks.initInView"
-			data-wp-run="callbacks.runAnimatePercentage"
+			data-wp-init--reduced-motion="callbacks.initReducedMotion"
+			data-wp-watch--in-view="callbacks.watchInView"
 		>
 			<canvas
 				id={canvasId}

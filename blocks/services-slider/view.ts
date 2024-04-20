@@ -3,15 +3,17 @@ import {
 	getContext,
 	getElement,
 	withScope,
+	useRef,
 } from '@wordpress/interactivity';
 import { inViewMixin } from '@mixins/in-view';
-
+import { reducedMotionMixin } from '@mixins/reduced-motion';
 
 const INTERVAL = 5000;
 const ACTIVE_CLASS = 'is-active';
 
 const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 	state: {
+		...reducedMotionMixin.state,
 		get slideWidth(): number {
 			const { slides, activeSlide } = getContext();
 			return slides[activeSlide].offsetWidth;
@@ -21,38 +23,32 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 			return slides && slides.length > visibleCount;
 		},
 		get interval(): number {
+			const { prefersReducedMotion } = state;
 			const { autoPlay, interval, paused, inView } = getContext();
 
-			return autoPlay && inView && !paused ? interval || INTERVAL : 0;
-		},
-		// TODO: somehow this seems wrong... how to store refs?
-		get intervalHandle(): number {
-			return getContext().intervalHandle;
-		},
-		set intervalHandle(value: number) {
-			getContext().intervalHandle = value;
+			return !prefersReducedMotion && autoPlay && inView && !paused ? interval || INTERVAL : 0;
 		},
 	},
 	actions: {
-		goToSlide() {
+		goToSlide(nextSlide: HTMLLIElement = null) {
 			const { item, slides, activeSlide } = getContext();
-			const xDiff = item.offsetLeft - slides[activeSlide].offsetLeft;
 
-			item.parentElement.scrollBy({
+			if (!nextSlide) {
+				nextSlide = item;
+			}
+
+			const xDiff = nextSlide.offsetLeft - slides[activeSlide].offsetLeft;
+
+			nextSlide.parentElement.scrollBy({
 				left: xDiff,
 				behavior: 'smooth',
 			});
 		},
 		shiftSlide(direction: number = 1) {
 			const { slides, activeSlide } = getContext();
-			const nextSlide = (activeSlide + direction) % slides.length;
-			const xDiff =
-				slides[nextSlide].offsetLeft - slides[activeSlide].offsetLeft;
+			const nextSlide = slides[(activeSlide + direction) % slides.length];
 
-			slides[nextSlide].parentElement.scrollBy({
-				left: xDiff,
-				behavior: 'smooth',
-			});
+			actions.goToSlide(nextSlide);
 		},
 		prevSlide() {
 			actions.shiftSlide(-1);
@@ -69,6 +65,10 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 	},
 	callbacks: {
 		...inViewMixin.callbacks,
+		run() {
+			const context = getContext();
+			context.intervalHandle = useRef();
+		},
 		init() {
 			const { ref } = getElement();
 			const context = getContext();
@@ -126,22 +126,21 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 		},
 		watchInterval() {
 			const { interval, shouldInitialize } = state;
+			const { intervalHandle } = getContext();
 
 			if (!shouldInitialize || !interval) {
 				return;
 			}
 
-			const intervalHandle = setInterval(
+			intervalHandle.current = setInterval(
 				withScope(() => {
 					actions.nextSlide();
 				}),
 				interval
 			);
 
-			state.intervalHandle = intervalHandle;
-
 			return () => {
-				clearInterval(intervalHandle);
+				clearInterval(intervalHandle.current);
 			};
 		},
 		watchIntersection() {

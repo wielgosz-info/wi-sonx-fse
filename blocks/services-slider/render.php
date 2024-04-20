@@ -35,7 +35,9 @@ $block_class_name = 'wp-block-' . str_replace( '/', '-', $block->name );
 		'interval' => $attributes['interval'],
 		'activeSlide' => 0,
 		'slides' => [],
-	) ); ?> data-wp-init--in-view="callbacks.initInView"
+	) ); ?>
+	data-wp-run="callbacks.run"
+	data-wp-init--in-view="callbacks.initInView"
 	data-wp-init--slider="callbacks.init" data-wp-watch--interval="callbacks.watchInterval"
 	data-wp-watch--intersection="callbacks.watchIntersection" data-wp-on-window--resize="callbacks.onResize"
 	data-wp-on-document--visibilitychange="callbacks.onVisibilityChange" data-wp-on--mouseenter="actions.pause"
