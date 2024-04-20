@@ -7,6 +7,8 @@ import {
 	useRef,
 	withScope,
 } from '@wordpress/interactivity';
+import { inViewMixin } from '@mixins/in-view';
+
 import { ArcElement, DoughnutController, Chart } from 'chart.js';
 import ChartDeferred from 'chartjs-plugin-deferred';
 
@@ -14,21 +16,6 @@ Chart.register(ArcElement, DoughnutController, ChartDeferred);
 
 const ANIMATION_DURATION = 2000;
 const ANIMATION_DELAY = 200;
-
-const useInView = () => {
-	const [inView, setInView] = useState(false);
-
-	useEffect(() => {
-		const { ref } = getElement();
-		const observer = new IntersectionObserver(([entry]) => {
-			setInView(entry.isIntersecting);
-		});
-		if (ref) observer.observe(ref);
-		return () => ref && observer.unobserve(ref);
-	}, []);
-
-	return inView;
-};
 
 const { state } = store('WISonxFSESkillPercentage', {
 	state: {
@@ -66,6 +53,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 		},
 	},
 	callbacks: {
+		...inViewMixin.callbacks,
 		initChart() {
 			const { percentage } = getContext();
 			const { ref: canvas } = getElement();
@@ -105,7 +93,7 @@ const { state } = store('WISonxFSESkillPercentage', {
 			};
 		},
 		runAnimatePercentage() {
-			const inView = useInView();
+			const { inView } = getContext();
 
 			const lastUpdate = useRef(null);
 			const raf = useRef(null);

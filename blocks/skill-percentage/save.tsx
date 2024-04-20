@@ -16,8 +16,9 @@ export function save({ attributes }) {
 			data-wp-context={JSON.stringify({
 				percentage,
 				percentageCounter: 0,
-				animation
+				animation,
 			})}
+			data-wp-init--in-view="callbacks.initInView"
 			data-wp-run="callbacks.runAnimatePercentage"
 		>
 			<canvas

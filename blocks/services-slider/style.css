@@ -36,13 +36,23 @@
 		scroll-snap-align: center start;
 		grid-row: 1 / span 1;
 	}
+
+	&.is-initialized {
+		.wp-block-post-template {
+			scrollbar-width: none;
+		}
+	}
 }
 
 .wp-block-wi-sonx-fse-services-slider-pagination {
-	display: flex;
+	display: none;
 	justify-content: center;
 	padding: var(--wp--preset--spacing--40) 0;
 	gap: var(--wp--preset--spacing--60);
+}
+
+.is-initialized .wp-block-wi-sonx-fse-services-slider-pagination {
+	display: flex;
 }
 
 .wp-block-wi-sonx-fse-services-slider-prev,

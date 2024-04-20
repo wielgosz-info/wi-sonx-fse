@@ -29,16 +29,17 @@ export function save({ attributes }) {
 				activeSlide: 0,
 				slides: [],
 			})}
-			data-wp-init="callbacks.init"
+			data-wp-init--in-view="callbacks.initInView"
+			data-wp-init--slider="callbacks.init"
 			data-wp-on-window--resize="callbacks.onResize"
 			data-wp-on-document--visibilitychange="callbacks.onVisibilityChange"
 			data-wp-watch--interval="callbacks.watchInterval"
 			data-wp-watch--intersection="callbacks.watchIntersection"
-			data-wp-on--mouseenter="actions.disableAutoPlay"
-			data-wp-on--mouseleave="actions.enableAutoPlay"
-			data-wp-on--focusin="actions.disableAutoPlay"
-			data-wp-on--focusout="actions.enableAutoPlay"
-			data-wp-on--touchstart="actions.disableAutoPlay"
+			data-wp-on--mouseenter="actions.pause"
+			data-wp-on--mouseleave="actions.maybePlay"
+			data-wp-on--focusin="actions.pause"
+			data-wp-on--focusout="actions.maybePlay"
+			data-wp-on--touchstart="actions.pause"
 		>
 			<div
 				{...useInnerBlocksProps.save({

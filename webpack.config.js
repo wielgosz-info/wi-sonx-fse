@@ -3,6 +3,7 @@ const defaultConfig = require('@wordpress/scripts/config/webpack.config');
 
 // Plugins.
 const RemoveEmptyScriptsPlugin = require('webpack-remove-empty-scripts');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 // Utilities.
 const path = require('path');
@@ -44,26 +45,35 @@ configs.push({
 	},
 });
 
+// Add tsconfig-paths plugin to resolve paths in sync with tsconfig.json.
+configs.forEach((config) => {
+	config.resolve.plugins = [
+		new TsconfigPathsPlugin({
+			configFile: path.resolve(process.cwd(), 'tsconfig.json'),
+		}),
+	];
+});
+
 // Fix hot reload for scripts other than viewScriptModule.
 // It's better that it being completely broken due to react-refresh/babel plugin
 // being included also for viewScriptModules.
 // That's probably a bug in @wordpress/scripts.
 configs.forEach((config) => {
 	const plugin = config.plugins.find(
-		(plugin) => plugin.constructor.name === 'ReactRefreshPlugin'
+		(p) => p.constructor.name === 'ReactRefreshPlugin'
 	);
 
 	if (!plugin) {
 		const rule = config.module.rules.find(
-			(rule) => rule.test.test('.js') && typeof rule.use === 'object'
+			(r) => r.test.test('.js') && typeof r.use === 'object'
 		);
-		const use = rule.use.find((use) =>
-			use.loader.endsWith('babel-loader/lib/index.js')
+		const use = rule.use.find((u) =>
+			u.loader.endsWith('babel-loader/lib/index.js')
 		);
 
 		if (use && use.options && use.options.plugins) {
-			use.options.plugins = use.options.plugins.filter((plugin) =>
-				!plugin.endsWith('react-refresh/babel.js')
+			use.options.plugins = use.options.plugins.filter(
+				(p) => !p.endsWith('react-refresh/babel.js')
 			);
 		}
 	}

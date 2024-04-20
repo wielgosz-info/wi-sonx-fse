@@ -4,6 +4,8 @@ import {
 	getElement,
 	withScope,
 } from '@wordpress/interactivity';
+import { inViewMixin } from '@mixins/in-view';
+
 
 const INTERVAL = 5000;
 const ACTIVE_CLASS = 'is-active';
@@ -19,9 +21,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 			return slides && slides.length > visibleCount;
 		},
 		get interval(): number {
-			const { currentAutoPlay, interval } = getContext();
+			const { autoPlay, interval, paused, inView } = getContext();
 
-			return currentAutoPlay ? interval || INTERVAL : 0;
+			return autoPlay && inView && !paused ? interval || INTERVAL : 0;
 		},
 		// TODO: somehow this seems wrong... how to store refs?
 		get intervalHandle(): number {
@@ -29,7 +31,7 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		},
 		set intervalHandle(value: number) {
 			getContext().intervalHandle = value;
-		}
+		},
 	},
 	actions: {
 		goToSlide() {
@@ -58,15 +60,36 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		nextSlide() {
 			actions.shiftSlide(1);
 		},
-		disableAutoPlay() {
-			getContext().currentAutoPlay = false;
+		pause() {
+			getContext().paused = true;
 		},
-		enableAutoPlay() {
-			const context = getContext();
-			context.currentAutoPlay = context.autoPlay;
+		maybePlay() {
+			getContext().paused = false;
 		},
 	},
 	callbacks: {
+		...inViewMixin.callbacks,
+		init() {
+			const { ref } = getElement();
+			const context = getContext();
+
+			context.slides = Array.from(ref.querySelectorAll('.wp-block-post'));
+			context.activeSlide = 0;
+			context.visibleCount = 1;
+			context.paused = false;
+
+			callbacks.onResize();
+
+			if (!state.shouldInitialize) {
+				return;
+			}
+
+			ref.classList.add('is-initialized');
+
+			return () => {
+				ref.classList.remove('is-initialized');
+			};
+		},
 		onResize() {
 			const { ref } = getElement();
 			const { slideWidth } = state;
@@ -96,9 +119,9 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 		},
 		onVisibilityChange() {
 			if (document.hidden) {
-				actions.disableAutoPlay();
+				actions.pause();
 			} else {
-				actions.enableAutoPlay();
+				actions.maybePlay();
 			}
 		},
 		watchInterval() {
@@ -160,27 +183,6 @@ const { state, actions, callbacks } = store('WISonxFSEServicesSlider', {
 					slide.classList.remove('is-active');
 					observer.unobserve(slide);
 				});
-		},
-		init() {
-			const { ref } = getElement();
-			const context = getContext();
-
-			context.slides = Array.from(ref.querySelectorAll('.wp-block-post'));
-			context.activeSlide = 0;
-			context.visibleCount = 1;
-			context.currentAutoPlay = context.autoPlay;
-
-			callbacks.onResize();
-
-			if (!state.shouldInitialize) {
-				return;
-			}
-
-			ref.classList.add('is-initialized');
-
-			return () => {
-				ref.classList.remove('is-initialized');
-			};
 		},
 		isActiveDot(className): boolean {
 			const { item, slides, activeSlide } = getContext();

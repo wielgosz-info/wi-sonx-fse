@@ -14,12 +14,13 @@
 	<div style="--wi--services-slider--columns:3;--wi--services-slider--gap:var(--wp--preset--spacing--60)"
 		class="wp-block-wi-sonx-fse-services-slider" data-wp-interactive="WISonxFSEServicesSlider"
 		data-wp-context="{&quot;autoPlay&quot;:true,&quot;interval&quot;:5000,&quot;activeSlide&quot;:0,&quot;slides&quot;:[]}"
-		data-wp-init="callbacks.init" data-wp-on-window--resize="callbacks.onResize"
+		data-wp-init--in-view="callbacks.initInView"
+			data-wp-init--slider="callbacks.init" data-wp-on-window--resize="callbacks.onResize"
 		data-wp-on-document--visibilitychange="callbacks.onVisibilityChange"
 		data-wp-watch--interval="callbacks.watchInterval" data-wp-watch--intersection="callbacks.watchIntersection"
-		data-wp-on--mouseenter="actions.disableAutoPlay" data-wp-on--mouseleave="actions.enableAutoPlay"
-		data-wp-on--focusin="actions.disableAutoPlay" data-wp-on--focusout="actions.enableAutoPlay"
-		data-wp-on--touchstart="actions.disableAutoPlay">
+		data-wp-on--mouseenter="actions.pause" data-wp-on--mouseleave="actions.maybePlay"
+		data-wp-on--focusin="actions.pause" data-wp-on--focusout="actions.maybePlay"
+		data-wp-on--touchstart="actions.pause">
 		<div class="wp-block-wi-sonx-fse-services-slider-slides">
 			<!-- wp:post-template {"lock":{"move":false,"remove":false},"style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":3,"minimumColumnWidth":null}} -->
 			<!-- wp:pattern {"slug":"wi-sonx-fse/loop-post-preview-service"} /-->

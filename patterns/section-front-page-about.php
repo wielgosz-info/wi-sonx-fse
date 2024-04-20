@@ -80,6 +80,7 @@ $skills = array(
 								)
 							);
 							?>
+							data-wp-init--in-view="callbacks.initInView"
 							data-wp-run="callbacks.runAnimatePercentage">
 							<canvas id="skill-<?php echo $idx + 1; ?>-canvas"
 								class="wp-block-wi-sonx-fse-skill-percentage-canvas"
