@@ -7,6 +7,12 @@ on:
       - master
       - staging
       - develop
+  pull_request:
+    branches:
+      - main
+      - master
+      - staging
+      - develop
 
 jobs:
   phpcs:
