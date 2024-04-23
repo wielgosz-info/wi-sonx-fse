@@ -20,7 +20,6 @@
 	.wi-loop-post-preview-project-content {
 		inset: 0;
 		opacity: 0;
-		pointer-events: none;
 		transition: opacity var(--wp--custom--transition--duration)
 			var(--wp--custom--transition--timing-function);
 		will-change: opacity;
@@ -32,9 +31,5 @@
 		.wi-loop-post-preview-project-content {
 			opacity: 1;
 		}
-	}
-
-	.wp-block-post:not(.has-post-thumbnail) .wi-loop-post-preview-project-content {
-		pointer-events: all;
 	}
 }
