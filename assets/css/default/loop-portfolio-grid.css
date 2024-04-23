@@ -1,0 +1,49 @@
+.wi-loop-portfolio-grid {
+	.wp-block-post-template {
+		grid-auto-rows: 1fr;
+	}
+}
+
+@media (--small-viewport) {
+	.wi-loop-portfolio-grid {
+		.wp-block-post-template {
+			grid-auto-flow: dense;
+			grid-auto-rows: 0 1fr;
+
+			/* hackin' :D this will work for up to 5 columns */
+
+			&::before,
+			&::after {
+				content: "";
+				grid-row-start: 1;
+				grid-column-start: 2;
+			}
+		}
+
+		.wp-block-post {
+			grid-row-end: span 2;
+		}
+	}
+}
+
+@media screen and (min-width: 600px) and (max-width: 1079.98px) {
+	.wi-loop-portfolio-grid.wi-loop-portfolio-grid {
+		.wp-block-post-template {
+
+			/* two columns for those resolutions */
+
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+}
+
+@media (--xlarge-viewport) {
+	.wi-loop-portfolio-grid {
+		.wp-block-post-template.columns-4,
+		.wp-block-post-template.columns-5 {
+			&::after {
+				grid-column-start: 4;
+			}
+		}
+	}
+}
