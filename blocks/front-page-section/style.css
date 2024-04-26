@@ -3,7 +3,6 @@
 .wp-block-wi-sonx-fse-front-page-section {
 	position: relative;
 	min-height: 100%;
-	scroll-snap-align: start;
 	display: flex;
 	justify-content: stretch;
 	align-items: stretch;
@@ -44,5 +43,11 @@
 
 	.wp-block-wi-sonx-fse-front-page-section[data-wi-toc="true"] .wp-block-wi-sonx-fse-front-page-section-content::before {
 		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
+	}
+}
+
+@media (--front-page-snap) {
+	.wp-block-wi-sonx-fse-front-page-section {
+		scroll-snap-align: start;
 	}
 }

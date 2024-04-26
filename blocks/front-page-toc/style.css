@@ -131,7 +131,7 @@
 	}
 }
 
-@media (--front-page-cover) {
+@media (--front-page-toc) {
 	.wp-block-wi-sonx-fse-front-page-toc {
 		width: auto;
 	}
