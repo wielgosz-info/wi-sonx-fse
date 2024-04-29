@@ -13,7 +13,7 @@ import {
 import { __ } from '@wordpress/i18n';
 import { useSelect } from '@wordpress/data';
 import { useMemo } from '@wordpress/element';
-import { compileCSS, getCSSRules } from '@wordpress/style-engine';
+import { getCSSRules } from '@wordpress/style-engine';
 
 import { store as patternsStore } from './patterns-store';
 import metadata from './block.json';

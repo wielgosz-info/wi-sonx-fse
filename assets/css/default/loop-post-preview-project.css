@@ -9,12 +9,14 @@
 
 .wi-loop-post-preview-project-content {
 	width: 100%;
+	aspect-ratio: 3 / 4;
 }
 
 .wp-block-post.has-post-thumbnail .wi-loop-post-preview-project-content {
 	position: absolute;
 	inset: auto 0 0 0;
 	height: 25%;
+	aspect-ratio: none;
 }
 
 @media (hover:hover) {
