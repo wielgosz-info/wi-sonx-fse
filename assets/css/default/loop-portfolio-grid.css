@@ -11,6 +11,11 @@
 }
 
 .wi-loop-portfolio-grid {
+	display: flex;
+	flex-wrap: nowrap;
+	flex-direction: column;
+	gap: var(--wp--preset--spacing--60);
+
 	.wp-block-post-template {
 		grid-auto-rows: 1fr;
 	}

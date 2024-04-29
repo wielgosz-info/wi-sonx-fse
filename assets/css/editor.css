@@ -1,4 +1,16 @@
 :where(.editor-styles-wrapper) {
     --wp--preset--font-size--normal: clamp(0.773rem, 0.773rem + ((1vw - 0.2rem) * 0.88), 1.125rem);
     --wp--preset--font-size--huge: clamp(3.5rem, 3.5rem + ((1vw - 0.2rem) * 13.75), 9rem);
+
+	.wi-loop-post-preview-project-content {
+		aspect-ratio: none;
+	}
+
+	.wi-front-page-loop-query-tax-filter {
+		position: relative;
+		right: auto;
+		top: auto;
+		height: auto;
+		display: block;
+	}
 }
