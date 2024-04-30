@@ -26,7 +26,11 @@
 			</h2>
 			<!-- /wp:heading -->
 
-			<!-- wp:template-part {"slug":"loop-more-posts","tagName":"div","className": "wi-front-page-loop-more-posts"} /-->
+			<!-- wp:group {"className":"wi-front-page-loop-more-posts"} -->
+			<div class="wp-block-group wi-front-page-loop-more-posts">
+				<!-- wp:pattern {"slug":"wi-sonx-fse/loop-more-posts"} /-->
+			</div>
+			<!-- /wp:group -->
 		</div>
 		<!-- /wp:group -->
 	</div>
