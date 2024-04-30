@@ -184,6 +184,12 @@
 						{
 							"fontFamily": "Poppins",
 							"fontStyle": "normal",
+							"fontWeight": "600",
+							"src": ["local('Poppins-SemiBold')", "file:./assets/fonts/poppins-v21-latin_latin-ext-600.woff2"]
+						},
+						{
+							"fontFamily": "Poppins",
+							"fontStyle": "normal",
 							"fontWeight": "700",
 							"src": ["local('Poppins-Bold')", "file:./assets/fonts/poppins-v20-latin_latin-ext-700.woff2"]
 						},
@@ -253,8 +259,11 @@
 				}
 			},
 			"button": {
+				"typography": {
+					"fontWeight": "600"
+				},
 				"color": {
-					"text": "var(--wp--preset--color--base)",
+					"text": "var(--wp--preset--color--contrast)",
 					"background": "var(--wp--preset--color--primary)"
 				}
 			}

@@ -11,16 +11,16 @@
 	overflow-y: auto;
 }
 
-@media (--medium-viewport) {
-	.wi-front-page-main-content {
-		scroll-behavior: smooth;
-		scroll-snap-type: y proximity;
-	}
-}
-
 @media (--huge-viewport) {
 	.wi-front-page-main {
 		height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+	}
+}
+
+@media (--front-page-snap) {
+	.wi-front-page-main-content {
+		scroll-behavior: smooth;
+		scroll-snap-type: y proximity;
 	}
 }
 

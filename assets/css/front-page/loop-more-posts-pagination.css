@@ -1,3 +1,7 @@
+.wi-front-page-loop-more-posts .wi-loop-more-posts-pagination {
+	margin-top: var(--wp--preset--spacing--60);
+}
+
 @media (--small-viewport) {
 	.wi-front-page-loop-more-posts .wi-loop-more-posts-pagination {
 	  position: absolute;
