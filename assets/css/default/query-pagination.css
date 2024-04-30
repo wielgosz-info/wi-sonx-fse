@@ -1,5 +1,4 @@
-.wi-loop-more-posts-pagination {
-	margin-top: var(--wp--preset--spacing--60);
+.wp-block-query-pagination {
 	gap: var(--wp--preset--spacing--20);
 
 	.wp-block-query-pagination-previous,
@@ -7,11 +6,11 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		gap: var(--wp--preset--spacing--20);
 		padding: var(--wp--preset--spacing--40);
 		margin: 0;
 		text-decoration: none;
 		height: 1em;
-		width: 1em;
 		border-radius: 9999px;
 		border: 1px solid currentcolor;
 		color: inherit;
@@ -19,6 +18,10 @@
 		transform-origin: 50% 50%;
 		transform: scale(1);
 		transition: transform .1s ease;
+
+		&[aria-label] {
+			width: 1em;
+		}
 
 		&:hover {
 			transform: scale(1.1);

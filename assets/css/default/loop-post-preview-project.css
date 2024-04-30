@@ -22,7 +22,7 @@
 	position: absolute;
 	inset: auto 0 0 0;
 	height: 25%;
-	aspect-ratio: none;
+	aspect-ratio: auto;
 }
 
 @media (hover:hover) {
