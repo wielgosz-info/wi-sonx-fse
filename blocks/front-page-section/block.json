@@ -35,15 +35,13 @@
 			"allowCustomContentAndWideSize": false,
 			"allowSwitching": false,
 			"allowEditing": false
-		}
+		},
+		"interactivity": true
 	},
 	"attributes": {
 		"align": {
 			"type": "string",
 			"default": "full"
-		},
-		"anchor": {
-			"type": "string"
 		},
 		"textColor": {
 			"type": "string",

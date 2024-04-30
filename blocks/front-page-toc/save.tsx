@@ -8,23 +8,12 @@ import metadata from './block.json';
 export function save() {
 	const defaultClassName = getBlockDefaultClassName(metadata.name);
 
-	// TODO: Hardcoded for now, get back to it later
-	const anchors: [string, string | false][] = [
-		['hello', false],
-		['about', 'About me'],
-		['services', 'Services'],
-		['portfolio', 'Projects'],
-		['experience', 'Experience'],
-		['blog', 'Blog'],
-		['contact', 'Contact'],
-	];
-
 	return (
 		<nav
 			{...useBlockProps.save()}
 			aria-label={__('Table of contents', 'wi-sonx-fse')}
-			data-wp-interactive="WISonxFSEFrontPageTOC"
-			data-wp-context='{ "isOpen": false }'
+			data-wp-interactive="wi-sonx-fse/front-page-toc"
+			data-wp-watch="callbacks.watch"
 		>
 			<button
 				className={`${defaultClassName}-button`}
@@ -32,7 +21,7 @@ export function save() {
 				aria-controls={`${defaultClassName}-list`}
 				aria-expanded="false"
 				data-wp-on--click="actions.open"
-				data-wp-bind--aria-expanded="context.isOpen"
+				data-wp-bind--aria-expanded="state.isOpen"
 			>
 				<SVG
 					viewBox="0 0 31 18"
@@ -48,22 +37,25 @@ export function save() {
 			<ol
 				className={`${defaultClassName}-list`}
 				id={`${defaultClassName}-list`}
-				data-wp-bind--hidden="!context.isOpen"
+				data-wp-bind--hidden="!state.isOpen"
 			>
-				{anchors.map(([anchor, title]) =>
-					title ? (
-						<li key={anchor} className={`${defaultClassName}-item`}>
-							<a
-								className={`${defaultClassName}-link`}
-								href={`#${anchor}`}
-							>
-								<span className={`${defaultClassName}-label`}>
-									{title}
-								</span>
-							</a>
-						</li>
-					) : null
-				)}
+				<template
+					data-wp-each="state.sections"
+					data-wp-each-key="context.item.anchor"
+				>
+					<li className={`${defaultClassName}-item`}>
+						{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+						<a
+							className={`${defaultClassName}-link`}
+							data-wp-bind--href="state.href"
+						>
+							<span
+								className={`${defaultClassName}-label`}
+								data-wp-text="context.item.title"
+							/>
+						</a>
+					</li>
+				</template>
 			</ol>
 		</nav>
 	);

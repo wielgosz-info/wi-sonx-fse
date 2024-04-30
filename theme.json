@@ -295,11 +295,6 @@
 			"name": "loop-default",
 			"title": "Posts Loop",
 			"area": "loop"
-		},
-		{
-			"name": "loop-more-posts",
-			"title": "'More Posts' Loop",
-			"area": "loop"
 		}
 	],
 	"patterns": []

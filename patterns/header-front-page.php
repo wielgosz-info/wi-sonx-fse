@@ -14,32 +14,22 @@
 	<!-- wp:site-logo {"width":60,"isLink":false,"shouldSyncIcon":true} /-->
 
 	<!-- wp:wi-sonx-fse/front-page-toc {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|contrast"}}}}}} -->
-	<nav class="wp-block-wi-sonx-fse-front-page-toc has-link-color" aria-label="Table of contents"
-		data-wp-interactive="WISonxFSEFrontPageTOC" data-wp-context="{ &quot;isOpen&quot;: false }"><button
-			class="wp-block-wi-sonx-fse-front-page-toc-button" aria-label="Open table of contents"
-			aria-controls="wp-block-wi-sonx-fse-front-page-toc-list" aria-expanded="false"
-			data-wp-on--click="actions.open" data-wp-bind--aria-expanded="context.isOpen"><svg viewBox="0 0 31 18"
-				aria-hidden="true" version="1.1">
+	<nav class="wp-block-wi-sonx-fse-front-page-toc has-link-color" aria-label="<?php esc_attr_e( 'Table of contents', 'wi-sonx-fse' ); ?>"
+		data-wp-interactive="wi-sonx-fse/front-page-toc" data-wp-watch="callbacks.watch"><button class="wp-block-wi-sonx-fse-front-page-toc-button"
+			aria-label="<?php esc_attr_e( 'Open table of contents', 'wi-sonx-fse' ); ?>" aria-controls="wp-block-wi-sonx-fse-front-page-toc-list"
+			aria-expanded="false" data-wp-on--click="actions.open" data-wp-bind--aria-expanded="state.isOpen"><svg
+				viewBox="0 0 31 18" aria-hidden="true" version="1.1">
 				<path d="m6 0h24v.75h-24z"></path>
 				<path d="m6 16.5h24v.75h-24z"></path>
 				<path d="m0 8.25h24v.75h-24z"></path>
 			</svg></button>
 		<ol class="wp-block-wi-sonx-fse-front-page-toc-list" id="wp-block-wi-sonx-fse-front-page-toc-list"
-			data-wp-bind--hidden="!context.isOpen">
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#about"><span class="wp-block-wi-sonx-fse-front-page-toc-label">About me</span></a></li>
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#services"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Services</span></a></li>
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#portfolio"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Projects</span></a></li>
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#experience"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Experience</span></a>
-			</li>
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#blog"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Blog</span></a></li>
-			<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-					href="#contact"><span class="wp-block-wi-sonx-fse-front-page-toc-label">Contact</span></a></li>
-		</ol>
+			data-wp-bind--hidden="!state.isOpen"><template data-wp-each="state.sections"
+				data-wp-each-key="context.item.anchor">
+				<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
+						data-wp-bind--href="state.href"><span class="wp-block-wi-sonx-fse-front-page-toc-label"
+							data-wp-text="context.item.title"></span></a></li>
+			</template></ol>
 	</nav>
 	<!-- /wp:wi-sonx-fse/front-page-toc -->
 
@@ -53,8 +43,9 @@
 					d="m10.18 8.425c-.731.957-1.884 1.575-3.18 1.575-2.208 0-4-1.792-4-4s1.792-4 4-4 4 1.792 4 4c0 .378-.052.743-.151 1.09.022.008.043.018.064.028l4.844 2.422c.022.011.043.023.063.035.731-.957 1.884-1.575 3.18-1.575 2.208 0 4 1.792 4 4s-1.792 4-4 4c-1.296 0-2.449-.618-3.18-1.575-.02.012-.041.024-.063.035l-4.844 2.422c-.021.01-.042.02-.064.028.099.347.151.712.151 1.09 0 2.208-1.792 4-4 4s-4-1.792-4-4 1.792-4 4-4c1.296 0 2.449.618 3.18 1.575.02-.012.041-.024.063-.035l4.844-2.422c.021-.01.042-.02.064-.028-.099-.347-.151-.712-.151-1.09s.052-.743.151-1.09c-.022-.008-.043-.018-.064-.028l-4.844-2.422c-.022-.011-.043-.023-.063-.035zm-3.18 7.075c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zm12-6c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5zm-12-6c1.38 0 2.5 1.12 2.5 2.5s-1.12 2.5-2.5 2.5-2.5-1.12-2.5-2.5 1.12-2.5 2.5-2.5z"
 					fill-rule="evenodd"></path>
 			</svg>
-			<span class="wp-block-wielgosz-info-wi-collapsible-social-links-button-label screen-reader-text">Social
-				Links</span>
+			<span class="wp-block-wielgosz-info-wi-collapsible-social-links-button-label screen-reader-text">
+				<?php esc_html_e( 'Social Links', 'wi-sonx-fse' ); ?>
+			</span>
 		</button>
 		<nav class="wp-block-wielgosz-info-wi-collapsible-social-links-content"
 			id="5216f17a-7b87-4bda-ba97-51f843e7e59a-content" data-wp-bind--hidden="!context.isOpen">
