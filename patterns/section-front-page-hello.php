@@ -12,7 +12,7 @@
 
 ?>
 
-<!-- wp:wi-sonx-fse/front-page-section {"anchor":"hello","style":{"background":{"backgroundSize":"cover","backgroundPosition":"50% 50%","backgroundImage":{"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__hello__bg.svg' ) ); ?>","source":"file","title":""},"backgroundRepeat":"no-repeat"}},"inToC":false,"lock":{"move":true,"remove":true}} -->
+<!-- wp:wi-sonx-fse/front-page-section {"style":{"background":{"backgroundSize":"cover","backgroundPosition":"50% 50%","backgroundImage":{"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__hello__bg.svg' ) ); ?>","source":"file","title":""},"backgroundRepeat":"no-repeat"}},"inToC":false,"lock":{"move":true,"remove":true}} -->
 <section
 	class="wp-block-wi-sonx-fse-front-page-section alignfull has-contrast-color has-base-background-color has-text-color has-background"
 	id="hello" data-wp-interactive="wi-sonx-fse/front-page-section">

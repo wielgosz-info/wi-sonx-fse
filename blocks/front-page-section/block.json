@@ -43,9 +43,6 @@
 			"type": "string",
 			"default": "full"
 		},
-		"anchor": {
-			"type": "string"
-		},
 		"textColor": {
 			"type": "string",
 			"default": "contrast"

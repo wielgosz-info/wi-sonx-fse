@@ -12,7 +12,7 @@
 
 ?>
 
-<!-- wp:wi-sonx-fse/front-page-section {"anchor":"portfolio","lock":{"move":true,"remove":true}} -->
+<!-- wp:wi-sonx-fse/front-page-section {"lock":{"move":true,"remove":true}} -->
 <section
 	class="wp-block-wi-sonx-fse-front-page-section alignfull has-contrast-color has-base-background-color has-text-color has-background"
 	id="portfolio" data-wp-interactive="wi-sonx-fse/front-page-section" data-wp-init="wi-sonx-fse/front-page-toc::callbacks.register">
