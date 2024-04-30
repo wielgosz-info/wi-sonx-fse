@@ -57,6 +57,12 @@ class REST extends Utils\Singleton {
 		$patterns = $registry->get_all_registered();
 		foreach ( $patterns as $pattern ) {
 			$slug_without_prefix = str_replace( $this->theme_slug . '/', '', $pattern['slug'] );
+
+			if ( $slug_without_prefix === $pattern['slug'] ) {
+				// We only want to expose patterns that are prefixed with the theme slug.
+				continue;
+			}
+
 			register_rest_route(
 				$this->theme_slug . '/v1',
 				'/patterns/' . $slug_without_prefix,
