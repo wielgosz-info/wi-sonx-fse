@@ -5,7 +5,10 @@
 
 ## Screenshots
 
-![Screenshot of the Hero/Hello section](https://github.com/wielgosz-info/wi-sonx-fse/blob/e347e1feb56dcd03dbd4d172265e876f99a72ac4/screenshots/wi-sonx-fse.hero.png)
+![Screenshot of the Hero/Hello section](/screenshots/wi-sonx-fse.hero.png)
 
-![Screenshot of the About section](https://github.com/wielgosz-info/wi-sonx-fse/blob/e347e1feb56dcd03dbd4d172265e876f99a72ac4/screenshots/wi-sonx-fse.about.png)
+![Screenshot of the About section](/screenshots/wi-sonx-fse.about.png)
 
+![Screenshot of the Services section](/screenshots/wi-sonx-fse.services.png)
+
+![Screenshot of the Portfolio section](/screenshots/wi-sonx-fse.portfolio.png)
