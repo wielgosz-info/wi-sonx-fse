@@ -13,6 +13,7 @@ export function save() {
 			{...useBlockProps.save()}
 			aria-label={__('Table of contents', 'wi-sonx-fse')}
 			data-wp-interactive="wi-sonx-fse/front-page-toc"
+			data-wp-watch="callbacks.watch"
 		>
 			<button
 				className={`${defaultClassName}-button`}

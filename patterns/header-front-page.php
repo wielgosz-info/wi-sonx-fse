@@ -15,7 +15,7 @@
 
 	<!-- wp:wi-sonx-fse/front-page-toc {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|contrast"}}}}}} -->
 	<nav class="wp-block-wi-sonx-fse-front-page-toc has-link-color" aria-label="<?php esc_attr_e( 'Table of contents', 'wi-sonx-fse' ); ?>"
-		data-wp-interactive="wi-sonx-fse/front-page-toc"><button class="wp-block-wi-sonx-fse-front-page-toc-button"
+		data-wp-interactive="wi-sonx-fse/front-page-toc" data-wp-watch="callbacks.watch"><button class="wp-block-wi-sonx-fse-front-page-toc-button"
 			aria-label="<?php esc_attr_e( 'Open table of contents', 'wi-sonx-fse' ); ?>" aria-controls="wp-block-wi-sonx-fse-front-page-toc-list"
 			aria-expanded="false" data-wp-on--click="actions.open" data-wp-bind--aria-expanded="state.isOpen"><svg
 				viewBox="0 0 31 18" aria-hidden="true" version="1.1">

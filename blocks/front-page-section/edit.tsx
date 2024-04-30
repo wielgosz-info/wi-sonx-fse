@@ -24,13 +24,15 @@ export function Edit({ name, attributes, setAttributes, clientId }) {
 					'core/group',
 					{
 						style: {
-							padding: {
-								top: 'var:preset:spacing:60',
-								right: 'var:preset:spacing:30',
-								bottom: 'var:preset:spacing:60',
-								left: 'var:preset:spacing:30',
+							spacing: {
+								padding: {
+									top: 'var:preset|spacing|60',
+									right: 'var:preset|spacing|30',
+									bottom: 'var:preset|spacing|60',
+									left: 'var:preset|spacing|30',
+								},
+								blockGap: 'var:preset|spacing|70',
 							},
-							blockGap: 'var:preset|spacing|70',
 						},
 						layout: {
 							type: 'flex',
