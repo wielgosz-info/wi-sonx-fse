@@ -9,6 +9,7 @@
 .wi-front-page-main-content {
 	height: 100%;
 	overflow-y: auto;
+	scroll-behavior: smooth;
 }
 
 @media (--huge-viewport) {
@@ -19,7 +20,6 @@
 
 @media (--front-page-snap) {
 	.wi-front-page-main-content {
-		scroll-behavior: smooth;
 		scroll-snap-type: y proximity;
 	}
 }

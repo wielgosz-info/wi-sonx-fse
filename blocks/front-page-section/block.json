@@ -35,7 +35,8 @@
 			"allowCustomContentAndWideSize": false,
 			"allowSwitching": false,
 			"allowEditing": false
-		}
+		},
+		"interactivity": true
 	},
 	"attributes": {
 		"align": {
