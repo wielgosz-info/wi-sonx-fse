@@ -16,8 +16,8 @@
 	<div class="wp-block-wielgosz-info-wi-query-tax-filter wi-front-page-loop-query-tax-filter">
 		<!-- wp:buttons {"layout":{"type":"flex","justifyContent":"right"},"style":{"spacing":{"blockGap":"var:preset|spacing|30"}}} -->
 		<div class="wp-block-buttons">
-			<!-- wp:button -->
-			<div class="wp-block-button"><a class="wp-block-button__link wp-element-button"
+			<!-- wp:button {"className":"is-style-pill"} -->
+			<div class="wp-block-button is-style-pill"><a class="wp-block-button__link wp-element-button"
 					href="?query-1-page=1">All</a></div>
 			<!-- /wp:button -->
 		</div>

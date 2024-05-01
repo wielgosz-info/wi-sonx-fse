@@ -10,3 +10,6 @@
 /* Project-specific breakpoints */
 @custom-media --front-page-toc screen and (min-width: 1440px) and (min-height: 600px);
 @custom-media --front-page-snap screen and (min-width: 1440px) and (min-height: 850px);
+
+/* For specific below-small overrides */
+@custom-media --below-small screen and (max-width: 599.98px);
