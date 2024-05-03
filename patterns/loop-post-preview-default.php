@@ -15,13 +15,13 @@
 <article class="wp-block-group wi-loop-post-preview" style="min-height:100%">
 	<!-- wp:group {"backgroundColor":"off-base","className":"wi-loop-post-preview-image"} -->
 	<div class="wp-block-group wi-loop-post-preview-image has-off-base-background-color has-background">
-		<!-- wp:post-date {"format":"M j, Y","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}},"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|20","right":"var:preset|spacing|20"},"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"primary","textColor":"contrast","fontSize":"small"} /-->
+		<!-- wp:post-date {"format":"M j, Y","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|20","right":"var:preset|spacing|20"},"margin":{"top":"var:preset|spacing|40","bottom":"var:preset|spacing|40","left":"var:preset|spacing|40","right":"var:preset|spacing|40"}}},"backgroundColor":"primary","textColor":"contrast","fontSize":"small"} /-->
 
 		<!-- wp:post-featured-image {"isLink":true,"aspectRatio":"1","style":{"layout":{"selfStretch":"fill","flexSize":null}}} /-->
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:post-title {"level":3,"isLink":true,"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|primary"}}}},"layout":{"selfStretch":"fill","flexSize":null}},"textColor":"contrast","fontSize":"large"} /-->
+	<!-- wp:post-title {"level":3,"isLink":true,"style":{"layout":{"selfStretch":"fill","flexSize":null}},"textColor":"contrast","fontSize":"large"} /-->
 
 	<!-- wp:group {"style":{"elements":{"link":{"color":{"text":"var:preset|color|off-contrast"},":hover":{"color":{"text":"var:preset|color|primary"}}}},"spacing":{"blockGap":"var:preset|spacing|30"}},"textColor":"off-contrast","layout":{"type":"flex"},"fontSize":"small"} -->
 	<div class="wp-block-group has-off-contrast-color has-text-color has-link-color has-small-font-size">
