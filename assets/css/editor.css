@@ -7,7 +7,7 @@
 			min-height: 15rem;
 		}
 
-		.wi-loop-post-preview-project-content {
+		.wi-loop-post-preview-project__content {
 			position: absolute;
 			inset: auto 0 0 0;
 			height: auto;

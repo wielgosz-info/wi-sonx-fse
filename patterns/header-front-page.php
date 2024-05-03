@@ -9,32 +9,32 @@
 
 ?>
 
-<!-- wp:group {"className":"wi-front-page-header-menu"} -->
-<div class="wp-block-group wi-front-page-header-menu">
+<!-- wp:group {"className":"wi-front-page-header__menu"} -->
+<div class="wp-block-group wi-front-page-header__menu">
 	<!-- wp:site-logo {"width":60,"isLink":false,"shouldSyncIcon":true} /-->
 
 	<!-- wp:wi-sonx-fse/front-page-toc -->
 	<nav class="wp-block-wi-sonx-fse-front-page-toc" aria-label="<?php esc_attr_e( 'Table of contents', 'wi-sonx-fse' ); ?>"
-		data-wp-interactive="wi-sonx-fse/front-page-toc" data-wp-watch="callbacks.watch"><button class="wp-block-wi-sonx-fse-front-page-toc-button"
-			aria-label="<?php esc_attr_e( 'Open table of contents', 'wi-sonx-fse' ); ?>" aria-controls="wp-block-wi-sonx-fse-front-page-toc-list"
+		data-wp-interactive="wi-sonx-fse/front-page-toc" data-wp-watch="callbacks.watch"><button class="wp-block-wi-sonx-fse-front-page-toc__button"
+			aria-label="<?php esc_attr_e( 'Open table of contents', 'wi-sonx-fse' ); ?>" aria-controls="wp-block-wi-sonx-fse-front-page-toc__list"
 			aria-expanded="false" data-wp-on--click="actions.open" data-wp-bind--aria-expanded="state.isOpen"><svg
 				viewBox="0 0 31 18" aria-hidden="true" version="1.1">
 				<path d="m6 0h24v.75h-24z"></path>
 				<path d="m6 16.5h24v.75h-24z"></path>
 				<path d="m0 8.25h24v.75h-24z"></path>
 			</svg></button>
-		<ol class="wp-block-wi-sonx-fse-front-page-toc-list" id="wp-block-wi-sonx-fse-front-page-toc-list"
+		<ol class="wp-block-wi-sonx-fse-front-page-toc__list" id="wp-block-wi-sonx-fse-front-page-toc__list"
 			data-wp-bind--hidden="!state.isOpen"><template data-wp-each="state.sections"
 				data-wp-each-key="context.item.anchor">
-				<li class="wp-block-wi-sonx-fse-front-page-toc-item"><a class="wp-block-wi-sonx-fse-front-page-toc-link"
-						data-wp-bind--href="state.href"><span class="wp-block-wi-sonx-fse-front-page-toc-label"
+				<li class="wp-block-wi-sonx-fse-front-page-toc__item"><a class="wp-block-wi-sonx-fse-front-page-toc__link"
+						data-wp-bind--href="state.href"><span class="wp-block-wi-sonx-fse-front-page-toc__label"
 							data-wp-text="context.item.title"></span></a></li>
 			</template></ol>
 	</nav>
 	<!-- /wp:wi-sonx-fse/front-page-toc -->
 
-	<!-- wp:wielgosz-info/wi-collapsible-social-links {"clientId":"5216f17a-7b87-4bda-ba97-51f843e7e59a","size":"has-large-icon-size","backgroundColor":"off-base","textColor":"contrast"} -->
-	<div class="wp-block-wielgosz-info-wi-collapsible-social-links is-horizontal-at-medium has-large-icon-size has-contrast-color has-off-base-background-color has-text-color has-background"
+	<!-- wp:wielgosz-info/wi-collapsible-social-links {"clientId":"5216f17a-7b87-4bda-ba97-51f843e7e59a","size":"has-large-icon-size","backgroundColor":"base-2","textColor":"contrast"} -->
+	<div class="wp-block-wielgosz-info-wi-collapsible-social-links is-horizontal-at-medium has-large-icon-size has-contrast-color has-base-2-background-color has-text-color has-background"
 		data-wp-interactive="WICollapsibleSocialLinks" data-wp-context="{ &quot;isOpen&quot;: false }">
 		<button class="wp-block-wielgosz-info-wi-collapsible-social-links-button" data-wp-on--click="actions.toggle"
 			data-wp-bind--aria-expanded="context.isOpen" aria-controls="5216f17a-7b87-4bda-ba97-51f843e7e59a-content">

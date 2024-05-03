@@ -15,7 +15,7 @@
 	<!-- wp:pattern {"slug":"wi-sonx-fse/loop-post-preview-default"} /-->
 	<!-- /wp:post-template -->
 
-	<!-- wp:query-pagination {"paginationArrow":"chevron","showLabel":false,"className":"wi-loop-more-posts-pagination","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
+	<!-- wp:query-pagination {"paginationArrow":"chevron","showLabel":false,"className":"wi-loop-more-posts__pagination","layout":{"type":"flex","justifyContent":"right","flexWrap":"nowrap"}} -->
 	<!-- wp:query-pagination-previous /-->
 	<!-- wp:query-pagination-next /-->
 	<!-- /wp:query-pagination -->

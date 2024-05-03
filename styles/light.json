@@ -11,34 +11,39 @@
 					"color": "var(--wp--preset--color--white)"
 				},
 				{
+					"name": "Base / Two",
+					"slug": "base-2",
+					"color": "var(--wp--custom--color--gray-900)"
+				},
+				{
 					"name": "Contrast",
 					"slug": "contrast",
 					"color": "var(--wp--custom--color--gray-300)"
 				},
 				{
-					"name": "Primary",
-					"slug": "primary",
-					"color": "var(--wp--custom--color--green-500)"
-				},
-				{
-					"name": "Border",
-					"slug": "border",
-					"color": "var(--wp--custom--color--gray-700)"
-				},
-				{
-					"name": "Off-Base",
-					"slug": "off-base",
-					"color": "var(--wp--custom--color--gray-900)"
-				},
-				{
-					"name": "Off-Contrast",
-					"slug": "off-contrast",
+					"name": "Contrast / Two",
+					"slug": "contrast-2",
 					"color": "var(--wp--custom--color--gray-400)"
 				},
 				{
-					"name": "Dim-Primary",
-					"slug": "dim-primary",
+					"name": "Contrast / Three",
+					"slug": "contrast-3",
+					"color": "var(--wp--custom--color--gray-700)"
+				},
+				{
+					"name": "Accent",
+					"slug": "accent",
+					"color": "var(--wp--custom--color--green-500)"
+				},
+				{
+					"name": "Accent / Two",
+					"slug": "accent-2",
 					"color": "var(--wp--custom--color--green-700)"
+				},
+				{
+					"name": "Accent / Three",
+					"slug": "accent-3",
+					"color": "var(--wp--custom--color--green-900)"
 				}
 			]
 		}

@@ -22,14 +22,14 @@ const { state, callbacks } = store('wi-sonx-fse/skill-percentage', {
 		get colors() {
 			const { ref } = getElement();
 			const computedStyle = window.getComputedStyle(ref);
-			const primaryColor = computedStyle.getPropertyValue(
-				'--wp--preset--color--primary'
+			const accentColor = computedStyle.getPropertyValue(
+				'--wp--preset--color--accent'
 			);
-			const dimPrimaryColor = computedStyle.getPropertyValue(
-				'--wp--preset--color--dim-primary'
+			const dimaccentColor = computedStyle.getPropertyValue(
+				'--wp--preset--color--accent-2'
 			);
 
-			return [primaryColor, dimPrimaryColor];
+			return [accentColor, dimaccentColor];
 		},
 		get animationDuration() {
 			const duration = getContext().animation.duration;

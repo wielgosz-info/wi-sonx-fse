@@ -16,7 +16,7 @@
 <section
 	class="wp-block-wi-sonx-fse-front-page-section alignfull has-contrast-color has-base-background-color has-text-color has-background"
 	id="hello" data-wp-interactive="wi-sonx-fse/front-page-section">
-	<div class="wp-block-wi-sonx-fse-front-page-section-content">
+	<div class="wp-block-wi-sonx-fse-front-page-section__content">
 		<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"style":{"dimensions":{"minHeight":"100%"},"background":{"backgroundImage":{"url":"<?php echo esc_url( get_theme_file_uri( 'assets/images/front-page__hello__person.png' ) ); ?>","source":"file","title":""},"backgroundPosition":"100% 100%","backgroundSize":"65%","backgroundRepeat":"no-repeat"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch","verticalAlignment":"center"}} -->
 		<div class="wp-block-group" style="min-height:100%">
 			<!-- wp:columns {"verticalAlignment":"center","style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}}} -->
@@ -24,8 +24,8 @@
 				style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:column {"verticalAlignment":"center","width":"90%"} -->
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:90%">
-					<!-- wp:paragraph {"placeholder":"Content…","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.4em"},"spacing":{"padding":{"left":"var:preset|spacing|10"}}},"textColor":"primary","fontSize":"large"} -->
-					<p class="has-primary-color has-text-color has-large-font-size"
+					<!-- wp:paragraph {"placeholder":"Content…","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.4em"},"spacing":{"padding":{"left":"var:preset|spacing|10"}}},"textColor":"accent","fontSize":"large"} -->
+					<p class="has-accent-color has-text-color has-large-font-size"
 						style="padding-left:var(--wp--preset--spacing--10);font-style:normal;font-weight:700;letter-spacing:0.4em;text-transform:uppercase"><?php esc_html_e( "Hello I'm", 'wi-sonx-fse' ); ?></p>
 					<!-- /wp:paragraph -->
 

@@ -25,21 +25,21 @@ export function save({ attributes }) {
 		>
 			<canvas
 				id={canvasId}
-				className={`${defaultClassName}-canvas`}
+				className={`${defaultClassName}__canvas`}
 				data-wp-init="callbacks.initChart"
 			></canvas>
-			<div className={`${defaultClassName}-percentage`}>
+			<div className={`${defaultClassName}__percentage`}>
 				<span
-					className={`${defaultClassName}-value`}
+					className={`${defaultClassName}__value`}
 					data-wp-text="context.percentageCounter"
 				>
 					{percentage}
 				</span>
-				<span className={`${defaultClassName}-suffix`}>%</span>
+				<span className={`${defaultClassName}__suffix`}>%</span>
 			</div>
 			{!RichText.isEmpty(caption) && (
 				<RichText.Content
-					className={`wp-element-caption ${defaultClassName}-caption`}
+					className={`wp-element-caption ${defaultClassName}__caption`}
 					tagName="figcaption"
 					value={caption}
 				/>

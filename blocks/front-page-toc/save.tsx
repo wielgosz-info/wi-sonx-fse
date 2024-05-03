@@ -16,9 +16,9 @@ export function save() {
 			data-wp-watch="callbacks.watch"
 		>
 			<button
-				className={`${defaultClassName}-button`}
+				className={`${defaultClassName}__button`}
 				aria-label={__('Open table of contents', 'wi-sonx-fse')}
-				aria-controls={`${defaultClassName}-list`}
+				aria-controls={`${defaultClassName}__list`}
 				aria-expanded="false"
 				data-wp-on--click="actions.open"
 				data-wp-bind--aria-expanded="state.isOpen"
@@ -35,22 +35,22 @@ export function save() {
 				</SVG>
 			</button>
 			<ol
-				className={`${defaultClassName}-list`}
-				id={`${defaultClassName}-list`}
+				className={`${defaultClassName}__list`}
+				id={`${defaultClassName}__list`}
 				data-wp-bind--hidden="!state.isOpen"
 			>
 				<template
 					data-wp-each="state.sections"
 					data-wp-each-key="context.item.anchor"
 				>
-					<li className={`${defaultClassName}-item`}>
+					<li className={`${defaultClassName}__item`}>
 						{/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
 						<a
-							className={`${defaultClassName}-link`}
+							className={`${defaultClassName}__link`}
 							data-wp-bind--href="state.href"
 						>
 							<span
-								className={`${defaultClassName}-label`}
+								className={`${defaultClassName}__label`}
 								data-wp-text="context.item.title"
 							/>
 						</a>

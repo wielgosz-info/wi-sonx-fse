@@ -1,9 +1,9 @@
-.wi-front-page-loop-more-posts .wi-loop-more-posts-pagination {
+.wi-front-page-loop-more-posts .wi-loop-more-posts__pagination {
 	margin-top: var(--wp--preset--spacing--60);
 }
 
 @media (--small-viewport) {
-	.wi-front-page-loop-more-posts .wi-loop-more-posts-pagination {
+	.wi-front-page-loop-more-posts .wi-loop-more-posts__pagination {
 	  position: absolute;
 	  top: 0;
 	  right: var(--wp--preset--spacing--30);

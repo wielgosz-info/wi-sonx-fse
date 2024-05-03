@@ -7,7 +7,7 @@
 	}
 }
 
-.wi-loop-post-preview-project-content {
+.wi-loop-post-preview-project__content {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
@@ -18,7 +18,7 @@
 	aspect-ratio: 3 / 4;
 }
 
-.wp-block-post.has-post-thumbnail .wi-loop-post-preview-project-content {
+.wp-block-post.has-post-thumbnail .wi-loop-post-preview-project__content {
 	position: absolute;
 	inset: auto 0 0 0;
 	height: 25%;
@@ -26,7 +26,7 @@
 }
 
 @media (hover:hover) {
-	.wi-loop-post-preview-project-content {
+	.wi-loop-post-preview-project__content {
 		opacity: 0;
 		transition: opacity var(--wp--custom--transition--duration)
 			var(--wp--custom--transition--timing-function),
@@ -38,7 +38,7 @@
 	.wi-loop-post-preview-project:hover,
 	.wi-loop-post-preview-project:focus,
 	.wp-block-post:not(.has-post-thumbnail) {
-		.wi-loop-post-preview-project-content {
+		.wi-loop-post-preview-project__content {
 			height: 100%;
 			opacity: 1;
 		}

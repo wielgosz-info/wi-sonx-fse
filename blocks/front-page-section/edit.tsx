@@ -16,7 +16,7 @@ export function Edit({ name, attributes, setAttributes, clientId }) {
 	const blockProps = useBlockProps();
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `${defaultClassName}-content`,
+			className: `${defaultClassName}__content`,
 		},
 		{
 			template: [

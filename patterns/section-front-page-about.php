@@ -23,7 +23,7 @@ $skills = array(
 <section
 	class="wp-block-wi-sonx-fse-front-page-section alignfull has-contrast-color has-base-background-color has-text-color has-background"
 	id="about" data-wp-interactive="wi-sonx-fse/front-page-section" data-wp-init="wi-sonx-fse/front-page-toc::callbacks.register">
-	<div class="wp-block-wi-sonx-fse-front-page-section-content">
+	<div class="wp-block-wi-sonx-fse-front-page-section__content">
 		<!-- wp:group {"templateLock":"all","lock":{"move":true,"remove":true},"style":{"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|30","right":"var:preset|spacing|30"},"blockGap":"var:preset|spacing|70"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch","flexWrap":"nowrap"}} -->
 		<div class="wp-block-group"
 			style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)">
@@ -37,8 +37,8 @@ $skills = array(
 				</div>
 				<!-- /wp:column -->
 
-				<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"textColor":"off-contrast","fontSize":"medium"} -->
-				<div class="wp-block-column has-off-contrast-color has-text-color has-medium-font-size">
+				<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"textColor":"contrast-2","fontSize":"medium"} -->
+				<div class="wp-block-column has-contrast-2-color has-text-color has-medium-font-size">
 					<!-- wp:paragraph -->
 					<p>Tristique fames sed aliquet ultricies eget
 						viverra arcu vitae dipiscing polomius consequat maecenas turpis metus sit dac quam nunc amet
@@ -87,15 +87,15 @@ $skills = array(
 							data-wp-watch--in-view="callbacks.watchInView"
 						>
 							<canvas id="<?php echo esc_attr( sprintf( 'skill-%s-canvas', $idx + 1 ) ); ?>"
-								class="wp-block-wi-sonx-fse-skill-percentage-canvas"
+								class="wp-block-wi-sonx-fse-skill-percentage__canvas"
 								data-wp-init="callbacks.initChart"></canvas>
-							<div class="wp-block-wi-sonx-fse-skill-percentage-percentage"><span
-									class="wp-block-wi-sonx-fse-skill-percentage-value"
+							<div class="wp-block-wi-sonx-fse-skill-percentage__percentage"><span
+									class="wp-block-wi-sonx-fse-skill-percentage__value"
 									data-wp-text="context.percentageCounter">
 									<?php echo esc_html( $skill ); ?>
-								</span><span class="wp-block-wi-sonx-fse-skill-percentage-suffix">%</span>
+								</span><span class="wp-block-wi-sonx-fse-skill-percentage__suffix">%</span>
 							</div>
-							<figcaption class="wp-element-caption wp-block-wi-sonx-fse-skill-percentage-caption">
+							<figcaption class="wp-element-caption wp-block-wi-sonx-fse-skill-percentage__caption">
 								<?php esc_html_e( 'Skill', 'wi-sonx-fse' ); ?>
 								<?php echo esc_html( $idx + 1 ); ?>
 							</figcaption>

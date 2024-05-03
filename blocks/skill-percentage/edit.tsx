@@ -74,7 +74,7 @@ export function Edit({
 			</InspectorControls>
 
 			<figure {...blockProps}>
-				<div className={classnames(`${defaultClassName}-canvas`)}>
+				<div className={classnames(`${defaultClassName}__canvas`)}>
 					<RangeControl
 						label={__('Skill percentage', 'wi-sonx-fse')}
 						value={percentage}
@@ -95,7 +95,7 @@ export function Edit({
 						tagName="figcaption"
 						className={classnames(
 							'wp-element-caption',
-							`${defaultClassName}-caption`
+							`${defaultClassName}__caption`
 						)}
 						aria-label={__('Skill caption', 'wi-sonx-fse')}
 						placeholder={__('Skill', 'wi-sonx-fse')}
