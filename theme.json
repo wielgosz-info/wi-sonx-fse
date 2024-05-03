@@ -274,7 +274,8 @@
 					"fontWeight": "700",
 					"textTransform": "uppercase",
 					"fontSize": "var(--wp--preset--font-size--small)",
-					"lineHeight": "1.4"
+					"lineHeight": "1.4",
+					"letterSpacing": "0.05em"
 				},
 				"color": {
 					"text": "var(--wp--preset--color--contrast)",

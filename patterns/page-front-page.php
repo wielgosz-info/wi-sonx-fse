@@ -9,6 +9,12 @@
  * @package WI\SonxFSE
  */
 
+/* Initialize the query ID counter.
+   This is used to generate unique IDs for each query block to prevent with pagination
+   when the Front Page pattern is inserted directly. */
+global $nextQueryId;
+$nextQueryId = 0;
+
 ?>
 
 <!-- wp:pattern {"slug":"wi-sonx-fse/section-front-page-hello"} /-->

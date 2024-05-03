@@ -12,6 +12,7 @@
 	border-radius: 9999px;
 	text-transform: none;
 	font-weight: 600;
+	letter-spacing: normal;
 	padding: var(--wp--preset--spacing--30);
 	line-height: 1.5;
 	min-width: calc(

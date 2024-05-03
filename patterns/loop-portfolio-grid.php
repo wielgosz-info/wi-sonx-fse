@@ -7,10 +7,13 @@
  * @package WI\SonxFSE
  */
 
+global $nextQueryId;
+$queryId = isset( $nextQueryId ) ? $nextQueryId++ : null;
+
 ?>
 
 
-<!-- wp:query {"query":{"perPage":"8","pages":0,"offset":0,"postType":"wi-project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"enhancedPagination":true,"className":"wi-loop-portfolio-grid"} -->
+<!-- wp:query {<?php $queryId !== null ? printf('"queryId": %d,', $queryId) : ""; ?>"query":{"perPage":"8","pages":0,"offset":0,"postType":"wi-project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"enhancedPagination":true,"className":"wi-loop-portfolio-grid"} -->
 <div class="wp-block-query wi-loop-portfolio-grid">
 	<!-- wp:wielgosz-info/wi-query-tax-filter {"taxonomy":"wi-project-category","className":"wi-front-page-loop-query-tax-filter"} -->
 	<div class="wp-block-wielgosz-info-wi-query-tax-filter wi-front-page-loop-query-tax-filter">
