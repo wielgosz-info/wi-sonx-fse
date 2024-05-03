@@ -13,8 +13,8 @@
 <div class="wp-block-group wi-front-page-header-menu">
 	<!-- wp:site-logo {"width":60,"isLink":false,"shouldSyncIcon":true} /-->
 
-	<!-- wp:wi-sonx-fse/front-page-toc {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|contrast"}}}}}} -->
-	<nav class="wp-block-wi-sonx-fse-front-page-toc has-link-color" aria-label="<?php esc_attr_e( 'Table of contents', 'wi-sonx-fse' ); ?>"
+	<!-- wp:wi-sonx-fse/front-page-toc -->
+	<nav class="wp-block-wi-sonx-fse-front-page-toc" aria-label="<?php esc_attr_e( 'Table of contents', 'wi-sonx-fse' ); ?>"
 		data-wp-interactive="wi-sonx-fse/front-page-toc" data-wp-watch="callbacks.watch"><button class="wp-block-wi-sonx-fse-front-page-toc-button"
 			aria-label="<?php esc_attr_e( 'Open table of contents', 'wi-sonx-fse' ); ?>" aria-controls="wp-block-wi-sonx-fse-front-page-toc-list"
 			aria-expanded="false" data-wp-on--click="actions.open" data-wp-bind--aria-expanded="state.isOpen"><svg
@@ -33,8 +33,8 @@
 	</nav>
 	<!-- /wp:wi-sonx-fse/front-page-toc -->
 
-	<!-- wp:wielgosz-info/wi-collapsible-social-links {"clientId":"5216f17a-7b87-4bda-ba97-51f843e7e59a","size":"has-large-icon-size","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"}}}},"backgroundColor":"off-base","textColor":"contrast"} -->
-	<div class="wp-block-wielgosz-info-wi-collapsible-social-links is-horizontal-at-medium has-large-icon-size has-contrast-color has-off-base-background-color has-text-color has-background has-link-color"
+	<!-- wp:wielgosz-info/wi-collapsible-social-links {"clientId":"5216f17a-7b87-4bda-ba97-51f843e7e59a","size":"has-large-icon-size","backgroundColor":"off-base","textColor":"contrast"} -->
+	<div class="wp-block-wielgosz-info-wi-collapsible-social-links is-horizontal-at-medium has-large-icon-size has-contrast-color has-off-base-background-color has-text-color has-background"
 		data-wp-interactive="WICollapsibleSocialLinks" data-wp-context="{ &quot;isOpen&quot;: false }">
 		<button class="wp-block-wielgosz-info-wi-collapsible-social-links-button" data-wp-on--click="actions.toggle"
 			data-wp-bind--aria-expanded="context.isOpen" aria-controls="5216f17a-7b87-4bda-ba97-51f843e7e59a-content">

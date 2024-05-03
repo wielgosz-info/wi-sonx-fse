@@ -24,8 +24,8 @@
 				style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--30);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--30)">
 				<!-- wp:column {"verticalAlignment":"center","width":"90%"} -->
 				<div class="wp-block-column is-vertically-aligned-center" style="flex-basis:90%">
-					<!-- wp:paragraph {"placeholder":"Content…","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}},"typography":{"fontStyle":"normal","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.4em"},"spacing":{"padding":{"left":"var:preset|spacing|10"}}},"textColor":"primary","fontSize":"large"} -->
-					<p class="has-primary-color has-text-color has-link-color has-large-font-size"
+					<!-- wp:paragraph {"placeholder":"Content…","style":{"typography":{"fontStyle":"normal","fontWeight":"700","textTransform":"uppercase","letterSpacing":"0.4em"},"spacing":{"padding":{"left":"var:preset|spacing|10"}}},"textColor":"primary","fontSize":"large"} -->
+					<p class="has-primary-color has-text-color has-large-font-size"
 						style="padding-left:var(--wp--preset--spacing--10);font-style:normal;font-weight:700;letter-spacing:0.4em;text-transform:uppercase"><?php esc_html_e( "Hello I'm", 'wi-sonx-fse' ); ?></p>
 					<!-- /wp:paragraph -->
 

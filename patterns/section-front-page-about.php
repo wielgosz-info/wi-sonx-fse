@@ -37,8 +37,8 @@ $skills = array(
 				</div>
 				<!-- /wp:column -->
 
-				<!-- wp:column {"style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast"},":hover":{"color":{"text":"var:preset|color|primary"}}}},"spacing":{"blockGap":"var:preset|spacing|50"}},"textColor":"off-contrast","fontSize":"medium"} -->
-				<div class="wp-block-column has-off-contrast-color has-text-color has-link-color has-medium-font-size">
+				<!-- wp:column {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"textColor":"off-contrast","fontSize":"medium"} -->
+				<div class="wp-block-column has-off-contrast-color has-text-color has-medium-font-size">
 					<!-- wp:paragraph -->
 					<p>Tristique fames sed aliquet ultricies eget
 						viverra arcu vitae dipiscing polomius consequat maecenas turpis metus sit dac quam nunc amet
