@@ -1,0 +1,11 @@
+ul, ol, dl dd {
+	padding-inline-start: 3ch;
+}
+
+dl {
+	padding-inline-start: 0;
+}
+
+li::marker {
+	color: var(--wp--preset--color--accent);
+}

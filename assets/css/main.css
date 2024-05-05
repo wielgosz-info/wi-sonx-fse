@@ -1,10 +1,16 @@
 /* Tools. */
 @import "tools/custom-media.css";
 
+/* Elements */
+@import "elements/blockquote.css";
+@import "elements/list.css";
+
 /* Core WP block overrides that would be hard to achieve in theme.json + custom Block Styles. */
 @import "blocks/button.css";
 @import "blocks/navigation.css";
+@import "blocks/pullquote.css";
 @import "blocks/query-pagination.css";
+@import "blocks/quote.css";
 
 /* Default styles for most of the site. */
 @import "default/header.css";

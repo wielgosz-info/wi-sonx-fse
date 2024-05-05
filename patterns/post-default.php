@@ -10,7 +10,7 @@
 
 ?>
 
-<!-- wp:group {"tagName":"article","metadata":{"name":"Article"},"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"article","metadata":{"name":"Article","categories":["theme"],"patternName":"wi-sonx-fse/post-default"},"align":"wide","layout":{"type":"constrained"}} -->
 <article class="wp-block-group alignwide">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40","margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group alignwide"
@@ -37,7 +37,7 @@
 				<!-- wp:avatar {"size":48,"style":{"border":{"radius":"9999px","color":"#ffffff","width":"3px"},"layout":{"selfStretch":"fit","flexSize":null},"spacing":{"margin":{"right":"var:preset|spacing|20"}}}} /-->
 
 				<!-- wp:paragraph -->
-				<p>Posted by</p>
+				<p><?php esc_html_e( 'Posted by', 'wi-sonx-fse' ); ?></p>
 				<!-- /wp:paragraph -->
 
 				<!-- wp:post-author-name /-->
@@ -47,7 +47,8 @@
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
 				<!-- wp:wi-sonx-fse/icon {"icon":"CommentsCount","style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}},"textColor":"accent"} -->
-				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"><svg viewBox="0 0 24 24" version="1.1" aria-hidden="true">
+				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"><svg
+						viewBox="0 0 24 24" version="1.1" aria-hidden="true">
 						<path
 							d="m2 6c0-1.656 1.344-3 3-3h14c1.656 0 3 1.344 3 3v8c0 1.656-1.344 3-3 3h-3l2 5-6-5h-7c-1.656 0-3-1.344-3-3z">
 						</path>
@@ -61,7 +62,8 @@
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
 				<!-- wp:wi-sonx-fse/icon {"icon":"Time","style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}},"textColor":"accent"} -->
-				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"><svg viewBox="0 0 24 24" version="1.1" aria-hidden="true">
+				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"><svg
+						viewBox="0 0 24 24" version="1.1" aria-hidden="true">
 						<path
 							d="m12 2c5.519 0 10 4.481 10 10s-4.481 10-10 10-10-4.481-10-10 4.481-10 10-10zm0 2c4.415 0 8 3.585 8 8s-3.585 8-8 8-8-3.585-8-8 3.585-8 8-8z"
 							fill-rule="evenodd"></path>
