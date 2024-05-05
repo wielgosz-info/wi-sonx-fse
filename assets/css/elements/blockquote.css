@@ -1,4 +1,4 @@
 blockquote {
 	margin-inline: 0;
-	padding-inline: 3ch;
+	padding-inline: var(--wp--preset--spacing--40);
 }

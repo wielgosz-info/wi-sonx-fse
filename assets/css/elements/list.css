@@ -1,5 +1,5 @@
 ul, ol, dl dd {
-	padding-inline-start: 3ch;
+	padding-inline-start: var(--wp--preset--spacing--40);
 }
 
 dl {

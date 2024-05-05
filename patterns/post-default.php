@@ -84,8 +84,10 @@
 	<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"constrained"}} -->
 	<div class="wp-block-group"
 		style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)">
-		<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"textColor":"contrast-2"} /-->
+		<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|50"},"typography":{"lineHeight":"1.8"}},"textColor":"contrast-2"} /-->
 	</div>
 	<!-- /wp:group -->
+
+	<!-- wp:post-terms {"term":"category","prefix":"<?php esc_html_e( 'Posted in: ', 'wi-sonx-fse' ); ?>","style":{"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"},":hover":{"color":{"text":"var:preset|color|contrast"}}}},"spacing":{"padding":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50","left":"var:preset|spacing|60","right":"var:preset|spacing|60"}}},"backgroundColor":"base-2","textColor":"contrast-2","fontSize":"small"} /-->
 </article>
 <!-- /wp:group -->

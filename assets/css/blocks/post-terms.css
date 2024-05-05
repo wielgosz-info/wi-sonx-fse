@@ -1,0 +1,11 @@
+.wp-block-post-terms a {
+	text-decoration: none;
+
+	&:hover {
+		text-decoration: underline;
+	}
+}
+
+.wp-block-post-terms__prefix {
+	text-transform: uppercase;
+}

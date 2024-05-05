@@ -1,0 +1,4 @@
+.wp-block-table th {
+	text-align: left;
+	color: var(--wp--preset--color--contrast);
+}

@@ -1,0 +1,5 @@
+.wp-block-code {
+	padding: var(--wp--preset--spacing--40);
+	background: var(--wp--preset--color--base-2);
+	color: var(--wp--preset--color--contrast);
+}

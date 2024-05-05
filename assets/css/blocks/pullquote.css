@@ -1,7 +1,24 @@
 .wp-block-pullquote {
+	position: relative;
 	padding: var(--wp--preset--spacing--70) 0;
 	font-size: var(--wp--preset--font-size--x-large);
 	line-height: 1.5;
+
+	&::before {
+		content: '';
+		position: absolute;
+		bottom: var(--wp--preset--spacing--40);
+		right:  var(--wp--preset--spacing--40);
+		width: 45%;
+		aspect-ratio: 327 / 171;
+		background-color: var(--wp--preset--color--base-2);
+		mask-image: url('data:image/svg+xml,<svg viewBox="0 0 327 171" xmlns="http://www.w3.org/2000/svg" version="1.1" fill-rule="evenodd"><path d="m75 171c-32.25-11.25-75-54.813-75-96s33.438-75 74.625-75 75.375 33.813 75.375 75-33.813 75-75 75zm-2-2.881c-15.22-6.044-32.4-18.986-46.065-35.182-14.406-17.075-24.935-37.782-24.935-57.937 0-40.086 32.539-73 72.625-73 40.091 0 73.375 32.909 73.375 73 0 40.088-32.912 73-73 73-1.105 0-2 .895-2 2z"/><path d="m252 171c-32.25-11.25-75-54.813-75-96s33.438-75 74.625-75 75.375 33.813 75.375 75-33.813 75-75 75zm-2-2.881c-15.22-6.044-32.4-18.986-46.065-35.182-14.406-17.075-24.935-37.782-24.935-57.937 0-40.086 32.539-73 72.625-73 40.091 0 73.375 32.909 73.375 73 0 40.088-32.912 73-73 73-1.105 0-2 .895-2 2z"/></svg>');
+	}
+}
+
+.wp-block-pullquote blockquote {
+	position: relative;
+	z-index: 1;
 }
 
 .wp-block-pullquote p {
