@@ -9,6 +9,7 @@
 	.wp-block-avatar {
 		margin-left: calc(-1 * var(--wp--preset--spacing--50));
 		width: var(--wi--comment--avatar-size);
+		background: var(--wp--preset--color--contrast-3);
 
 		> img {
 			width: 100%;

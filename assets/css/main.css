@@ -3,6 +3,7 @@
 
 /* Elements */
 @import "elements/blockquote.css";
+@import "elements/body.css";
 @import "elements/code.css";
 @import "elements/list.css";
 @import "elements/table.css";
@@ -13,6 +14,7 @@
 @import "blocks/comments.css";
 @import "blocks/navigation.css";
 @import "blocks/paragraph.css";
+@import "blocks/post-comments-form.css";
 @import "blocks/post-terms.css";
 @import "blocks/pullquote.css";
 @import "blocks/query-pagination.css";
