@@ -7,13 +7,13 @@
  * @package WI\SonxFSE
  */
 
-global $nextQueryId;
-$queryId = isset( $nextQueryId ) ? $nextQueryId++ : null;
+global $next_query_id;
+$query_id = isset( $next_query_id ) ? $next_query_id++ : null;
 
 ?>
 
 
-<!-- wp:query {<?php $queryId !== null ? printf('"queryId": %d,', $queryId) : ""; ?>"query":{"perPage":"8","pages":0,"offset":0,"postType":"wi-project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"enhancedPagination":true,"className":"wi-loop-portfolio-grid"} -->
+<!-- wp:query {<?php null !== $query_id ? printf( '"queryId": %d,', intval( $query_id ) ) : ''; ?>"query":{"perPage":"8","pages":0,"offset":0,"postType":"wi-project","order":"desc","orderBy":"date","author":"","search":"","exclude":[],"sticky":"","inherit":false,"parents":[]},"enhancedPagination":true,"className":"wi-loop-portfolio-grid"} -->
 <div class="wp-block-query wi-loop-portfolio-grid">
 	<!-- wp:wielgosz-info/wi-query-tax-filter {"taxonomy":"wi-project-category","className":"wi-front-page-loop-query-tax-filter"} -->
 	<div class="wp-block-wielgosz-info-wi-query-tax-filter wi-front-page-loop-query-tax-filter">
