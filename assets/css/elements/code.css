@@ -2,5 +2,17 @@ pre,
 code,
 var,
 kbd {
-	font-family: Consolas, Menlo, Monaco, 'Droid Sans Mono', 'Courier New', monospace;
+	font-family: Consolas, Menlo, Monaco, "Droid Sans Mono", "Courier New",
+		monospace;
+}
+
+var,
+kbd,
+code {
+	word-wrap: break-word;
+}
+
+pre {
+	max-width: 100%;
+	overflow: auto;
 }

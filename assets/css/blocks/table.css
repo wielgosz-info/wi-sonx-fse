@@ -1,4 +1,5 @@
+.wp-block-table td,
 .wp-block-table th {
-	text-align: left;
-	color: var(--wp--preset--color--contrast);
+	padding: var(--wp--preset--spacing--30);
+	border: 1px solid var(--wp--preset--color--contrast-2);
 }

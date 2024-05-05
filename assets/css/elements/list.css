@@ -1,9 +1,9 @@
-ul, ol, dl dd {
+ul, ol, dd {
 	padding-inline-start: var(--wp--preset--spacing--40);
 }
 
-dl {
-	padding-inline-start: 0;
+dd {
+	margin-inline-start: 0;
 }
 
 li::marker {
