@@ -26,7 +26,7 @@
 	<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","orientation":"vertical"}} -->
 	<div class="wp-block-group"
 		style="margin-top:var(--wp--preset--spacing--60);margin-bottom:var(--wp--preset--spacing--60)">
-		<!-- wp:post-date {"format":"M j, Y","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"primary","textColor":"contrast","fontSize":"small"} /-->
+		<!-- wp:post-date {"format":"M j, Y","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700"},"spacing":{"padding":{"top":"var:preset|spacing|10","bottom":"var:preset|spacing|10","left":"var:preset|spacing|30","right":"var:preset|spacing|30"}}},"backgroundColor":"accent","textColor":"contrast","fontSize":"small"} /-->
 
 		<!-- wp:post-excerpt {"style":{"layout":{"selfStretch":"fit","flexSize":null},"typography":{"fontStyle":"normal","fontWeight":"700"},"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"}}},"fontSize":"x-large"} /-->
 
@@ -46,8 +46,8 @@
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:wi-sonx-fse/icon {"icon":"CommentsCount","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"textColor":"primary"} -->
-				<span class="wp-block-wi-sonx-fse-icon has-primary-color has-text-color has-link-color"
+				<!-- wp:wi-sonx-fse/icon {"icon":"CommentsCount","style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}},"textColor":"accent"} -->
+				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"
 					data-wp-interactive="WISonxFSEIcon"><svg viewBox="0 0 24 24" version="1.1" aria-hidden="true">
 						<path
 							d="m2 6c0-1.656 1.344-3 3-3h14c1.656 0 3 1.344 3 3v8c0 1.656-1.344 3-3 3h-3l2 5-6-5h-7c-1.656 0-3-1.344-3-3z">
@@ -61,8 +61,8 @@
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|10"}},"layout":{"type":"flex","flexWrap":"nowrap"}} -->
 			<div class="wp-block-group">
-				<!-- wp:wi-sonx-fse/icon {"icon":"Views","style":{"elements":{"link":{"color":{"text":"var:preset|color|primary"}}}},"textColor":"primary"} -->
-				<span class="wp-block-wi-sonx-fse-icon has-primary-color has-text-color has-link-color"
+				<!-- wp:wi-sonx-fse/icon {"icon":"Views","style":{"elements":{"link":{"color":{"text":"var:preset|color|accent"}}}},"textColor":"accent"} -->
+				<span class="wp-block-wi-sonx-fse-icon has-accent-color has-text-color has-link-color"
 					data-wp-interactive="WISonxFSEIcon"><svg viewBox="0 0 24 24" version="1.1" aria-hidden="true">
 						<path
 							d="m12 9.201c-1.505 0-2.727 1.255-2.727 2.799 0 1.545 1.222 2.8 2.727 2.8s2.727-1.255 2.727-2.8c0-1.544-1.222-2.799-2.727-2.799z">
