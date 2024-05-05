@@ -6,7 +6,7 @@
 	counter-reset: front-page-section;
 }
 
-.wi-front-page-main-content {
+.wi-front-page-main__content {
 	height: 100%;
 	overflow-y: auto;
 	scroll-behavior: smooth;
@@ -19,13 +19,13 @@
 }
 
 @media (--front-page-snap) {
-	.wi-front-page-main-content {
+	.wi-front-page-main__content {
 		scroll-snap-type: y proximity;
 	}
 }
 
 @media (prefers-reduced-motion) {
-	.wi-front-page-main-content {
+	.wi-front-page-main__content {
 		scroll-snap-type: none;
 		scroll-behavior: auto;
 	}

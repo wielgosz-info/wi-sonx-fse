@@ -44,19 +44,19 @@
 	}
 }
 
-.wp-block-wi-sonx-fse-services-slider-pagination {
+.wp-block-wi-sonx-fse-services-slider__pagination {
 	display: none;
 	justify-content: center;
 	padding: var(--wp--preset--spacing--40) 0;
 	gap: var(--wp--preset--spacing--60);
 }
 
-.is-initialized .wp-block-wi-sonx-fse-services-slider-pagination {
+.is-initialized .wp-block-wi-sonx-fse-services-slider__pagination {
 	display: flex;
 }
 
-.wp-block-wi-sonx-fse-services-slider-prev,
-.wp-block-wi-sonx-fse-services-slider-next {
+.wp-block-wi-sonx-fse-services-slider__prev,
+.wp-block-wi-sonx-fse-services-slider__next {
 	appearance: none;
 	box-sizing: content-box;
 	display: flex;
@@ -71,7 +71,7 @@
 	border-radius: 9999px;
 	border: 1px solid currentcolor;
 	color: inherit;
-	background: var(--wp--preset--color--off-base);
+	background: var(--wp--preset--color--base-2);
 	box-shadow: none;
 	cursor: pointer;
 	transform-origin: 50% 50%;
@@ -84,7 +84,7 @@
 	}
 }
 
-.wp-block-wi-sonx-fse-services-slider-dots {
+.wp-block-wi-sonx-fse-services-slider__dots {
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -97,7 +97,7 @@
 	}
 }
 
-.wp-block-wi-sonx-fse-services-slider-dot {
+.wp-block-wi-sonx-fse-services-slider__dot {
 	appearance: none;
 	display: block;
 	box-sizing: content-box;
@@ -121,11 +121,11 @@
 	&:hover,
 	&:focus,
 	&.is-active {
-		background-color: var(--wp--preset--color--primary);
+		background-color: var(--wp--preset--color--accent);
 	}
 
 	&.is-active {
-		border-color: var(--wp--preset--color--dark-primary);
+		border-color: var(--wp--preset--color--accent-3);
 	}
 }
 
@@ -141,7 +141,7 @@
 					calc(var(--wi--services-slider--mq-columns) - 1);
 				display: block;
 				height: 100%;
-				background-color: var(--wp--preset--color--off-base);
+				background-color: var(--wp--preset--color--base-2);
 
 				/* TODO: add 'scroll-back' icon */
 			}
@@ -178,7 +178,7 @@
 				grid-row: 1 / span 1;
 				display: block;
 				height: 100%;
-				background-color: var(--wp--preset--color--off-base);
+				background-color: var(--wp--preset--color--base-2);
 
 				/* TODO: add 'scroll-forwards' icon */
 			}

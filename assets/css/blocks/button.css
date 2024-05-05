@@ -1,0 +1,30 @@
+/* All buttons */
+
+:where(.wp-element-button, .wp-block-button__link) {
+	transition: background-color var(--wp--custom--transition--duration)
+		var(--wp--custom--transition--timing-function);
+}
+
+/* Custom 'pill' button style */
+
+.wp-block-button .wp-block-button__link:where(.is-style-pill),
+.wp-block-button:where(.is-style-pill) > .wp-block-button__link {
+	border-radius: 9999px;
+	text-transform: none;
+	font-weight: 600;
+	letter-spacing: normal;
+	padding: var(--wp--preset--spacing--30);
+	line-height: 1.5;
+	min-width: calc(
+		1.5em + 2 * var(--wp--preset--spacing--30) + 2 *
+			var(--wp--preset--spacing--10)
+	);
+}
+
+/* Ensure outline button has the same size as the filled one. */
+
+.wp-block-button .wp-block-button__link:where(.is-style-outline),
+.wp-block-button:where(.is-style-outline) > .wp-block-button__link {
+	border-width: var(--wp--preset--spacing--10);
+	padding: var(--wp--preset--spacing--40) var(--wp--preset--spacing--60);
+}

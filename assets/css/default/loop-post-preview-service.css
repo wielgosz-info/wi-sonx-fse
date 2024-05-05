@@ -76,7 +76,7 @@
 	/* stylelint-enable selector-class-pattern */
 }
 
-.wi-loop-post-preview-service-icon {
+.wi-loop-post-preview-service__icon {
 	position: relative;
 	width: 6rem;
 	height: 6rem;
@@ -112,13 +112,13 @@
 }
 
 .is-active > .wi-loop-post-preview-service {
-	background-color: var(--wp--preset--color--primary) !important;
+	background-color: var(--wp--preset--color--accent) !important;
 	color: var(--wp--preset--color--contrast) !important;
 	z-index: 1;
 
-	.wi-loop-post-preview-service-icon {
+	.wi-loop-post-preview-service__icon {
 		background-color: var(--wp--preset--color--contrast) !important;
-		color: var(--wp--preset--color--primary) !important;
+		color: var(--wp--preset--color--accent) !important;
 	}
 
 	/* stylelint-disable selector-class-pattern */

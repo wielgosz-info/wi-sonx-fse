@@ -18,7 +18,7 @@ export function save({ attributes }) {
 		>
 			<div
 				{...useInnerBlocksProps.save({
-					className: `${defaultClassName}-content`,
+					className: `${defaultClassName}__content`,
 				})}
 			/>
 		</section>

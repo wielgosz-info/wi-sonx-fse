@@ -66,8 +66,15 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 	callbacks: {
 		...inViewMixin.callbacks,
 		run() {
+			const { ref } = getElement();
 			const context = getContext();
 			context.intervalHandle = useRef();
+
+			// Bug? Sometimes init is not triggered but run is, and ref is available.
+			// We're taking advantage of that to "fix" disappearing dots / missing slides issue.
+			if (ref) {
+				context.slides = Array.from(ref.querySelectorAll('.wp-block-post'));
+			}
 		},
 		init() {
 			const { ref } = getElement();

@@ -1,0 +1,27 @@
+@media (--below-small) {
+
+	/* Force logo size and bigger font/smaller spacing on 'mobile' screens. */
+
+	.wi-header {
+		padding-block: var(--wp--preset--spacing--30) !important;
+		font-size: var(--wp--preset--font-size--x-large);
+
+		.wp-block-site-logo img {
+			width: var(--wp--preset--font-size--xx-large);
+		}
+	}
+}
+
+@keyframes shrink {
+	to {
+		padding-block: var(--wp--preset--spacing--30);
+	}
+}
+
+.wi-header {
+	animation-timeline: scroll(block root);
+	animation-range: 2% 20%;
+	animation-name: shrink;
+	animation-duration: 1ms;
+	animation-fill-mode: forwards;
+}

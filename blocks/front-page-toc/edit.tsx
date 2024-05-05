@@ -24,9 +24,9 @@ export function Edit({ name }) {
 			aria-label={__('Table of contents', 'wi-sonx-fse')}
 		>
 			<button
-				className={`${defaultClassName}-button`}
+				className={`${defaultClassName}__button`}
 				aria-label={__('Open table of contents', 'wi-sonx-fse')}
-				aria-controls={`${defaultClassName}-list`}
+				aria-controls={`${defaultClassName}__list`}
 				aria-expanded="true"
 			>
 				<SVG
@@ -41,17 +41,17 @@ export function Edit({ name }) {
 				</SVG>
 			</button>
 			<ol
-				className={`${defaultClassName}-list`}
-				id={`${defaultClassName}-list`}
+				className={`${defaultClassName}__list`}
+				id={`${defaultClassName}__list`}
 			>
 				{anchors.map(([anchor, title]) =>
 					title ? (
-						<li key={anchor} className={`${defaultClassName}-item`}>
+						<li key={anchor} className={`${defaultClassName}__item`}>
 							<a
-								className={`${defaultClassName}-link`}
+								className={`${defaultClassName}__link`}
 								href={`#${anchor}`}
 							>
-								<span className={`${defaultClassName}-label`}>
+								<span className={`${defaultClassName}__label`}>
 									{title}
 								</span>
 							</a>

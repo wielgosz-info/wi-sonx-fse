@@ -73,7 +73,7 @@ export function Edit({ name, attributes, setAttributes, context }) {
 	});
 	const innerBlocksProps = useInnerBlocksProps(
 		{
-			className: `${defaultClassName}-slides`,
+			className: `${defaultClassName}__slides`,
 		},
 		{
 			template,

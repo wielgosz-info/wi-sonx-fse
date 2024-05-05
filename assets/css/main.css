@@ -1,9 +1,19 @@
+/* Tools. */
 @import "tools/custom-media.css";
+
+/* Core WP block overrides that would be hard to achieve in theme.json + custom Block Styles. */
+@import "blocks/button.css";
+@import "blocks/navigation.css";
+@import "blocks/query-pagination.css";
+
+/* Default styles for most of the site. */
+@import "default/header.css";
 @import "default/loop-portfolio-grid.css";
 @import "default/loop-post-preview.css";
 @import "default/loop-post-preview-service.css";
 @import "default/loop-post-preview-project.css";
-@import "default/query-pagination.css";
+
+/* Front-page specific styles/overrides. */
 @import "front-page/header.css";
 @import "front-page/footer.css";
 @import "front-page/main.css";

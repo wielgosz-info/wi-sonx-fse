@@ -34,7 +34,7 @@ $style      = array_reduce(
 );
 
 $block_class_name = 'wp-block-' . str_replace( '/', '-', $block->name );
-$child_class      = fn( $child ) => print ( esc_attr( sprintf( '%s-%s', $block_class_name, $child ) ) );
+$child_class      = fn( $child ) => print ( esc_attr( sprintf( '%s__%s', $block_class_name, $child ) ) );
 
 ?>
 

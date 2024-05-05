@@ -35,7 +35,7 @@ registerBlockVariation('core/query', {
 			sticky: '',
 			inherit: false,
 		},
-		enhancedPagination: false,
+		enhancedPagination: true,
 	},
 	scope: ['inserter'],
 	isActive: ({ namespace, query }) => {
