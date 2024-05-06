@@ -3955,6 +3955,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/base-styles@npm:^4.48.0":
+  version: 4.48.0
+  resolution: "@wordpress/base-styles@npm:4.48.0"
+  checksum: 10c0/b828503bee6740e19f0f375827014fd02f81534cfafbb2a381cc680289b9396479b324c122fbcf36644f1fd4a26546059947b908c926fb2b4fbefadbd4f0a806
+  languageName: node
+  linkType: hard
+
 "@wordpress/blob@npm:^3.56.0":
   version: 3.56.0
   resolution: "@wordpress/blob@npm:3.56.0"
@@ -4622,6 +4629,18 @@ __metadata:
   peerDependencies:
     postcss: ^8.0.0
   checksum: 10c0/37d3ed7c7e8c0f48a26466017b1315406eb3a575e77e8c8578d4ea4fa681860775b0d5200c919b49160c2463f3a530b355371b87e02161b56e24c845cbacf503
+  languageName: node
+  linkType: hard
+
+"@wordpress/postcss-plugins-preset@npm:^4.41.0":
+  version: 4.41.0
+  resolution: "@wordpress/postcss-plugins-preset@npm:4.41.0"
+  dependencies:
+    "@wordpress/base-styles": "npm:^4.48.0"
+    autoprefixer: "npm:^10.2.5"
+  peerDependencies:
+    postcss: ^8.0.0
+  checksum: 10c0/96f1b0520313c6c59f2c557262010a0a22c3f87c24af7901040d2088ecb974ed74052a4476427db6c13b49b79a147416a7443d2963c01ab3d9a8c7735c0e1c2c
   languageName: node
   linkType: hard
 
@@ -16587,7 +16606,7 @@ __metadata:
     "@wordpress/element": "npm:^5.34.0"
     "@wordpress/eslint-plugin": "npm:^17.13.0"
     "@wordpress/interactivity": "npm:^5.5.0"
-    "@wordpress/postcss-plugins-preset": "npm:^4.40.0"
+    "@wordpress/postcss-plugins-preset": "npm:^4.41.0"
     "@wordpress/prettier-config": "npm:^3.13.0"
     "@wordpress/scripts": "npm:^27.7.0"
     "@wordpress/style-engine": "npm:^1.39.0"
