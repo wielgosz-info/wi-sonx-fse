@@ -1,0 +1,4 @@
+blockquote {
+	margin-inline: 0;
+	padding-inline: var(--wp--preset--spacing--40);
+}

@@ -13,8 +13,13 @@
 }
 
 @keyframes shrink {
+	from {
+		background-color: transparent;
+	}
+
 	to {
 		padding-block: var(--wp--preset--spacing--30);
+		background-color: var(--wp--preset--color--base);
 	}
 }
 

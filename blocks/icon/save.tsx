@@ -6,7 +6,7 @@ export function save({ attributes }) {
 	const IconComponent = icons[attributes.icon];
 
 	return (
-		<span {...useBlockProps.save()} data-wp-interactive="WISonxFSEIcon">
+		<span {...useBlockProps.save()}>
 			<IconComponent />
 		</span>
 	);

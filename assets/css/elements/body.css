@@ -1,0 +1,13 @@
+body {
+	background-image: linear-gradient(
+		90deg,
+		transparent 0,
+		transparent 106px,
+		color-mix(in srgb, var(--wp--preset--color--base-2), transparent 50%) 106px,
+		color-mix(in srgb, var(--wp--preset--color--base-2), transparent 50%) 107px,
+		transparent 107px,
+		transparent 213px
+	);
+	background-position: center;
+	background-size: 213px auto;
+}

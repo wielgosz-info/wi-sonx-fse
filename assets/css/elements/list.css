@@ -1,0 +1,11 @@
+ul, ol, dd {
+	padding-inline-start: var(--wp--preset--spacing--40);
+}
+
+dd {
+	margin-inline-start: 0;
+}
+
+li::marker {
+	color: var(--wp--preset--color--accent);
+}
