@@ -26,3 +26,4 @@ $next_query_id = 0;
 <!-- wp:pattern {"slug":"wi-sonx-fse/section-front-page-experience"} /-->
 <!-- wp:pattern {"slug":"wi-sonx-fse/section-front-page-blog"} /-->
 <!-- wp:pattern {"slug":"wi-sonx-fse/section-front-page-contact"} /-->
+<!-- wp:pattern {"slug":"wi-sonx-fse/footer-front-page"} /-->

@@ -27,8 +27,13 @@
 		margin-top: var(--wi--loop-portfolio-grid--shift);
 		margin-bottom: calc(-1 * var(--wi--loop-portfolio-grid--shift));
 
+		/* stylelint-disable property-no-unknown */
+
 		animation-timeline: view(block);
 		animation-range: entry var(--wi--loop-portfolio-grid--delay) contain var(--wi--loop-portfolio-grid--delay);
+
+		/* stylelint-enable property-no-unknown */
+
 		animation-name: postShiftIn;
 		animation-duration: 1ms;
 		animation-fill-mode: both;

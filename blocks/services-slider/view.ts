@@ -26,7 +26,9 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 			const { prefersReducedMotion } = state;
 			const { autoPlay, interval, paused, inView } = getContext();
 
-			return !prefersReducedMotion && autoPlay && inView && !paused ? interval || INTERVAL : 0;
+			return !prefersReducedMotion && autoPlay && inView && !paused
+				? interval || INTERVAL
+				: 0;
 		},
 	},
 	actions: {
@@ -73,7 +75,9 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 			// Bug? Sometimes init is not triggered but run is, and ref is available.
 			// We're taking advantage of that to "fix" disappearing dots / missing slides issue.
 			if (ref) {
-				context.slides = Array.from(ref.querySelectorAll('.wp-block-post'));
+				context.slides = Array.from(
+					ref.querySelectorAll('.wp-block-post')
+				);
 			}
 		},
 		init() {
@@ -133,12 +137,12 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 		},
 		watchInterval() {
 			const { interval, shouldInitialize } = state;
-			const { intervalHandle } = getContext();
 
 			if (!shouldInitialize || !interval) {
 				return;
 			}
 
+			const { intervalHandle } = getContext();
 			intervalHandle.current = setInterval(
 				withScope(() => {
 					actions.nextSlide();
@@ -151,15 +155,14 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 			};
 		},
 		watchIntersection() {
-			const { slides } = getContext();
 			const { shouldInitialize } = state;
 
 			if (!shouldInitialize) {
 				return;
 			}
 
+			const { slides, marginLeft, marginRight } = getContext();
 			const { ref } = getElement();
-			const { marginLeft, marginRight } = getContext();
 			const observer = new IntersectionObserver(
 				withScope((entries) => {
 					entries.forEach((entry) => {

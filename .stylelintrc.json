@@ -3,6 +3,7 @@
 		"@wordpress/stylelint-config",
 		"stylelint-config-prettier"
 	],
+	"ignoreFiles": "global-styles.css",
 	"rules": {
 		"rule-empty-line-before": ["always", {
 			"except": ["first-nested"]

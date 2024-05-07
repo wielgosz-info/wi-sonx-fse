@@ -28,8 +28,14 @@
 }
 
 .wi-header {
+
+	/* stylelint-disable property-no-unknown */
+
 	animation-timeline: scroll(block root);
 	animation-range: 2% 20%;
+
+	/* stylelint-enable property-no-unknown */
+
 	animation-name: shrink;
 	animation-duration: 1ms;
 	animation-fill-mode: forwards;

@@ -37,6 +37,10 @@ jobs:
           cache: 'yarn'
       - name: Install dependencies
         run: yarn install --immutable --check-cache --check-resolutions
+      - name: Lint CSS
+        run: yarn run lint:css
+      - name: Lint JS
+        run: yarn run lint:js
       - name: Build assets
         run: yarn run build
       - name: Archive production artifacts
