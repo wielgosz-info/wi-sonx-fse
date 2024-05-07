@@ -1,0 +1,7 @@
+.wp-block-post-content {
+	&::after {
+		content: "";
+		display: block;
+		clear: both;
+	}
+}

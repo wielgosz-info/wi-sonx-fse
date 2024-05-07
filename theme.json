@@ -71,12 +71,12 @@
 					"slug": "accent-3"
 				},
 				{
-					"color": "#b1c5a4",
+					"color": "var(--wp--custom--color--yellow-700)",
 					"name": "Accent / Four",
 					"slug": "accent-4"
 				},
 				{
-					"color": "#b5bdbc",
+					"color": "var(--wp--custom--color--violet-700)",
 					"name": "Accent / Five",
 					"slug": "accent-5"
 				}
@@ -228,7 +228,9 @@
 				"gray-600": "oklch(55% 0 0)",
 				"gray-700": "oklch(70% 0 0)",
 				"gray-800": "oklch(80% 0 0)",
-				"gray-900": "oklch(97.5% 0 0)"
+				"gray-900": "oklch(97.5% 0 0)",
+				"yellow-700": "oklch(75% 0.125 83)",
+				"violet-700": "oklch(75% 0.125 283)"
 			},
 			"transition": {
 				"duration": "0.1s",
