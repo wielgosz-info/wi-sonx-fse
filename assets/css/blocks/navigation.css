@@ -1,17 +1,20 @@
 .wp-block-navigation-item__content {
 	position: relative;
 	padding-block: var(--wp--preset--spacing--30);
+	transition: color var(--wp--custom--transition--duration)
+		var(--wp--custom--transition--timing-function);
+
+	&.wp-block-navigation-item__content:hover {
+		color: var(--wp--preset--color--accent);
+	}
 
 	&::after {
 		content: "";
 		position: absolute;
-		inset: 0;
+		inset: auto 0 calc(var(--wp--preset--spacing--30) - var(--wp--preset--spacing--10));
 		z-index: 0;
-		height: 100%;
-		aspect-ratio: 1 / 1;
-		margin: 0 auto;
-		border-radius: 9999px;
-		background-color: var(--wp--custom--color--gray-400);
+		height: var(--wp--preset--spacing--10);
+		background-color: currentcolor;
 		transform-origin: 50% 50%;
 		transform: scale(0);
 		opacity: 0;
@@ -45,7 +48,9 @@
 		padding: var(--wp--preset--spacing--30);
 	}
 
-	.wp-block-navigation__responsive-container.is-menu-open .wp-block-navigation__responsive-container-content .wp-block-navigation-item__content {
+	.wp-block-navigation__responsive-container.is-menu-open
+		.wp-block-navigation__responsive-container-content
+		.wp-block-navigation-item__content {
 		padding-inline: var(--wp--preset--spacing--30);
 	}
 

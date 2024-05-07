@@ -135,3 +135,9 @@
 		transform: scale(1.1);
 	}
 }
+
+@media (prefers-contrast: more) {
+	.is-active > .wi-loop-post-preview-service {
+		background-color: var(--wp--preset--color--accent-2) !important;
+	}
+}

@@ -49,3 +49,9 @@
 		align-items: center;
 	}
 }
+
+@media (prefers-contrast: more) {
+	.wi-front-page-loop-query-tax-filter .wp-block-button::after {
+		display: none;
+	}
+}

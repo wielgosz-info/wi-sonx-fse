@@ -31,12 +31,12 @@
 
 					<!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700","lineHeight":"1"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"fontSize":"Huge"} -->
 					<h1 class="has-huge-font-size"
-						style="margin-top:var(--wp--preset--spacing--50);font-style:normal;font-weight:700;line-height:1"><?php esc_html_e( 'WI Sonx FSE Theme', 'wi-sonx-fse' ); ?></h1>
+						style="margin-top:var(--wp--preset--spacing--50);font-style:normal;font-weight:700;line-height:1"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
 					<!-- /wp:heading -->
 
 					<!-- wp:paragraph {"style":{"typography":{"textTransform":"uppercase"},"spacing":{"margin":{"top":"var:preset|spacing|60"},"padding":{"left":"var:preset|spacing|10"}}},"fontSize":"large"} -->
 					<p class="has-large-font-size"
-						style="margin-top:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--10);text-transform:uppercase"><?php esc_html_e( 'WordPress Full Site Editing', 'wi-sonx-fse' ); ?></p>
+						style="margin-top:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--10);text-transform:uppercase"><?php echo esc_html( get_bloginfo( 'description' ) ); ?></p>
 					<!-- /wp:paragraph -->
 				</div>
 				<!-- /wp:column -->

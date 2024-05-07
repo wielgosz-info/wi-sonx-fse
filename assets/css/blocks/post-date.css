@@ -1,0 +1,5 @@
+@media (prefers-contrast: more) {
+	.wp-block-post-date.has-accent-background-color {
+		background-color: var(--wp--preset--color--accent-2) !important;
+	}
+}
