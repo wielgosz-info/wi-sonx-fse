@@ -3,15 +3,11 @@
 		text-decoration: none;
 	}
 
-	/* stylelint-disable selector-class-pattern */
-
 	.wp-block-post-terms__prefix {
 		margin-right: var(--wp--preset--spacing--10);
 		color: var(--wp--preset--color--accent);
 		font-weight: 700;
 	}
-
-	/* stylelint-enable selector-class-pattern */
 }
 
 .wi-loop-post-preview__image {

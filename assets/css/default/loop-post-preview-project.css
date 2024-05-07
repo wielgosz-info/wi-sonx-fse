@@ -44,3 +44,9 @@
 		}
 	}
 }
+
+@media (prefers-contrast: more) {
+	.wi-loop-post-preview-project__content.has-accent-background-color {
+		background-color: var(--wp--preset--color--accent-2) !important;
+	}
+}
