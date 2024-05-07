@@ -5,7 +5,24 @@
 		"vendor/",
 		"dist/"
 	],
+	"plugins": ["import"],
 	"rules": {
-		"react-hooks/exhaustive-deps": 1
+		"react-hooks/exhaustive-deps": 1,
+		"react-hooks/rules-of-hooks": [
+			0,
+			{
+				"files": ["view.ts"]
+			}
+		]
+	},
+	"settings": {
+		"import/parsers": {
+			"@typescript-eslint/parser": [".ts", ".tsx"]
+		},
+		"import/resolver": {
+			"typescript": {
+				"alwaysTryTypes": true
+			}
+		}
 	}
 }

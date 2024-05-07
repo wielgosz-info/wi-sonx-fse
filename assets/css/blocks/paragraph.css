@@ -1,4 +1,4 @@
-.has-drop-cap:not(:focus):first-letter {
+.has-drop-cap:not(:focus)::first-letter {
 	font-size: 6.2em;
 	font-weight: 400;
 	line-height: .68;

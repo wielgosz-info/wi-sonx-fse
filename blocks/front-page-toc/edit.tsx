@@ -46,7 +46,10 @@ export function Edit({ name }) {
 			>
 				{anchors.map(([anchor, title]) =>
 					title ? (
-						<li key={anchor} className={`${defaultClassName}__item`}>
+						<li
+							key={anchor}
+							className={`${defaultClassName}__item`}
+						>
 							<a
 								className={`${defaultClassName}__link`}
 								href={`#${anchor}`}
