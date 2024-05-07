@@ -398,11 +398,6 @@
 			"area": "footer"
 		},
 		{
-			"name": "footer-front-page",
-			"title": "Footer on Front Page",
-			"area": "footer"
-		},
-		{
 			"name": "loop-default",
 			"title": "Posts Loop",
 			"area": "loop"
