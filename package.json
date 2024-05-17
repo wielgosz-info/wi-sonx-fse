@@ -57,7 +57,7 @@
 		"stylelint": "^14.5.1",
 		"stylelint-config-prettier": "^9.0.5",
 		"tsconfig-paths-webpack-plugin": "^4.1.0",
-		"typescript": "^5.4.2",
+		"typescript": "^5.4.5",
 		"webpack": "^5.91.0",
 		"webpack-remove-empty-scripts": "^1.0.4"
 	},
