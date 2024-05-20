@@ -17438,7 +17438,7 @@ __metadata:
     "@babel/eslint-parser": "npm:^7.24.5"
     "@wordpress/block-editor": "npm:^12.26.0"
     "@wordpress/block-library": "npm:^8.33.0"
-    "@wordpress/blocks": "npm:^12.33.0"
+    "@wordpress/blocks": "npm:^12.35.0"
     "@wordpress/element": "npm:^5.34.0"
     "@wordpress/eslint-plugin": "npm:^17.13.0"
     "@wordpress/interactivity": "npm:^5.7.0"
