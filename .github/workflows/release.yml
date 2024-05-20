@@ -23,8 +23,8 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Get run ID for the release-built assets
-        run: echo ASSETS_RUNID=$(gh api repos/wielgosz-info/wi-sonx-fse/commits/$GITHUB_SHA/check-runs | jq -r '.check_runs[] | select(.name == "${{ env.ASSETS_BUILD_STEP }}") | .html_url | capture("/runs/(?<number>[0-9]+)/jobs") | .number' | sed 's/"//g' | head -n 1) >> $GITHUB_ENV
+      # - name: Get run ID for the release-built assets
+      #   run: echo ASSETS_RUNID=$(gh api repos/wielgosz-info/wi-sonx-fse/commits/$GITHUB_SHA/check-runs | jq -r '.check_runs[] | select(.name == "${{ env.ASSETS_BUILD_STEP }}") | .html_url | capture("/runs/(?<number>[0-9]+)/jobs") | .number' | sed 's/"//g' | head -n 1) >> $GITHUB_ENV
 
       - name: Get tag name
         run: echo RELEASE_TAG=${GITHUB_REF#refs/heads/} >> $GITHUB_ENV
