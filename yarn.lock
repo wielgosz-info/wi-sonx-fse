@@ -4628,6 +4628,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/interactivity@npm:^5.7.0":
+  version: 5.7.0
+  resolution: "@wordpress/interactivity@npm:5.7.0"
+  dependencies:
+    "@preact/signals": "npm:^1.2.2"
+    deepsignal: "npm:^1.4.0"
+    preact: "npm:^10.19.3"
+  checksum: 10c0/6f884593ba848395f41658b2526e209367c46c50aa830b8452ed5bea40e4c8ec51e0c5f55f892889526a5994183ce5ea20d645b92ab67fa889a422d48fc0f57f
+  languageName: node
+  linkType: hard
+
 "@wordpress/is-shallow-equal@npm:^4.56.0":
   version: 4.56.0
   resolution: "@wordpress/is-shallow-equal@npm:4.56.0"
@@ -16799,7 +16810,7 @@ __metadata:
     "@wordpress/blocks": "npm:^12.33.0"
     "@wordpress/element": "npm:^5.34.0"
     "@wordpress/eslint-plugin": "npm:^17.13.0"
-    "@wordpress/interactivity": "npm:^5.5.0"
+    "@wordpress/interactivity": "npm:^5.7.0"
     "@wordpress/postcss-plugins-preset": "npm:^4.41.0"
     "@wordpress/prettier-config": "npm:^3.14.0"
     "@wordpress/scripts": "npm:^27.8.0"
