@@ -39,8 +39,8 @@ jobs:
           run-id: ${{ env.ASSETS_RUNID }}
 
       - name: Create archive
-        run: tar -czf build.tar.gz .
+        run: tar -czf ${{ runner.temp	}}/build.tar.gz .
 
       - name: Upload archive to release
         run:
-          gh release upload ${{ env.RELEASE_TAG }} build.tar.gz
+          gh release upload ${{ env.RELEASE_TAG }} ${{ runner.temp	}}/build.tar.gz
