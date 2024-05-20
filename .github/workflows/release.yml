@@ -42,7 +42,7 @@ jobs:
       - name: Commit built assets and force update the tag
         uses: EndBug/add-and-commit@v9
         with:
-          add: build package.json composer.json
+          add: -f build package.json composer.json
           default_author: github_actions
           message: Update tag to include built assets
           tag: ${{ github.event.release.tag_name }} --force
