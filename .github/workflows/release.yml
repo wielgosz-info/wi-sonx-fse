@@ -17,6 +17,7 @@ jobs:
       contents: write
     env:
       ASSETS_BUILD_STEP: Build theme assets
+      GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -38,7 +39,5 @@ jobs:
         run: tar -czf build.tar.gz .
 
       - name: Upload archive to release
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run:
           gh release upload ${{ env.RELEASE_TAG }} build.tar.gz
