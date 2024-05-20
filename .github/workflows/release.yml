@@ -1,0 +1,39 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  add_binaries:
+    name: Adds archive with build assets to release
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      ASSETS_BUILD_STEP: Build theme assets
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Get run ID for the release-built assets
+        run: echo ASSETS_RUNID=$(gh api repos/${{ github.repository }}/commits/$GITHUB_SHA/check-runs | jq -r '.check_runs[] | select(.name == "${{ env.ASSETS_BUILD_STEP }}") | .html_url | capture("/runs/(?<number>[0-9]+)/job") | .number' | sed 's/"//g' | head -n 1) >> $GITHUB_ENV
+
+      - name: Get tag name
+        run: echo RELEASE_TAG=${GITHUB_REF#refs/tags/} >> $GITHUB_ENV
+
+      - name: Download built assets
+        uses: actions/download-artifact@v4
+        with:
+          name: theme-assets
+          path: ./build
+          github-token: ${{ github.token }}
+          run-id: ${{ env.ASSETS_RUNID }}
+
+      - name: Create archive
+        run: tar -czf ${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz .
+
+      - name: Upload archive to release
+        run:
+          gh release upload ${{ env.RELEASE_TAG }} "${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz" --clobber
