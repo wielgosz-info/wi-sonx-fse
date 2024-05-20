@@ -12,6 +12,8 @@ jobs:
       contents: write
     env:
       ASSETS_BUILD_STEP: Build theme assets
+      ASSETS_RUNID: null
+      NUMERIC_VERSION: null
       GH_TOKEN: ${{ github.token }}
     steps:
       - name: Checkout code
@@ -19,9 +21,6 @@ jobs:
 
       - name: Get run ID for the release-built assets
         run: echo ASSETS_RUNID=$(gh api repos/${{ github.repository }}/commits/$GITHUB_SHA/check-runs | jq -r '.check_runs[] | select(.name == "${{ env.ASSETS_BUILD_STEP }}") | .html_url | capture("/runs/(?<number>[0-9]+)/job") | .number' | sed 's/"//g' | head -n 1) >> $GITHUB_ENV
-
-      - name: Get tag name
-        run: echo RELEASE_TAG=${GITHUB_REF#refs/tags/} >> $GITHUB_ENV
 
       - name: Download built assets
         uses: actions/download-artifact@v4
@@ -31,9 +30,29 @@ jobs:
           github-token: ${{ github.token }}
           run-id: ${{ env.ASSETS_RUNID }}
 
+      - name: Get numeric version
+        run: echo NUMERIC_VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/v//') >> $GITHUB_ENV
+
+      - name: Update package.json version
+        run: jq '.version = "${{ env.NUMERIC_VERSION }}"' package.json > package.json.tmp && mv package.json.tmp package.json
+
+      - name: Update composer.json version
+        run: jq '.version = "${{ env.NUMERIC_VERSION }}"' composer.json > composer.json.tmp && mv composer.json.tmp composer.json
+
+      - name: Commit built assets and force update the tag
+        uses: EndBug/add-and-commit@v9
+        with:
+          add: build package.json composer.json
+          default_author: github_actions
+          message: Update tag to include built assets
+          tag: ${{ github.event.release.tag_name }} --force
+          tag_push: --force
+
       - name: Create archive
         run: tar -czf ${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz .
 
       - name: Upload archive to release
-        run:
-          gh release upload ${{ env.RELEASE_TAG }} "${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz" --clobber
+        run: gh release upload ${{ github.event.release.tag_name }} "${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz" --clobber
+
+      - name: Cleanup
+        run: rm -f ${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz
