@@ -18,6 +18,7 @@ jobs:
     env:
       ASSETS_BUILD_STEP: Build theme assets
       GH_TOKEN: ${{ github.token }}
+      ASSETS_RUNID: 25152022541
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
