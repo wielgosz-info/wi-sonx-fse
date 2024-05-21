@@ -104,9 +104,9 @@
 			"sticky": true
 		},
 		"spacing": {
-			"blockGap": false,
+			"blockGap": true,
 			"margin": false,
-			"padding": false,
+			"padding": true,
 			"units": ["rem", "px", "em", "%", "vw", "vh"],
 			"customSpacingSize": false,
 			"spacingScale": {
