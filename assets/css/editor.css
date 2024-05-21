@@ -2,6 +2,11 @@
     --wp--preset--font-size--normal: clamp(0.773rem, 0.773rem + ((1vw - 0.2rem) * 0.88), 1.125rem);
     --wp--preset--font-size--huge: clamp(3.5rem, 3.5rem + ((1vw - 0.2rem) * 13.75), 9rem);
 
+	/* Gutenberg bugs? */
+	font-family: var(--wp--preset--font-family--primary);
+	background-color: var(--wp--preset--color--base);
+	color: var(--wp--preset--color--contrast);
+
 	.wp-block-post:not(.has-post-thumbnail) {
 		.wi-loop-post-preview-project-image {
 			min-height: 15rem;
