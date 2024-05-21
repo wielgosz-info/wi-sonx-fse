@@ -4,6 +4,7 @@ set -euo pipefail
 # This script is used to configure the container after starting.
 # It needs an access to the mounted volumes.
 
+git config --global --add safe.directory /usr/local/app
 git fetch
 yarn install
 

@@ -15,8 +15,8 @@
 			"presets": []
 		},
 		"color": {
-			"background": false,
-			"text": false,
+			"background": true,
+			"text": true,
 			"heading": false,
 			"link": false,
 			"button": false,
@@ -83,7 +83,7 @@
 			]
 		},
 		"background": {
-			"backgroundImage": false,
+			"backgroundImage": true,
 			"backgroundSize": false
 		},
 		"dimensions": {
@@ -93,7 +93,7 @@
 		"layout": {
 			"contentSize": "960px",
 			"wideSize": "1164px",
-			"allowEditing": false,
+			"allowEditing": true,
 			"allowCustomContentAndWideSize": false
 		},
 		"lightbox": {
@@ -175,8 +175,8 @@
 			],
 			"fontFamilies": [
 				{
-					"name": "accent",
-					"slug": "accent",
+					"name": "Primary",
+					"slug": "primary",
 					"fontFamily": "Poppins, sans-serif",
 					"fontFace": [
 						{
@@ -260,7 +260,7 @@
 			"background": "var(--wp--preset--color--base)"
 		},
 		"typography": {
-			"fontFamily": "var(--wp--preset--font-family--accent)",
+			"fontFamily": "var(--wp--preset--font-family--primary)",
 			"fontSize": "var(--wp--preset--font-size--medium)",
 			"fontWeight": "400",
 			"lineHeight": "1.2"
