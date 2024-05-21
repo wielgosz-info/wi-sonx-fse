@@ -1,0 +1,47 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Services Slider",
+  "description": "Wrapper around the Post Template block to make it behave like a simple slider.",
+  "name": "wi-sonx-fse/services-slider",
+  "category": "widgets",
+  "icon": "slides",
+  "textdomain": "wi-sonx-fse",
+  "style": "file:./style-index.css",
+  "editorScript": "file:./index.js",
+  "viewScriptModule": "file:./view.js",
+  "render": "file:./render.php",
+  "parent": [
+    "core/query"
+  ],
+  "usesContext": [
+    "query",
+    "previewPostType"
+  ],
+  "supports": {
+    "interactivity": true
+  },
+  "attributes": {
+    "columnCount": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 6,
+      "default": 3
+    },
+    "blockGap": {
+      "type": "string",
+      "default": "var:preset|spacing|60"
+    },
+    "autoPlay": {
+      "type": "boolean",
+      "default": true
+    },
+    "interval": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 20000,
+      "step": 500,
+      "default": 5000
+    }
+  }
+}

@@ -1,0 +1,52 @@
+/* Gutenberg-compatible breakpoints */
+/* Project-specific breakpoints */
+/* For specific below-small overrides */
+.wp-block-wi-sonx-fse-front-page-section {
+	position: relative;
+	min-height: 100%;
+	display: flex;
+	justify-content: stretch;
+	align-items: stretch;
+}
+.wp-block-wi-sonx-fse-front-page-section[data-wp-init] {
+		counter-increment: front-page-section;
+	}
+.wp-block-wi-sonx-fse-front-page-section__content {
+	flex: 1 0 auto;
+	width: 100%;
+	margin: 0 auto;
+}
+.wp-block-wi-sonx-fse-front-page-section__content > :first-child {
+		position: relative;
+	}
+.wp-block-wi-sonx-fse-front-page-section[data-wp-init]
+	.wp-block-wi-sonx-fse-front-page-section__content::before {
+		content: counter(front-page-section, decimal-leading-zero);
+		display: block;
+		height: 0;
+		font-size: calc(var(--wp--preset--font-size--huge) * 1.5);
+		line-height: 1;
+		letter-spacing: 0.1em;
+		font-weight: 400;
+		color: var(--wp--preset--color--base-2);
+	}
+@media screen and (min-width: 1440px) {
+	.wp-block-wi-sonx-fse-front-page-section__content {
+		max-width: calc(
+			var(--wp--style--global--wide-size) +
+				var(--wp--style--root--padding-right) +
+				var(--wp--style--root--padding-left)
+		);
+	}
+
+	.wp-block-wi-sonx-fse-front-page-section[data-wp-init]
+		.wp-block-wi-sonx-fse-front-page-section__content::before {
+		transform: translateY(calc(-0.5 * var(--wp--preset--spacing--60)));
+	}
+}
+@media screen and (min-width: 1440px) and (min-height: 850px) {
+	.wp-block-wi-sonx-fse-front-page-section {
+		scroll-snap-align: start;
+	}
+}
+
