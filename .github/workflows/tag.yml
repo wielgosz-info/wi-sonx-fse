@@ -1,12 +1,13 @@
-name: Release
+name: Tag
 
 on:
-  release:
-    types: [published]
+  push:
+    tags:
+      - 'v*'
 
 jobs:
-  add_binaries:
-    name: Adds archive with build assets to release
+  add_build:
+    name: Adds built assets to tag and ensure correct versions
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -18,6 +19,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          ref: ${{ github.ref }}
 
       - name: Get run ID for the release-built assets
         run: echo ASSETS_RUNID=$(gh api repos/${{ github.repository }}/commits/$GITHUB_SHA/check-runs | jq -r '.check_runs[] | select(.name == "${{ env.ASSETS_BUILD_STEP }}") | .html_url | capture("/runs/(?<number>[0-9]+)/job") | .number' | sed 's/"//g' | head -n 1) >> $GITHUB_ENV
@@ -31,7 +34,7 @@ jobs:
           run-id: ${{ env.ASSETS_RUNID }}
 
       - name: Get numeric version
-        run: echo NUMERIC_VERSION=$(echo ${{ github.event.release.tag_name }} | sed 's/v//') >> $GITHUB_ENV
+        run: echo NUMERIC_VERSION=$(echo ${{ github.ref_name }} | sed 's/v//') >> $GITHUB_ENV
 
       - name: Update package.json version
         run: jq '.version = "${{ env.NUMERIC_VERSION }}"' package.json > package.json.tmp && mv package.json.tmp package.json
@@ -39,20 +42,21 @@ jobs:
       - name: Update composer.json version
         run: jq '.version = "${{ env.NUMERIC_VERSION }}"' composer.json > composer.json.tmp && mv composer.json.tmp composer.json
 
+      - name: Update style.css version
+        run: |
+          sed -i "s/Version: .*/Version:           ${{ env.NUMERIC_VERSION }}/g" style.css
+
       - name: Commit built assets and force update the tag
+        id: commit
         uses: EndBug/add-and-commit@v9
         with:
-          add: -f build package.json composer.json
+          add: -f build package.json composer.json style.css
           default_author: github_actions
           message: Update tag to include built assets
-          tag: ${{ github.event.release.tag_name }} --force
+          new_branch: release/${{ env.NUMERIC_VERSION }}
+          tag: ${{ github.ref_name }} --force
           tag_push: --force
 
-      - name: Create archive
-        run: tar -czf ${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz .
-
-      - name: Upload archive to release
-        run: gh release upload ${{ github.event.release.tag_name }} "${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz" --clobber
-
-      - name: Cleanup
-        run: rm -f ${{ runner.temp	}}/${{ github.event.repository.name }}.tar.gz
+      - name: Delete the release branch
+        run: git push origin --delete release/${{ env.NUMERIC_VERSION }}
+        if: ${{ steps.commit.outputs.tag_pushed }}
