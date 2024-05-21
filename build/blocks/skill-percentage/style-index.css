@@ -1,0 +1,58 @@
+/* Gutenberg-compatible breakpoints */
+/* Project-specific breakpoints */
+/* For specific below-small overrides */
+.wp-block-wi-sonx-fse-skill-percentage {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, auto);
+	grid-template-areas: "chart" "caption";
+	gap: 0;
+	max-width: 15rem;
+	margin: 0 auto;
+}
+.wp-block-wi-sonx-fse-skill-percentage__canvas {
+	grid-area: chart;
+}
+.wp-block-wi-sonx-fse-skill-percentage__percentage {
+	grid-area: chart;
+	align-self: center;
+	justify-self: center;
+	line-height: 1;
+}
+.wp-block-wi-sonx-fse-skill-percentage__value {
+	display: inline-block;
+	width: 2.2ch;
+	word-break: keep-all;
+	text-align: right;
+	vertical-align: middle;
+	font-size: var(--wp--preset--font-size--xx-large);
+	font-weight: 700;
+}
+.wp-block-wi-sonx-fse-skill-percentage__suffix {
+	vertical-align: super;
+	font-size: var(--wp--preset--font-size--x-large);
+}
+.wp-block-wi-sonx-fse-skill-percentage__caption {
+	grid-area: caption;
+	margin: var(--wp--preset--spacing--40) 0;
+	text-align: center;
+}
+@media screen and (min-width: 782px) {
+	.wp-block-wi-sonx-fse-skill-percentage__value {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
+
+	.wp-block-wi-sonx-fse-skill-percentage__suffix {
+		font-size: var(--wp--preset--font-size--large);
+	}
+}
+@media screen and (min-width: 960px) {
+	.wp-block-wi-sonx-fse-skill-percentage__value {
+		font-size: var(--wp--preset--font-size--xx-large);
+	}
+
+	.wp-block-wi-sonx-fse-skill-percentage__suffix {
+		font-size: var(--wp--preset--font-size--x-large);
+	}
+}
+
