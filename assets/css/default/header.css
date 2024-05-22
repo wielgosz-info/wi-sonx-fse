@@ -1,5 +1,4 @@
 @media (--below-small) {
-
 	/* Force logo size and bigger font/smaller spacing on 'mobile' screens. */
 
 	.wi-header {
@@ -28,11 +27,10 @@
 }
 
 .wi-header {
-
 	/* stylelint-disable property-no-unknown */
 
 	animation-timeline: scroll(block root);
-	animation-range: 2% 20%;
+	animation-range: 0 200px;
 
 	/* stylelint-enable property-no-unknown */
 
