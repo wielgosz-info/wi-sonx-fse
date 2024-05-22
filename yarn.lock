@@ -14439,7 +14439,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.3.0":
+"react-dom@npm:^18.3.0, react-dom@npm:^18.3.1":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -14560,7 +14560,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.3.0":
+"react@npm:^18.3.0, react@npm:^18.3.1":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
@@ -17465,8 +17465,8 @@ __metadata:
     postcss-nested: "npm:^6.0.1"
     postcss-nesting: "npm:^12.1.2"
     prettier: "npm:^3.2.5"
-    react: "npm:^18.2.0"
-    react-dom: "npm:^18.2.0"
+    react: "npm:^18.3.1"
+    react-dom: "npm:^18.3.1"
     stylelint: "npm:^14.5.1"
     stylelint-config-prettier: "npm:^9.0.5"
     tsconfig-paths-webpack-plugin: "npm:^4.1.0"
