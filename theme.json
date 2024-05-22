@@ -396,11 +396,6 @@
 			"name": "footer-default",
 			"title": "Footer",
 			"area": "footer"
-		},
-		{
-			"name": "loop-default",
-			"title": "Posts Loop",
-			"area": "loop"
 		}
 	],
 	"patterns": []
