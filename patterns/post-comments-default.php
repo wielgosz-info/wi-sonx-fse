@@ -10,7 +10,7 @@
 
 // Return early if there are no comments and comments are closed.
 global $post;
-if ( ! comments_open( $post->ID ) && (int) get_comments_number( $post->ID ) === 0 ) {
+if ( ! $post || ( ! comments_open( $post->ID ) && (int) get_comments_number( $post->ID ) === 0 ) ) {
 	return;
 }
 

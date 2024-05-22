@@ -133,6 +133,7 @@
 			"writingMode": false,
 			"textTransform": false,
 			"dropCap": false,
+			"defaultFontSizes": false,
 			"fontSizes": [
 				{
 					"name": "X-Small",
@@ -380,7 +381,6 @@
 			}
 		}
 	},
-	"customTemplates": [],
 	"templateParts": [
 		{
 			"name": "header-default",
