@@ -8,6 +8,12 @@
  * @package WI\SonxFSE
  */
 
+// Return early if there are no comments and comments are closed.
+global $post;
+if ( ! comments_open( $post->ID ) && (int) get_comments_number( $post->ID ) === 0 ) {
+	return;
+}
+
 ?>
 
 <!-- wp:group {"layout":{"type":"constrained"},"metadata":{"name":"Comments"}} -->
