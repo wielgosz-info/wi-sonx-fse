@@ -61,7 +61,7 @@ addFilter(
 										{__(
 											'Enter the language code for this group.',
 											'wi-sonx-fse'
-										)}
+										)}{' '}
 										<ExternalLink
 											href={__(
 												'https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/lang'
