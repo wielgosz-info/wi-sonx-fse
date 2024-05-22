@@ -30,6 +30,7 @@
 @import "default/loop-post-preview.css";
 @import "default/loop-post-preview-service.css";
 @import "default/loop-post-preview-project.css";
+@import "default/post-navigation-links.css";
 
 /* Front-page specific styles/overrides. */
 @import "front-page/header.css";

@@ -42,5 +42,7 @@
 		<!-- wp:post-content {"style":{"spacing":{"blockGap":"var:preset|spacing|50"},"typography":{"lineHeight":"1.8"}},"textColor":"contrast-2","layout":{"type":"constrained"}} /-->
 	</div>
 	<!-- /wp:group -->
+
+	<!-- wp:pattern {"slug":"wi-sonx-fse/post-navigation-links-default"} /-->
 </article>
 <!-- /wp:group -->
