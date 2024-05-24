@@ -47,7 +47,7 @@
 			<!-- wp:buttons -->
 			<div class="wp-block-buttons">
 				<!-- wp:button {"metadata":{"bindings":{"text":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-label"}},"url":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-url"}},"linkTarget":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-new-tab"}}}},"className":"wp-block-button wi-project__cta"} -->
-				<div class="wp-block-button wi-project__cta"><a class="wp-block-button__link wp-element-button" href="wi-post-type-project-cta-url" target="wi-post-type-project-cta-new-tab">wi-post-type-project-cta-label</a></div>
+				<div class="wp-block-button wi-project__cta"><a class="wp-block-button__link wp-element-button">wi-post-type-project-cta-label</a></div>
 				<!-- /wp:button -->
 			</div>
 			<!-- /wp:buttons -->
