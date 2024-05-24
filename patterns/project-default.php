@@ -21,8 +21,8 @@
 	</div>
 	<!-- /wp:group -->
 
-	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":"12","minimumColumnWidth":null}} -->
-	<div class="wp-block-group alignwide">
+	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":"12","minimumColumnWidth":null},"className":"wi-project__info"} -->
+	<div class="wp-block-group wi-project__info alignwide">
 		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|50"},"layout":{"columnSpan":"5"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 		<div class="wp-block-group"
 			style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">

@@ -1,0 +1,5 @@
+@media (--below-small) {
+	.wi-project__info {
+		display: block !important;
+	}
+}

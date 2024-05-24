@@ -37,7 +37,6 @@
 		animation-name: postShiftIn;
 		animation-duration: 1ms;
 		animation-fill-mode: both;
-		will-change: transform, opacity;
 	}
 }
 

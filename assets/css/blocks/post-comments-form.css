@@ -86,7 +86,6 @@
 					var(--wp--custom--transition--timing-function),
 				font-size var(--wp--custom--transition--duration)
 					var(--wp--custom--transition--timing-function);
-			will-change: transform, font-size;
 		}
 
 		&:focus-within label,
