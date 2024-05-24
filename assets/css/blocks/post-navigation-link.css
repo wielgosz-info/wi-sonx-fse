@@ -65,11 +65,14 @@
 
 @media (--medium-viewport) {
 	.wp-block-post-navigation-link {
+		--total-height: calc(
+			var(--wp--preset--spacing--70) + var(--wp--preset--spacing--60) * 2
+		);
+		--arrow-size: calc(
+			var(--wp--preset--spacing--70) + var(--wp--preset--spacing--40)
+		);
+
 		> a {
-			--total-height: calc(
-				var(--wp--preset--spacing--70) + var(--wp--preset--spacing--60) *
-					2
-			);
 			padding: var(--wp--preset--spacing--60)
 				var(--wp--preset--spacing--40);
 			height: var(--total-height);
@@ -115,7 +118,7 @@
 		}
 
 		&.post-navigation-link-next > a {
-			padding-right: var(--wp--preset--spacing--70);
+			padding-right: var(--arrow-size);
 
 			&::after {
 				margin-right: 0;
@@ -123,7 +126,7 @@
 		}
 
 		&.post-navigation-link-previous > a {
-			padding-left: var(--wp--preset--spacing--70);
+			padding-left: var(--arrow-size);
 
 			&::after {
 				margin-left: 0;
@@ -132,7 +135,7 @@
 
 		&.post-navigation-link-next:dir(rtl) > a {
 			padding-right: var(--wp--preset--spacing--40);
-			padding-left: var(--wp--preset--spacing--70);
+			padding-left: var(--arrow-size);
 
 			&::after {
 				margin-left: 0;
@@ -142,7 +145,7 @@
 
 		&.post-navigation-link-previous:dir(rtl) > a {
 			padding-left: var(--wp--preset--spacing--40);
-			padding-right: var(--wp--preset--spacing--70);
+			padding-right: var(--arrow-size);
 
 			&::after {
 				margin-right: 0;
@@ -159,7 +162,7 @@
 		bottom: 0;
 		z-index: 1;
 		margin: auto 0;
-		width: var(--wp--preset--spacing--70);
+		width: var(--arrow-size);
 		padding: var(--wp--preset--spacing--60) 0;
 		font-size: var(--wp--preset--font-size--xx-large);
 		font-weight: 400;
