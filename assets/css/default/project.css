@@ -1,3 +1,7 @@
+.wi-project__meta-item:empty {
+	display: none;
+}
+
 @media (--below-small) {
 	.wi-project__info {
 		display: block !important;

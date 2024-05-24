@@ -23,12 +23,34 @@
 
 	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|60"}},"layout":{"type":"grid","columnCount":"12","minimumColumnWidth":null},"className":"wi-project__info"} -->
 	<div class="wp-block-group wi-project__info alignwide">
-		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|50"},"layout":{"columnSpan":"5"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+		<!-- wp:group {"style":{"spacing":{"margin":{"top":"var:preset|spacing|50","bottom":"var:preset|spacing|50"},"blockGap":"var:preset|spacing|60"},"layout":{"columnSpan":"5"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 		<div class="wp-block-group"
 			style="margin-top:var(--wp--preset--spacing--50);margin-bottom:var(--wp--preset--spacing--50)">
-			<!-- wp:post-terms {"term":"wi-project-category","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700","letterSpacing":"0.65px"},"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-3","fontSize":"small"} /-->
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|30"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+			<div class="wp-block-group">
+				<!-- wp:post-terms {"term":"wi-project-category","style":{"typography":{"textTransform":"uppercase","fontStyle":"normal","fontWeight":"700","letterSpacing":"0.65px"},"elements":{"link":{"color":{"text":"var:preset|color|contrast-2"}}}},"textColor":"contrast-3","fontSize":"small"} /-->
 
-			<!-- wp:post-excerpt {"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"x-large"} /-->
+				<!-- wp:post-excerpt {"style":{"typography":{"fontStyle":"normal","fontWeight":"700"}},"fontSize":"x-large"} /-->
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
+			<div class="wp-block-group">
+				<?php for ( $i = 0; $i < 5; $i++ ) : ?>
+					<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"wi-post-type-project-meta-item-<?php echo intval( $i ); ?>"}}}},"className":"wi-project__meta-item"} -->
+					<p class="wi-project__meta-item"></p>
+					<!-- /wp:paragraph -->
+				<?php endfor; ?>
+			</div>
+			<!-- /wp:group -->
+
+			<!-- wp:buttons -->
+			<div class="wp-block-buttons">
+				<!-- wp:button {"metadata":{"bindings":{"text":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-label"}},"url":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-url"}},"linkTarget":{"source":"core/post-meta","args":{"key":"wi-post-type-project-cta-new-tab"}}}},"className":"wp-block-button wi-project__cta"} -->
+				<div class="wp-block-button wi-project__cta"><a class="wp-block-button__link wp-element-button" href="wi-post-type-project-cta-url" target="wi-post-type-project-cta-new-tab">wi-post-type-project-cta-label</a></div>
+				<!-- /wp:button -->
+			</div>
+			<!-- /wp:buttons -->
 		</div>
 		<!-- /wp:group -->
 
