@@ -1,29 +1,31 @@
 {
-	"name": "wielgosz-info/wi-sonx-fse",
-	"description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
-	"version": "0.2.0",
-	"type": "wordpress-theme",
-	"license": "MIT",
-	"authors": [
-		{
-			"name": "Urszula Wielgosz"
-		}
-	],
-	"require-dev": {
-		"dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
-		"squizlabs/php_codesniffer": "^3.5",
-		"wp-coding-standards/wpcs": "^3.1"
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
-		}
-	},
-	"scripts": {
-		"standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
-		"standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
-	},
-	"autoload": {
-		"classmap": ["includes"]
-	}
+  "name": "wielgosz-info/wi-sonx-fse",
+  "description": "WI Sonx - Personal CV, Resume & Portfolio WP Theme",
+  "version": "0.2.0",
+  "type": "wordpress-theme",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Urszula Wielgosz"
+    }
+  ],
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "^1.0.0",
+    "squizlabs/php_codesniffer": "^3.5",
+    "wp-coding-standards/wpcs": "^3.1"
+  },
+  "config": {
+    "allow-plugins": {
+      "dealerdirect/phpcodesniffer-composer-installer": true
+    }
+  },
+  "scripts": {
+    "standards:check": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcs",
+    "standards:fix": "@php ./vendor/squizlabs/php_codesniffer/bin/phpcbf"
+  },
+  "autoload": {
+    "classmap": [
+      "includes"
+    ]
+  }
 }

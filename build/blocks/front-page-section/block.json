@@ -1,0 +1,73 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Front Page Section",
+  "description": "A custom block for Front Page Section that will ensure it is full width and full height.",
+  "name": "wi-sonx-fse/front-page-section",
+  "category": "wi-sonx-fse/front-page",
+  "icon": "layout",
+  "textdomain": "wi-sonx-fse",
+  "style": "file:./style-index.css",
+  "editorStyle": "file:./index.css",
+  "editorScript": "file:./index.js",
+  "supports": {
+    "align": [
+      "full"
+    ],
+    "anchor": true,
+    "color": {
+      "text": true,
+      "background": true,
+      "link": true,
+      "enableContrastChecker": true
+    },
+    "background": {
+      "backgroundImage": true,
+      "backgroundSize": true
+    },
+    "layout": {
+      "default": {
+        "type": "flex",
+        "alignItems": "center",
+        "orientation": "vertical",
+        "flexWrap": "nowrap",
+        "justifyContent": "stretch",
+        "verticalAlignment": "center"
+      },
+      "allowCustomContentAndWideSize": false,
+      "allowSwitching": false,
+      "allowEditing": false
+    },
+    "interactivity": true
+  },
+  "attributes": {
+    "align": {
+      "type": "string",
+      "default": "full"
+    },
+    "textColor": {
+      "type": "string",
+      "default": "contrast"
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "base"
+    },
+    "style": {
+      "type": "object",
+      "default": {
+        "background": {
+          "backgroundImage": {
+            "url": ""
+          },
+          "backgroundPosition": "50% 50%",
+          "backgroundSize": "cover"
+        }
+      }
+    },
+    "inToC": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

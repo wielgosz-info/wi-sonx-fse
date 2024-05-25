@@ -1,0 +1,58 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Skill Percentage",
+  "description": "Very simple 'skill gauge' represented as donut chart.",
+  "name": "wi-sonx-fse/skill-percentage",
+  "category": "widgets",
+  "icon": "performance",
+  "textdomain": "wi-sonx-fse",
+  "style": "file:./style-index.css",
+  "editorScript": "file:./index.js",
+  "viewScriptModule": "file:./view.js",
+  "supports": {
+    "anchor": true,
+    "color": {
+      "text": true,
+      "background": false
+    },
+    "interactivity": true
+  },
+  "attributes": {
+    "percentage": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "default": 50,
+      "step": 1,
+      "__experimentalRole": "content"
+    },
+    "caption": {
+      "type": "rich-text",
+      "source": "rich-text",
+      "selector": "figcaption",
+      "__experimentalRole": "content"
+    },
+    "animation": {
+      "type": "object",
+      "properties": {
+        "duration": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 10000,
+          "step": 100
+        },
+        "delay": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 2000,
+          "step": 10
+        }
+      },
+      "default": {
+        "duration": 2000,
+        "delay": 200
+      }
+    }
+  }
+}
