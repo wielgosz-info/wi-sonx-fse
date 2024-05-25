@@ -17,6 +17,7 @@
 @import "blocks/post-comments-form.css";
 @import "blocks/post-content.css";
 @import "blocks/post-date.css";
+@import "blocks/post-navigation-link.css";
 @import "blocks/post-terms.css";
 @import "blocks/pullquote.css";
 @import "blocks/query-pagination.css";
@@ -30,6 +31,7 @@
 @import "default/loop-post-preview.css";
 @import "default/loop-post-preview-service.css";
 @import "default/loop-post-preview-project.css";
+@import "default/project.css";
 
 /* Front-page specific styles/overrides. */
 @import "front-page/header.css";

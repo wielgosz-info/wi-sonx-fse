@@ -32,7 +32,6 @@
 			var(--wp--custom--transition--timing-function),
 			height calc(var(--wp--custom--transition--duration) * 3)
 			var(--wp--custom--transition--timing-function);
-		will-change: opacity, height;
 	}
 
 	.wi-loop-post-preview-project:hover,

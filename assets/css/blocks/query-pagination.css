@@ -63,7 +63,6 @@
 					var(--wp--custom--transition--timing-function),
 				opacity var(--wp--custom--transition--duration)
 					var(--wp--custom--transition--timing-function);
-			will-change: transform, opacity;
 		}
 
 		&.current {

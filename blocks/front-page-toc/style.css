@@ -50,7 +50,7 @@
 	text-align: center;
 	text-decoration: none;
 	font-weight: 700;
-	letter-spacing: 1px;
+	letter-spacing: 0.05em;
 	font-size: 1rem;
 	line-height: 1.5;
 	width: 1.5rem;
@@ -68,7 +68,6 @@
 		transform: scale(1);
 		transition: transform var(--wp--custom--transition--duration)
 			var(--wp--custom--transition--timing-function);
-		will-change: transform;
 	}
 
 	&::after {
@@ -90,7 +89,6 @@
 				var(--wp--custom--transition--timing-function),
 			opacity var(--wp--custom--transition--duration)
 				var(--wp--custom--transition--timing-function);
-		will-change: transform, opacity;
 	}
 
 	&:hover {
@@ -197,7 +195,6 @@
 		clip-path: inset(0 100% 0 0);
 		transition: clip-path var(--wp--custom--transition--duration) linear
 				0s;
-		will-change: clip-path;
 	}
 
 	.wp-block-wi-sonx-fse-front-page-toc__link {
@@ -229,7 +226,6 @@
 					var(--wp--custom--transition--timing-function)
 					calc(2 * var(--wp--custom--transition--duration)),
 				border-radius var(--wp--custom--transition--duration) linear var(--wp--custom--transition--duration);
-			will-change: transform, opacity, border-radius;
 		}
 
 		&.is-active,

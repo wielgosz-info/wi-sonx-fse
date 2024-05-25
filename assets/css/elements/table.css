@@ -1,14 +1,15 @@
-table {
+:where(.wp-block-post-content) table {
 	border-collapse: collapse;
     width: 100%;
 }
 
-th {
+:where(.wp-block-post-content) th {
 	text-align: left;
 	color: var(--wp--preset--color--contrast);
 }
 
-th, td {
+:where(.wp-block-post-content) th,
+:where(.wp-block-post-content) td {
 	border: 1px solid var(--wp--preset--color--contrast-3);
     padding: var(--wp--preset--spacing--20);
 }

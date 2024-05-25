@@ -133,6 +133,7 @@
 			"writingMode": false,
 			"textTransform": false,
 			"dropCap": false,
+			"defaultFontSizes": false,
 			"fontSizes": [
 				{
 					"name": "X-Small",
@@ -380,7 +381,6 @@
 			}
 		}
 	},
-	"customTemplates": [],
 	"templateParts": [
 		{
 			"name": "header-default",
@@ -396,11 +396,6 @@
 			"name": "footer-default",
 			"title": "Footer",
 			"area": "footer"
-		},
-		{
-			"name": "loop-default",
-			"title": "Posts Loop",
-			"area": "loop"
 		}
 	],
 	"patterns": []

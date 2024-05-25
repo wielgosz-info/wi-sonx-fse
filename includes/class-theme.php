@@ -18,6 +18,7 @@ class Theme extends Utils\Singleton {
 
 		// Templates.
 		add_filter( 'default_wp_template_part_areas', array( $this, 'template_part_areas' ) );
+		add_filter( 'default_template_types', array( $this, 'custom_template_descriptions' ) );
 
 		// Patterns.
 		add_action( 'init', array( $this, 'register_theme_pattern_categories' ) );
@@ -40,6 +41,15 @@ class Theme extends Utils\Singleton {
 		);
 
 		return $areas;
+	}
+
+	public function custom_template_descriptions( array $templates ) {
+		$templates['single-wi-project'] = array(
+			'title'       => __( 'Single Project', 'wi-sonx-fse' ),
+			'description' => __( 'Default template for projects.', 'wi-sonx-fse' ),
+		);
+
+		return $templates;
 	}
 
 	public function register_theme_pattern_categories() {

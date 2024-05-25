@@ -117,7 +117,6 @@
 			var(--wp--custom--transition--timing-function),
 		border-color var(--wp--custom--transition--duration)
 			var(--wp--custom--transition--timing-function);
-	will-change: background-color, border-color;
 
 	&:hover,
 	&:focus,
