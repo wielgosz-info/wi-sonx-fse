@@ -36,7 +36,7 @@
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 			<div class="wp-block-group">
-				<?php for ( $i = 0; $i < 5; $i++ ) : ?>
+				<?php for ( $wi_sonx_fse_i = 0; $wi_sonx_fse_i < 5; $wi_sonx_fse_i++ ) : ?>
 					<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"wi-post-type-project-meta-item-<?php echo intval( $i ); ?>"}}}},"className":"wi-project__meta-item"} -->
 					<p class="wi-project__meta-item"></p>
 					<!-- /wp:paragraph -->
