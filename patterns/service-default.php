@@ -26,8 +26,8 @@
 		style="padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
 		<!-- wp:group {"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch","verticalAlignment":"top"}} -->
 		<div class="wp-block-group">
-			<!-- wp:group {"style":{"border":{"radius":"50%"},"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|60","right":"var:preset|spacing|60"}},"layout":{"selfStretch":"fit","flexSize":null}},"backgroundColor":"contrast","layout":{"type":"default"}} -->
-			<div class="wp-block-group has-contrast-background-color has-background"
+			<!-- wp:group {"style":{"border":{"radius":"50%"},"spacing":{"padding":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60","left":"var:preset|spacing|60","right":"var:preset|spacing|60"}},"layout":{"selfStretch":"fit","flexSize":null}},"backgroundColor":"contrast","layout":{"type":"default"},"className":"wi-service__icon"} -->
+			<div class="wp-block-group wi-service__icon has-contrast-background-color has-background"
 				style="border-radius:50%;padding-top:var(--wp--preset--spacing--60);padding-right:var(--wp--preset--spacing--60);padding-bottom:var(--wp--preset--spacing--60);padding-left:var(--wp--preset--spacing--60)">
 				<!-- wp:post-featured-image {"aspectRatio":"1","height":"","scale":"contain"} /-->
 			</div>
