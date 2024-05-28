@@ -10,7 +10,7 @@
  * @package WI\SonxFSE
  */
 
-$skills = array(
+$wi_sonx_fse_skills = array(
 	70,
 	59,
 	92,
@@ -63,20 +63,20 @@ $skills = array(
 			<!-- wp:columns {"style":{"spacing":{"blockGap":{"left":"var:preset|spacing|50"}}}} -->
 			<div class="wp-block-columns">
 				<?php
-				foreach ( $skills as $idx => $skill ) :
+				foreach ( $wi_sonx_fse_skills as $wi_sonx_fse_idx => $wi_sonx_fse_skill ) :
 					?>
 					<!-- wp:column -->
 					<div class="wp-block-column">
-						<!-- wp:wi-sonx-fse/skill-percentage {"percentage":<?php echo esc_attr( $skill ); ?>,"animation":{"duration":2000,"delay":<?php echo esc_attr( ( $idx + 1 ) * 200 ); ?>}} -->
-						<figure id="<?php echo esc_attr( sprintf( 'skill-%s', $idx + 1 ) ); ?>" class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="wi-sonx-fse/skill-percentage"
+						<!-- wp:wi-sonx-fse/skill-percentage {"percentage":<?php echo esc_attr( $wi_sonx_fse_skill ); ?>,"animation":{"duration":2000,"delay":<?php echo esc_attr( ( $wi_sonx_fse_idx + 1 ) * 200 ); ?>}} -->
+						<figure id="<?php echo esc_attr( sprintf( 'skill-%s', $wi_sonx_fse_idx + 1 ) ); ?>" class="wp-block-wi-sonx-fse-skill-percentage" data-wp-interactive="wi-sonx-fse/skill-percentage"
 							<?php
 							echo wp_interactivity_data_wp_context(
 								array(
-									'percentage'        => $skill,
+									'percentage'        => $wi_sonx_fse_skill,
 									'percentageCounter' => 0,
 									'animation'         => array(
 										'duration' => 2000,
-										'delay'    => ( $idx + 1 ) * 200,
+										'delay'    => ( $wi_sonx_fse_idx + 1 ) * 200,
 									),
 								)
 							);
@@ -86,18 +86,18 @@ $skills = array(
 							data-wp-init--reduced-motion="callbacks.initReducedMotion"
 							data-wp-watch--in-view="callbacks.watchInView"
 						>
-							<canvas id="<?php echo esc_attr( sprintf( 'skill-%s-canvas', $idx + 1 ) ); ?>"
+							<canvas id="<?php echo esc_attr( sprintf( 'skill-%s-canvas', $wi_sonx_fse_idx + 1 ) ); ?>"
 								class="wp-block-wi-sonx-fse-skill-percentage__canvas"
 								data-wp-init="callbacks.initChart"></canvas>
 							<div class="wp-block-wi-sonx-fse-skill-percentage__percentage"><span
 									class="wp-block-wi-sonx-fse-skill-percentage__value"
 									data-wp-text="context.percentageCounter">
-									<?php echo esc_html( $skill ); ?>
+									<?php echo esc_html( $wi_sonx_fse_skill ); ?>
 								</span><span class="wp-block-wi-sonx-fse-skill-percentage__suffix">%</span>
 							</div>
 							<figcaption class="wp-element-caption wp-block-wi-sonx-fse-skill-percentage__caption">
 								<?php esc_html_e( 'Skill', 'wi-sonx-fse' ); ?>
-								<?php echo esc_html( $idx + 1 ); ?>
+								<?php echo esc_html( $wi_sonx_fse_idx + 1 ); ?>
 							</figcaption>
 						</figure>
 						<!-- /wp:wi-sonx-fse/skill-percentage -->

@@ -48,6 +48,10 @@ class Theme extends Utils\Singleton {
 			'title'       => __( 'Single Project', 'wi-sonx-fse' ),
 			'description' => __( 'Default template for projects.', 'wi-sonx-fse' ),
 		);
+		$templates['single-wi-service'] = array(
+			'title'       => __( 'Single Service', 'wi-sonx-fse' ),
+			'description' => __( 'Default template for services.', 'wi-sonx-fse' ),
+		);
 
 		return $templates;
 	}
