@@ -52,6 +52,10 @@ class Theme extends Utils\Singleton {
 			'title'       => __( 'Single Service', 'wi-sonx-fse' ),
 			'description' => __( 'Default template for services.', 'wi-sonx-fse' ),
 		);
+		$templates['archive-wi-project'] = array(
+			'title'       => __( 'Archive of Projects', 'wi-sonx-fse' ),
+			'description' => __( 'Default template for main archive of projects. Filter buttons are only regenerated when this template is edited, so you need to refresh it if a category is changed.', 'wi-sonx-fse' ),
+		);
 
 		return $templates;
 	}
