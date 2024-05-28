@@ -32,6 +32,7 @@
 		line-height: 1;
 		letter-spacing: 0.1em;
 		font-weight: 400;
+		color: rgba(255, 255, 255, 0.1);
 		color: color-mix(in srgb, var(--wp--preset--color--contrast), transparent 90%);
 		color: var(--wp--preset--color--base-2);
 	}

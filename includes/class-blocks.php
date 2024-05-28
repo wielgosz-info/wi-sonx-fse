@@ -44,7 +44,7 @@ class Blocks extends Utils\Singleton {
 		$theme_version = wp_get_theme()->get( 'Version' );
 		$blocks        = array();
 
-		// If we don't have registered blocks, the theme version has changed or we're not in dev mode, refresh blocks.
+		// If we don't have registered blocks, the theme version has changed or we're in dev mode, refresh blocks.
 		if ( empty( $option['blocks'] ) || $option['theme_version'] !== $theme_version || wp_is_development_mode( 'theme' ) ) {
 			$blocks = glob( get_parent_theme_file_path( 'build/blocks' ) . '/*', GLOB_ONLYDIR );
 
