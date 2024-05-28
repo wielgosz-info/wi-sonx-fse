@@ -14,8 +14,8 @@ Initialize the query ID counter.
 This is used to generate unique IDs for each query block to prevent with pagination
 when the Front Page pattern is inserted directly.
 */
-global $next_query_id;
-$next_query_id = 0;
+global $wi_sonx_fse_next_query_id;
+$wi_sonx_fse_next_query_id = 0;
 
 ?>
 

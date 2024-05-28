@@ -10,7 +10,7 @@
 
 ?>
 
-<!-- wp:group {"tagName":"article","metadata":{"name":"Article","categories":["theme"],"patternName":"wi-sonx-fse/post-default"},"align":"wide","layout":{"type":"constrained"}} -->
+<!-- wp:group {"tagName":"article","metadata":{"name":"Article","categories":["theme"],"patternName":"wi-sonx-fse/project-default"},"align":"wide","layout":{"type":"constrained"}} -->
 <article class="wp-block-group alignwide">
 	<!-- wp:group {"align":"wide","style":{"spacing":{"blockGap":"var:preset|spacing|40","margin":{"top":"var:preset|spacing|60","bottom":"var:preset|spacing|60"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
 	<div class="wp-block-group alignwide"
@@ -36,7 +36,7 @@
 
 			<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|40"}},"layout":{"type":"flex","orientation":"vertical"}} -->
 			<div class="wp-block-group">
-				<?php for ( $i = 0; $i < 5; $i++ ) : ?>
+				<?php for ( $wi_sonx_fse_i = 0; $wi_sonx_fse_i < 5; $wi_sonx_fse_i++ ) : ?>
 					<!-- wp:paragraph {"metadata":{"bindings":{"content":{"source":"core/post-meta","args":{"key":"wi-post-type-project-meta-item-<?php echo intval( $i ); ?>"}}}},"className":"wi-project__meta-item"} -->
 					<p class="wi-project__meta-item"></p>
 					<!-- /wp:paragraph -->

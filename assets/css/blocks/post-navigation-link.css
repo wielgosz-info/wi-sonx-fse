@@ -24,7 +24,8 @@
 		z-index: 1;
 	}
 
-	.post-navigation-link__label {
+	.post-navigation-link__label,
+	> [data-wp-block-attribute-key="label"] {
 		order: 10;
 		font-size: var(--wp--preset--font-size--small);
 		text-transform: uppercase;
@@ -35,7 +36,7 @@
 			var(--wp--custom--transition--duration);
 	}
 
-	> a {
+	> a[href] {
 		box-sizing: border-box;
 		display: flex;
 		flex-direction: column;
@@ -72,7 +73,7 @@
 			var(--wp--preset--spacing--70) + var(--wp--preset--spacing--40)
 		);
 
-		> a {
+		> a[href] {
 			padding: var(--wp--preset--spacing--60)
 				var(--wp--preset--spacing--40);
 			height: var(--total-height);
@@ -83,7 +84,7 @@
 				background-color: transparent;
 			}
 
-			&::after {
+			&::before {
 				content: "";
 				position: absolute;
 				inset: 0;
@@ -106,7 +107,7 @@
 					width var(--wp--custom--transition--duration) linear;
 			}
 
-			&:hover::after {
+			&:hover::before {
 				transform: scale(1);
 				opacity: 1;
 				border-radius: 0;
@@ -117,37 +118,37 @@
 			}
 		}
 
-		&.post-navigation-link-next > a {
+		&.post-navigation-link-next > a[href] {
 			padding-right: var(--arrow-size);
 
-			&::after {
+			&::before {
 				margin-right: 0;
 			}
 		}
 
-		&.post-navigation-link-previous > a {
+		&.post-navigation-link-previous > a[href] {
 			padding-left: var(--arrow-size);
 
-			&::after {
+			&::before {
 				margin-left: 0;
 			}
 		}
 
-		&.post-navigation-link-next:dir(rtl) > a {
+		&.post-navigation-link-next:dir(rtl) > a[href] {
 			padding-right: var(--wp--preset--spacing--40);
 			padding-left: var(--arrow-size);
 
-			&::after {
+			&::before {
 				margin-left: 0;
 				margin-right: auto;
 			}
 		}
 
-		&.post-navigation-link-previous:dir(rtl) > a {
+		&.post-navigation-link-previous:dir(rtl) > a[href] {
 			padding-left: var(--wp--preset--spacing--40);
 			padding-right: var(--arrow-size);
 
-			&::after {
+			&::before {
 				margin-right: 0;
 				margin-left: auto;
 			}
@@ -191,7 +192,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.wp-block-post-navigation-link > a::after {
+	.wp-block-post-navigation-link > a::before {
 		transition: none;
 	}
 }
