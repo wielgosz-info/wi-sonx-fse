@@ -1,0 +1,4 @@
+.wi-heading-404 {
+	font-size: clamp(9rem, 9rem + ((1vw - 0.2rem) * 24.375), 18.75rem);
+	line-height: 1;
+}

@@ -27,6 +27,7 @@
 
 /* Default styles for most of the site. */
 @import "default/header.css";
+@import "default/heading-404.css";
 @import "default/loop-portfolio-grid.css";
 @import "default/loop-post-preview.css";
 @import "default/loop-post-preview-service.css";

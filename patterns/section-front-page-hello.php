@@ -29,7 +29,7 @@
 						style="padding-left:var(--wp--preset--spacing--10);font-style:normal;font-weight:700;letter-spacing:0.4em;text-transform:uppercase"><?php esc_html_e( "Hello I'm", 'wi-sonx-fse' ); ?></p>
 					<!-- /wp:paragraph -->
 
-					<!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700","lineHeight":"1"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"fontSize":"Huge"} -->
+					<!-- wp:heading {"level":1,"style":{"typography":{"fontStyle":"normal","fontWeight":"700","lineHeight":"1"},"spacing":{"margin":{"top":"var:preset|spacing|50"}}},"fontSize":"huge"} -->
 					<h1 class="has-huge-font-size"
 						style="margin-top:var(--wp--preset--spacing--50);font-style:normal;font-weight:700;line-height:1"><?php echo esc_html( get_bloginfo( 'name' ) ); ?></h1>
 					<!-- /wp:heading -->
