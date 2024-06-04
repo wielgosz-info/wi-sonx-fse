@@ -20,7 +20,7 @@
 	},
 	"dependencies": {
 		"@wordpress/interactivity": "^5.7.0",
-		"chart.js": "^4.4.2",
+		"chart.js": "^4.4.3",
 		"chartjs-plugin-deferred": "^2.0.0"
 	},
 	"devDependencies": {
