@@ -167,7 +167,7 @@
 				},
 				{
 					"name": "Huge",
-					"slug": "Huge",
+					"slug": "huge",
 					"size": "9rem",
 					"fluid": {
 						"min": "3.5rem"

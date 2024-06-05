@@ -6,7 +6,7 @@
 
 <!-- wp:group {"tagName":"main","metadata":{"name":"Main"}} -->
 <main class="wp-block-group">
-	<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50","padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"center"}} -->
+	<!-- wp:group {"style":{"spacing":{"padding":{"top":"var:preset|spacing|80","bottom":"var:preset|spacing|80"}}},"layout":{"type":"constrained"}} -->
 	<div
 		class="wp-block-group"
 		style="
@@ -14,9 +14,13 @@
 			padding-bottom: var(--wp--preset--spacing--80);
 		"
 	>
-		<!-- wp:query-title {"type":"search","textAlign":"center"} /-->
+		<!-- wp:group {"style":{"spacing":{"blockGap":"var:preset|spacing|50"}},"layout":{"type":"flex","orientation":"vertical","justifyContent":"stretch"}} -->
+		<div class="wp-block-group">
+			<!-- wp:query-title {"type":"search","textAlign":"center"} /-->
 
-		<!-- wp:search {"label":"Search","buttonText":"Search","align":"center"} /-->
+			<!-- wp:search {"label":"Search","buttonText":"Search","align":"center"} /-->
+		</div>
+		<!-- /wp:group -->
 	</div>
 	<!-- /wp:group -->
 

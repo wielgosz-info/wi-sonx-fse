@@ -1,0 +1,43 @@
+@keyframes drop {
+	0% {
+		transform: translateY(-100%);
+		opacity: 0;
+	}
+
+	100% {
+		transform: translateY(0);
+		opacity: 1;
+	}
+}
+
+.wi-heading-404 {
+	font-size: clamp(9rem, 9rem + ((1vw - 0.2rem) * 24.375), 18.75rem);
+	line-height: 1;
+
+	> span,
+	> strong {
+		display: inline-block;
+		animation: drop calc(3 * var(--wp--custom--transition--duration)) ease-in both;
+	}
+
+	> :nth-child(1) {
+		animation-delay: var(--wp--custom--transition--duration);
+	}
+
+	> :nth-child(2) {
+		animation-delay: calc(2 * var(--wp--custom--transition--duration));
+	}
+
+	> :nth-child(3) {
+		animation-delay: calc(3 * var(--wp--custom--transition--duration));
+	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.wi-heading-404 {
+		> span,
+		> strong {
+			animation: none;
+		}
+	}
+}
