@@ -1,0 +1,20 @@
+@media (--small-viewport) {
+	.wp-block-post-template-is-layout-grid {
+		> .sticky {
+			display: grid;
+			grid-template-columns: subgrid;
+		}
+
+		&.columns-2 > .sticky {
+			grid-column: span 2;
+		}
+
+		&.columns-3 > .sticky {
+			grid-column: span 3;
+		}
+
+		&.columns-4 > .sticky {
+			grid-column: span 4;
+		}
+	}
+}
