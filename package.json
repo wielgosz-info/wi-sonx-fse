@@ -35,7 +35,7 @@
 		"@wordpress/prettier-config": "^4.1.0",
 		"@wordpress/scripts": "^28.1.0",
 		"@wordpress/style-engine": "^2.0.0",
-		"@wordpress/stylelint-config": "^22.0.0",
+		"@wordpress/stylelint-config": "^22.1.0",
 		"classnames": "^2.5.1",
 		"cssnano-preset-default": "^7.0.1",
 		"eslint": "^8.57.0",
