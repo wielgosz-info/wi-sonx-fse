@@ -18281,7 +18281,7 @@ __metadata:
     "@wordpress/postcss-plugins-preset": "npm:^4.41.0"
     "@wordpress/prettier-config": "npm:^4.1.0"
     "@wordpress/scripts": "npm:^28.1.0"
-    "@wordpress/style-engine": "npm:^2.0.0"
+    "@wordpress/style-engine": "npm:^2.1.0"
     "@wordpress/stylelint-config": "npm:^22.0.0"
     chart.js: "npm:^4.4.3"
     chartjs-plugin-deferred: "npm:^2.0.0"
