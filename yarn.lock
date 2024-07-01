@@ -6024,6 +6024,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/style-engine@npm:^2.2.0":
+  version: 2.2.0
+  resolution: "@wordpress/style-engine@npm:2.2.0"
+  dependencies:
+    "@babel/runtime": "npm:^7.16.0"
+    change-case: "npm:^4.1.2"
+  checksum: 10c0/dae5a6a4be074dbcdd8224cd93dc56cdb2a28e40a6de09154fe692c219298efe7ea1fadb5908821a81e78e2a6ff463de7ef33a472a8fec988711ea8af22cac4d
+  languageName: node
+  linkType: hard
+
 "@wordpress/stylelint-config@npm:^22.0.0":
   version: 22.0.0
   resolution: "@wordpress/stylelint-config@npm:22.0.0"
@@ -18281,7 +18291,7 @@ __metadata:
     "@wordpress/postcss-plugins-preset": "npm:^4.41.0"
     "@wordpress/prettier-config": "npm:^4.1.0"
     "@wordpress/scripts": "npm:^28.1.0"
-    "@wordpress/style-engine": "npm:^2.0.0"
+    "@wordpress/style-engine": "npm:^2.2.0"
     "@wordpress/stylelint-config": "npm:^22.0.0"
     chart.js: "npm:^4.4.3"
     chartjs-plugin-deferred: "npm:^2.0.0"
