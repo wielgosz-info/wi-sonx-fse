@@ -6024,18 +6024,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wordpress/stylelint-config@npm:^22.0.0":
-  version: 22.0.0
-  resolution: "@wordpress/stylelint-config@npm:22.0.0"
-  dependencies:
-    stylelint-config-recommended: "npm:^6.0.0"
-    stylelint-config-recommended-scss: "npm:^5.0.2"
-  peerDependencies:
-    stylelint: ^14.2
-  checksum: 10c0/b44c9868a1851dbda6b766a694e72baa79f5bb1dd66be27ff5ea029e3b232ee20999fd917286d894565b268c2c517d50fa50e5a872f383d5c1e2cb258910f4d7
-  languageName: node
-  linkType: hard
-
 "@wordpress/stylelint-config@npm:^22.1.0":
   version: 22.1.0
   resolution: "@wordpress/stylelint-config@npm:22.1.0"
@@ -6045,6 +6033,18 @@ __metadata:
   peerDependencies:
     stylelint: ^14.2
   checksum: 10c0/24c654e4fcd4717d480f61425e6d4784e4722bb3fe9dc2a5b28aaeaafd1ca18cb2c4e60aee753f39593fcbd2fb5ecac0e838d89745fcbf7765f7f46ad829ca64
+  languageName: node
+  linkType: hard
+
+"@wordpress/stylelint-config@npm:^22.2.0":
+  version: 22.2.0
+  resolution: "@wordpress/stylelint-config@npm:22.2.0"
+  dependencies:
+    stylelint-config-recommended: "npm:^6.0.0"
+    stylelint-config-recommended-scss: "npm:^5.0.2"
+  peerDependencies:
+    stylelint: ^14.2
+  checksum: 10c0/65acc0706ab32cf77d17686c8e60a0372385c83e98c9e4e7118b75b040382ac095a331f86f714669bf0ef3f82f9b034159dfe7757a186f3d17185639e3bc436c
   languageName: node
   linkType: hard
 
@@ -18282,7 +18282,7 @@ __metadata:
     "@wordpress/prettier-config": "npm:^4.1.0"
     "@wordpress/scripts": "npm:^28.1.0"
     "@wordpress/style-engine": "npm:^2.0.0"
-    "@wordpress/stylelint-config": "npm:^22.0.0"
+    "@wordpress/stylelint-config": "npm:^22.2.0"
     chart.js: "npm:^4.4.3"
     chartjs-plugin-deferred: "npm:^2.0.0"
     classnames: "npm:^2.5.1"
