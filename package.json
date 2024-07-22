@@ -19,7 +19,7 @@
 		"url": "https://github.com/wielgosz-info/wi-sonx-fse/issues"
 	},
 	"dependencies": {
-		"@wordpress/interactivity": "^5.7.0",
+		"@wordpress/interactivity": "^6.3.0",
 		"chart.js": "^4.4.3",
 		"chartjs-plugin-deferred": "^2.0.0"
 	},
