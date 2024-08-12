@@ -5675,6 +5675,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@wordpress/prettier-config@npm:^4.5.0":
+  version: 4.5.0
+  resolution: "@wordpress/prettier-config@npm:4.5.0"
+  peerDependencies:
+    prettier: ">=3"
+  checksum: 10c0/e131719a6de0bd98bd1f5ebb9b0478adabd423bbb5ee65b6674bcdc577175698e77f6b2048bfd6575d5c90639ce73e57a461a05a2498cc6291f03a5ff3a8bcb3
+  languageName: node
+  linkType: hard
+
 "@wordpress/primitives@npm:^4.0.0":
   version: 4.0.0
   resolution: "@wordpress/primitives@npm:4.0.0"
@@ -18423,7 +18432,7 @@ __metadata:
     "@wordpress/eslint-plugin": "npm:^17.13.0"
     "@wordpress/interactivity": "npm:^5.7.0"
     "@wordpress/postcss-plugins-preset": "npm:^4.41.0"
-    "@wordpress/prettier-config": "npm:^4.1.0"
+    "@wordpress/prettier-config": "npm:^4.5.0"
     "@wordpress/scripts": "npm:^28.1.0"
     "@wordpress/style-engine": "npm:^2.3.0"
     "@wordpress/stylelint-config": "npm:^22.3.0"
