@@ -32,7 +32,7 @@
 		"@wordpress/element": "^5.34.0",
 		"@wordpress/eslint-plugin": "^17.13.0",
 		"@wordpress/postcss-plugins-preset": "^4.41.0",
-		"@wordpress/prettier-config": "^4.1.0",
+		"@wordpress/prettier-config": "^4.8.0",
 		"@wordpress/scripts": "^28.1.0",
 		"@wordpress/style-engine": "^2.3.0",
 		"@wordpress/stylelint-config": "^22.3.0",
