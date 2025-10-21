@@ -19,6 +19,7 @@
 @media (--huge-viewport) {
 	.wi-front-page-main {
 		height: calc(100vh - var(--wp-admin--admin-bar--height, 0px));
+		padding-left: calc(var(--wp--custom--front-page--full-header-width) + 1px);
 	}
 }
 

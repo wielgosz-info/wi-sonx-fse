@@ -5,7 +5,7 @@
 		"vendor/",
 		"dist/"
 	],
-	"plugins": ["import"],
+	"plugins": ["@wordpress", "import"],
 	"rules": {
 		"react-hooks/exhaustive-deps": 1,
 		"react-hooks/rules-of-hooks": [
