@@ -1,11 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 set -euo pipefail
 
 # This script is used to configure the container after starting.
 # It needs an access to the mounted volumes.
 
-git config --global --add safe.directory /usr/local/app
-git fetch
+# git config --global --add safe.directory /workspaces/${THEME_SLUG}
+# git fetch
 yarn install
 
 # Remove the vite-dev-server.json file if it exists,
