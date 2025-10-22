@@ -1,0 +1,22 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "title": "Front Page ToC",
+  "description": "Automatic table of contents made from Front Page Sections.",
+  "name": "wi-sonx-fse/front-page-toc",
+  "category": "wi-sonx-fse/front-page",
+  "icon": "list-view",
+  "textdomain": "wi-sonx-fse",
+  "style": "file:./style-index.css",
+  "editorScript": "file:./index.js",
+  "viewScriptModule": "file:./view.js",
+  "supports": {
+    "color": {
+      "text": false,
+      "background": false,
+      "link": true
+    },
+    "interactivity": true
+  },
+  "attributes": {}
+}
