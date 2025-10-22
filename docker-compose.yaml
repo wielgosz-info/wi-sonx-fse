@@ -7,31 +7,21 @@ services:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - ./:/usr/local/app
-      - node_modules:/usr/local/app/node_modules
-      - vscode:/root/.vscode-server
+      - ./:/workspaces/${THEME_SLUG:-wi-sonx-fse}
+      - node_modules:/workspaces/${THEME_SLUG:-wi-sonx-fse}/node_modules
     restart: always
     environment:
       THEME_NAME: ${THEME_NAME:-'WI Sonx FSE'}
       THEME_SLUG: ${THEME_SLUG:-wi-sonx-fse}
       NODE_ENV: ${NODE_ENV:-development}
+      SCRIPT_DEBUG: ${SCRIPT_DEBUG:-true}
+      COMPOSER_DISABLE_XDEBUG_WARN: ${COMPOSER_DISABLE_XDEBUG_WARN:-1}
     secrets:
       - user_ssh_key
 
-  composer:
-    image: composer:latest
-    command: ['/bin/sh', '-c', "while true; do sleep 1000; done"]
-    volumes:
-      - ./:/app
-      - composer_data:/tmp
-    profiles:
-      - composer
-
 volumes:
   node_modules: {}
-  vscode: {}
-  composer_data: {}
 
 secrets:
   user_ssh_key:
-    file: ~/.ssh/id_rsa
+    file: ~/.ssh/id_ed25519

@@ -16,7 +16,7 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 		...reducedMotionMixin.state,
 		get slideWidth(): number {
 			const { slides, activeSlide } = getContext();
-			return slides[activeSlide].offsetWidth;
+			return slides[activeSlide] ? slides[activeSlide].offsetWidth : 0;
 		},
 		get shouldInitialize(): boolean {
 			const { slides, visibleCount } = getContext();
@@ -193,7 +193,7 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 					observer.unobserve(slide);
 				});
 		},
-		isActiveDot(className): boolean {
+		isActiveDot(): boolean {
 			const { item, slides, activeSlide } = getContext();
 			return slides.indexOf(item) === activeSlide;
 		},
