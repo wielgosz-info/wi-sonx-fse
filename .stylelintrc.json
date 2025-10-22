@@ -1,7 +1,6 @@
 {
 	"extends": [
-		"@wordpress/stylelint-config",
-		"stylelint-config-prettier"
+		"@wordpress/stylelint-config"
 	],
 	"ignoreFiles": "global-styles.css",
 	"rules": {

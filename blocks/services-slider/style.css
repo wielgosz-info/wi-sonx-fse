@@ -150,6 +150,7 @@
 }
 
 @supports (width: calc(round(up, 0.5, 1) * 100%)) {
+
 	@media (--medium-viewport) {
 		.wp-block-wi-sonx-fse-services-slider {
 			--wi--services-slider--mq-columns: round(
