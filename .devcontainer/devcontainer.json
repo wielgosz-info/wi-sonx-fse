@@ -15,6 +15,24 @@
 	"features": {
 		"ghcr.io/devcontainers/features/php:1": {},
 		"ghcr.io/devcontainers-extra/features/composer:1": {}
+	},
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"streetsidesoftware.code-spell-checker",
+				"wix.vscode-import-cost",
+				"esbenp.prettier-vscode",
+				"johnbillion.vscode-wordpress-hooks",
+				"EditorConfig.EditorConfig",
+				"stylelint.vscode-stylelint",
+				"vunguyentuan.vscode-css-variables",
+				"vunguyentuan.vscode-postcss",
+				"dbaeumer.vscode-eslint",
+				"DEVSENSE.composer-php-vscode",
+				"DEVSENSE.phptools-vscode",
+				"github.vscode-github-actions"
+			]
+		}
 	}
 
 	// Features to add to the dev container. More info: https://containers.dev/features.
