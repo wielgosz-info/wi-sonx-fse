@@ -15,6 +15,7 @@ services:
       THEME_SLUG: ${THEME_SLUG:-wi-sonx-fse}
       NODE_ENV: ${NODE_ENV:-development}
       SCRIPT_DEBUG: ${SCRIPT_DEBUG:-true}
+      COMPOSER_DISABLE_XDEBUG_WARN: ${COMPOSER_DISABLE_XDEBUG_WARN:-1}
     secrets:
       - user_ssh_key
 

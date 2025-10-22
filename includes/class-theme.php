@@ -44,11 +44,11 @@ class Theme extends Utils\Singleton {
 	}
 
 	public function custom_template_descriptions( array $templates ) {
-		$templates['single-wi-project'] = array(
+		$templates['single-wi-project']  = array(
 			'title'       => __( 'Single Project', 'wi-sonx-fse' ),
 			'description' => __( 'Default template for projects.', 'wi-sonx-fse' ),
 		);
-		$templates['single-wi-service'] = array(
+		$templates['single-wi-service']  = array(
 			'title'       => __( 'Single Service', 'wi-sonx-fse' ),
 			'description' => __( 'Default template for services.', 'wi-sonx-fse' ),
 		);
