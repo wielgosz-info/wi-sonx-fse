@@ -193,7 +193,7 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 					observer.unobserve(slide);
 				});
 		},
-		isActiveDot(className): boolean {
+		isActiveDot(): boolean {
 			const { item, slides, activeSlide } = getContext();
 			return slides.indexOf(item) === activeSlide;
 		},

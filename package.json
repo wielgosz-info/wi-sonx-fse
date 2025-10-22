@@ -77,7 +77,7 @@
 		"plugin-zip": "wp-scripts plugin-zip",
 		"test:e2e": "wp-scripts test-e2e",
 		"test:unit": "wp-scripts test-unit-js",
-		"prepare": "husky install"
+		"prepare": "husky"
 	},
 	"packageManager": "yarn@4.10.3"
 }

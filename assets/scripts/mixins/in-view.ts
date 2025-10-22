@@ -10,7 +10,9 @@ const inViewMixin = {
 				}) as IntersectionObserverCallback
 			);
 
-			if (ref) observer.observe(ref);
+			if (ref) {
+				observer.observe(ref);
+			}
 
 			return () => ref && observer.unobserve(ref);
 		},
