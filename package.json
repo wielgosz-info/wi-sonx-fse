@@ -79,5 +79,5 @@
 		"test:unit": "wp-scripts test-unit-js",
 		"prepare": "husky install"
 	},
-	"packageManager": "yarn@4.1.1"
+	"packageManager": "yarn@4.10.3"
 }
