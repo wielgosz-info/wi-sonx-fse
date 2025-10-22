@@ -16,7 +16,7 @@ const { state, actions, callbacks } = store('wi-sonx-fse/services-slider', {
 		...reducedMotionMixin.state,
 		get slideWidth(): number {
 			const { slides, activeSlide } = getContext();
-			return slides[activeSlide].offsetWidth;
+			return slides[activeSlide] ? slides[activeSlide].offsetWidth : 0;
 		},
 		get shouldInitialize(): boolean {
 			const { slides, visibleCount } = getContext();
